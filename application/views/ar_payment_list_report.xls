@@ -1,0 +1,2409 @@
+<!-- start tpl_prints.html -->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Sistem Informasi Rumah Sakit</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+
+
+<!--<br>-->
+<h1>AR Payment List</h1>
+
+	<table width="100%">
+		<tr> 
+			<th rowspan="2">No.</th>
+			<th rowspan="2">Nama Perusahaan</th>
+			<th rowspan="2">Penjamin</th>
+			<th rowspan="2">Tanggal Bill</th>
+			<th rowspan="2">Umur</th>
+			<th rowspan="2">No. Invoice</th>
+			<th rowspan="2">No. Bill</th>
+			<th rowspan="2">No. RM</th>
+			<th rowspan="2">Nama Pasien</th>
+			<th rowspan="2">Jumlah Tagihan</th>
+			<th colspan="2">Pembayaran Piutang</th>
+			<th rowspan="2">GL Code</th>
+			<th colspan="3">Bank</th>
+			<th rowspan="2">Saldo</th>
+		</tr>
+		<tr>
+			<th>Pasien</th>
+			<th>Perusahaan</th>
+			<th>Nama Bank</th>
+			<th>Payment</th>
+			<th>Tanggal Bayar</th>
+		</tr>
+	
+		<tr>
+			<td align="center">1</td>
+			<td>ASURANSI JIWA MANULIFE INDONESIA, PT (INDIVIDU)</td>
+			<td>ADMINISTRASI MEDIKA. PT</td>
+			<td>25 Mar 2019 10:29:33</td>
+			<td>73 thn. 5 bln. 1 hr.</td>
+			<td>05689/INV/RSGK/Tag/III/2019</td>
+			<td>IP 76252</td>
+			<td>9000-04-39-30</td>
+			<td>TJONDRO HOEITOMO</td>
+			<td align="right">17827886.00</td>
+			<td align="right">10419913.00</td>
+			<td align="right">7407973</td>
+			<td>MJV19876892</td>
+			<td>BNI-IDR Senayan - 207.744.4446</td>
+			<td align="right">7252024.00</td>
+			<td>20 Mei 2019 08:23:12</td>
+			<td align="right">10575862</td>
+		</tr>
+		
+		<tr>
+			<td align="center">2</td>
+			<td>ASURANSI JIWA MANULIFE INDONESIA, PT (INDIVIDU)</td>
+			<td>ADMINISTRASI MEDIKA. PT</td>
+			<td>25 Mar 2019 10:29:33</td>
+			<td>73 thn. 5 bln. 1 hr.</td>
+			<td>05689/INV/RSGK/Tag/III/2019</td>
+			<td>IP 76252</td>
+			<td>9000-04-39-30</td>
+			<td>TJONDRO HOEITOMO</td>
+			<td align="right">17827886.00</td>
+			<td align="right">10419913.00</td>
+			<td align="right">7407973</td>
+			<td>MJV19876896</td>
+			<td>Diskon - RI</td>
+			<td align="right">155949.00</td>
+			<td>20 Mei 2019 08:24:08</td>
+			<td align="right">17671937</td>
+		</tr>
+		
+		<tr>
+			<td align="center">3</td>
+			<td>ASURANSI JIWA MANULIFE INDONESIA, PT (INDIVIDU)</td>
+			<td>ADMINISTRASI MEDIKA. PT</td>
+			<td>23 Mar 2019 15:14:57</td>
+			<td>22 thn. 5 bln. 13 hr.</td>
+			<td>05636/INV/RSGK/Tag/III/2019</td>
+			<td>IP 76202</td>
+			<td>9000-11-67-65</td>
+			<td>MERRY SUSANTI</td>
+			<td align="right">12335754.00</td>
+			<td align="right">6662877.00</td>
+			<td align="right">5672877</td>
+			<td>MJV19876899</td>
+			<td>BNI-IDR Senayan - 207.744.4446</td>
+			<td align="right">5548306.00</td>
+			<td>20 Mei 2019 08:26:39</td>
+			<td align="right">6787448</td>
+		</tr>
+		
+		<tr>
+			<td align="center">4</td>
+			<td>ASURANSI JIWA MANULIFE INDONESIA, PT (INDIVIDU)</td>
+			<td>ADMINISTRASI MEDIKA. PT</td>
+			<td>23 Mar 2019 15:14:57</td>
+			<td>22 thn. 5 bln. 13 hr.</td>
+			<td>05636/INV/RSGK/Tag/III/2019</td>
+			<td>IP 76202</td>
+			<td>9000-11-67-65</td>
+			<td>MERRY SUSANTI</td>
+			<td align="right">12335754.00</td>
+			<td align="right">6662877.00</td>
+			<td align="right">5672877</td>
+			<td>MJV19876904</td>
+			<td>Diskon - RI</td>
+			<td align="right">124571.00</td>
+			<td>20 Mei 2019 08:28:32</td>
+			<td align="right">12211183</td>
+		</tr>
+		
+		<tr>
+			<td align="center">5</td>
+			<td></td>
+			<td>SYNTECH MITRA INTEGRASI, PT</td>
+			<td>14 Apr 2019 10:10:29</td>
+			<td>36 thn. 9 bln. 12 hr.</td>
+			<td>07015/INV/RSGK/Tag/IV/2019</td>
+			<td>IP 77015</td>
+			<td>9000-22-38-24</td>
+			<td>YULI</td>
+			<td align="right">27076870.00</td>
+			<td align="right">13550375.00</td>
+			<td align="right">13526495</td>
+			<td>MJV19876935</td>
+			<td>Bank Mandiri-IDR Kedoya - 118.000.688.7789</td>
+			<td align="right">13526495.00</td>
+			<td>20 Mei 2019 08:40:47</td>
+			<td align="right">13550375</td>
+		</tr>
+		
+		<tr>
+			<td align="center">6</td>
+			<td>FWD LIFE INDONESIA, PT</td>
+			<td>ADMINISTRASI MEDIKA. PT</td>
+			<td>11 Apr 2019 12:25:28</td>
+			<td>2 thn. 4 bln. 18 hr.</td>
+			<td>06763/INV/RSGK/Tag/IV/2019</td>
+			<td>OP 1604887</td>
+			<td>9000-16-35-55</td>
+			<td>AARON GOH</td>
+			<td align="right">578759.00</td>
+			<td align="right">0.00</td>
+			<td align="right">578759</td>
+			<td>MJV19876942</td>
+			<td>Bank Mandiri-IDR Kedoya - 118.000.688.7789</td>
+			<td align="right">578759.00</td>
+			<td>20 Mei 2019 08:45:06</td>
+			<td align="right">0</td>
+		</tr>
+		
+		<tr>
+			<td align="center">7</td>
+			<td>FWD LIFE INDONESIA, PT</td>
+			<td>ADMINISTRASI MEDIKA. PT</td>
+			<td>09 Mei 2019 10:33:48</td>
+			<td>9 bln. 20 hr.</td>
+			<td>08317/INV/RSGK/Tag/V/2019</td>
+			<td>OP 1622458</td>
+			<td>9000-20-57-84</td>
+			<td>CELLIN ALESHA FERNANDO</td>
+			<td align="right">889067.00</td>
+			<td align="right">468227.00</td>
+			<td align="right">420840</td>
+			<td>MJV19876942</td>
+			<td>Bank Mandiri-IDR Kedoya - 118.000.688.7789</td>
+			<td align="right">420840.00</td>
+			<td>20 Mei 2019 08:45:06</td>
+			<td align="right">468227</td>
+		</tr>
+		
+		<tr>
+			<td align="center">8</td>
+			<td>FWD LIFE INDONESIA, PT</td>
+			<td>ADMINISTRASI MEDIKA. PT</td>
+			<td>07 Mei 2019 14:15:00</td>
+			<td>2 thn. 8 bln. 8 hr.</td>
+			<td>08221/INV/RSGK/Tag/V/2019</td>
+			<td>OP 1621250</td>
+			<td>9000-15-72-36</td>
+			<td>LUKE CALLEN TIMOTHY KHOESTADI</td>
+			<td align="right">459395.00</td>
+			<td align="right">0.00</td>
+			<td align="right">459395</td>
+			<td>MJV19876942</td>
+			<td>Bank Mandiri-IDR Kedoya - 118.000.688.7789</td>
+			<td align="right">459395.00</td>
+			<td>20 Mei 2019 08:45:06</td>
+			<td align="right">0</td>
+		</tr>
+		
+		<tr>
+			<td align="center">9</td>
+			<td>FWD LIFE INDONESIA, PT</td>
+			<td>ADMINISTRASI MEDIKA. PT</td>
+			<td>12 Apr 2019 10:53:15</td>
+			<td>35 thn. 6 bln. 21 hr.</td>
+			<td>06784/INV/RSGK/Tag/IV/2019</td>
+			<td>OP 1605550</td>
+			<td>9000-14-15-86</td>
+			<td>FENDY IRWANZA</td>
+			<td align="right">472838.00</td>
+			<td align="right">0.00</td>
+			<td align="right">472838</td>
+			<td>MJV19876942</td>
+			<td>Bank Mandiri-IDR Kedoya - 118.000.688.7789</td>
+			<td align="right">472838.00</td>
+			<td>20 Mei 2019 08:45:06</td>
+			<td align="right">0</td>
+		</tr>
+		
+		<tr>
+			<td align="center">10</td>
+			<td>FWD LIFE INDONESIA, PT</td>
+			<td>ADMINISTRASI MEDIKA. PT</td>
+			<td>05 Apr 2019 18:51:52</td>
+			<td>36 thn. 9 bln. 6 hr.</td>
+			<td>06494/INV/RSGK/Tag/IV/2019</td>
+			<td>OP 1600819</td>
+			<td>9000-22-18-57</td>
+			<td>MUHAMAD IZAB</td>
+			<td align="right">827110.00</td>
+			<td align="right">0.00</td>
+			<td align="right">827110</td>
+			<td>MJV19876942</td>
+			<td>Bank Mandiri-IDR Kedoya - 118.000.688.7789</td>
+			<td align="right">827110.00</td>
+			<td>20 Mei 2019 08:45:06</td>
+			<td align="right">0</td>
+		</tr>
+		
+		<tr>
+			<td align="center">11</td>
+			<td>FWD LIFE INDONESIA, PT</td>
+			<td>ADMINISTRASI MEDIKA. PT</td>
+			<td>10 Apr 2019 10:16:56</td>
+			<td>4 thn. 6 bln. 21 hr.</td>
+			<td>06647/INV/RSGK/Tag/IV/2019</td>
+			<td>OP 1604036</td>
+			<td>9000-10-50-39</td>
+			<td>NICHOLAS HERDITA</td>
+			<td align="right">892842.00</td>
+			<td align="right">0.00</td>
+			<td align="right">892842</td>
+			<td>MJV19876942</td>
+			<td>Bank Mandiri-IDR Kedoya - 118.000.688.7789</td>
+			<td align="right">892842.00</td>
+			<td>20 Mei 2019 08:45:06</td>
+			<td align="right">0</td>
+		</tr>
+		
+		<tr>
+			<td align="center">12</td>
+			<td>ADMIINISTRASI MEDIKA, PT </td>
+			<td>ADMINISTRASI MEDIKA. PT</td>
+			<td>11 Apr 2019 16:49:52</td>
+			<td>28 thn. 11 bln. 2 hr.</td>
+			<td>06731/INV/RSGK/Tag/IV/2019</td>
+			<td>OP 1605150</td>
+			<td>9000-20-03-82</td>
+			<td>RATU FITRIYANTI</td>
+			<td align="right">2055962.00</td>
+			<td align="right">1065481.00</td>
+			<td align="right">990481</td>
+			<td>MJV19876948</td>
+			<td>Bank Mandiri-IDR Kedoya - 118.000.688.7789</td>
+			<td align="right">990481.00</td>
+			<td>20 Mei 2019 08:46:09</td>
+			<td align="right">1065481</td>
+		</tr>
+		
+		<tr>
+			<td align="center">13</td>
+			<td>ADMIINISTRASI MEDIKA, PT </td>
+			<td>ADMINISTRASI MEDIKA. PT</td>
+			<td>10 Apr 2019 13:22:41</td>
+			<td>28 thn. 11 bln. 1 hr.</td>
+			<td>06731/INV/RSGK/Tag/IV/2019</td>
+			<td>OP 1604263</td>
+			<td>9000-20-03-82</td>
+			<td>RATU FITRIYANTI</td>
+			<td align="right">2452162.00</td>
+			<td align="right">1276081.00</td>
+			<td align="right">1176081</td>
+			<td>MJV19876948</td>
+			<td>Bank Mandiri-IDR Kedoya - 118.000.688.7789</td>
+			<td align="right">1176081.00</td>
+			<td>20 Mei 2019 08:46:09</td>
+			<td align="right">1276081</td>
+		</tr>
+		
+		<tr>
+			<td align="center">14</td>
+			<td>BCA LIFE</td>
+			<td>ADMIINISTRASI MEDIKA, PT (PAYOR)</td>
+			<td>08 Mei 2019 09:35:10</td>
+			<td>7 thn. 11 bln. 17 hr.</td>
+			<td>08249/INV/RSGK/Tag/V/2019</td>
+			<td>OP 1621721</td>
+			<td>9000-04-76-08</td>
+			<td>SO ASHTON</td>
+			<td align="right">1417099.00</td>
+			<td align="right">795251.00</td>
+			<td align="right">621848</td>
+			<td>MJV19876955</td>
+			<td>Bank Mandiri-IDR Kedoya - 118.000.688.7789</td>
+			<td align="right">621848.00</td>
+			<td>20 Mei 2019 08:48:52</td>
+			<td align="right">795251</td>
+		</tr>
+		
+		<tr>
+			<td align="center">15</td>
+			<td>BCA LIFE</td>
+			<td>ADMIINISTRASI MEDIKA, PT (PAYOR)</td>
+			<td>06 Mei 2019 20:43:35</td>
+			<td>34 thn. 5 bln. 8 hr.</td>
+			<td>08144/INV/RSGK/Tag/V/2019</td>
+			<td>OP 1620814</td>
+			<td>9000-22-55-72</td>
+			<td>IVONA HANDAYANI WIDJAYA</td>
+			<td align="right">2543608.00</td>
+			<td align="right">1533852.00</td>
+			<td align="right">1009756</td>
+			<td>MJV19876959</td>
+			<td>Bank Mandiri-IDR Kedoya - 118.000.688.7789</td>
+			<td align="right">1009756.00</td>
+			<td>20 Mei 2019 08:53:16</td>
+			<td align="right">1533852</td>
+		</tr>
+		
+		<tr>
+			<td align="center">16</td>
+			<td>ASURANSI SOMPO JAPAN NIPPONKOA INDONESIA, PT (SJNKI)</td>
+			<td>ADMIINISTRASI MEDIKA, PT (PAYOR)</td>
+			<td>02 Mei 2019 12:45:37</td>
+			<td>34 thn. 4 bln. 10 hr.</td>
+			<td>08339/INV/RSGK/Tag/V/2019</td>
+			<td>IP 77604</td>
+			<td>9000-14-87-39</td>
+			<td>CINDY INDAH</td>
+			<td align="right">32098976.00</td>
+			<td align="right">29032794.00</td>
+			<td align="right">3066182</td>
+			<td>MJV19876961</td>
+			<td>Bank Mandiri-IDR Kedoya - 118.000.688.7789</td>
+			<td align="right">3066182.00</td>
+			<td>20 Mei 2019 08:54:02</td>
+			<td align="right">29032794</td>
+		</tr>
+		
+		<tr>
+			<td align="center">17</td>
+			<td>ASURANSI SOMPO JAPAN NIPPONKOA INDONESIA, PT (SJNKI)</td>
+			<td>ADMIINISTRASI MEDIKA, PT (PAYOR)</td>
+			<td>02 Mei 2019 12:53:50</td>
+			<td>00:00:00</td>
+			<td>08339/INV/RSGK/Tag/V/2019</td>
+			<td>IP 77605</td>
+			<td>9000-22-50-74</td>
+			<td>NICHOLAS KENZI</td>
+			<td align="right">13867636.00</td>
+			<td align="right">6933818.00</td>
+			<td align="right">6933818</td>
+			<td>MJV19876961</td>
+			<td>Bank Mandiri-IDR Kedoya - 118.000.688.7789</td>
+			<td align="right">6933818.00</td>
+			<td>20 Mei 2019 08:54:02</td>
+			<td align="right">6933818</td>
+		</tr>
+		
+		<tr>
+			<td align="center">18</td>
+			<td>ASURANSI BANGUN ASKRIDA DIVISI SYARIAH, PT (ASKRIDA)</td>
+			<td>ADMIINISTRASI MEDIKA, PT (PAYOR)</td>
+			<td>04 Apr 2019 20:59:36</td>
+			<td>25 thn. 25 hr.</td>
+			<td>06288/INV/RSGK/Tag/IV/2019</td>
+			<td>OP 1600100</td>
+			<td>9000-16-08-46</td>
+			<td>DICKY ALAWY RAHMAN</td>
+			<td align="right">3376522.00</td>
+			<td align="right">1688261.00</td>
+			<td align="right">1688261</td>
+			<td>MJV19876964</td>
+			<td>Bank Mandiri-IDR Kedoya - 118.000.688.7789</td>
+			<td align="right">1688261.00</td>
+			<td>20 Mei 2019 08:55:53</td>
+			<td align="right">1688261</td>
+		</tr>
+		
+		<tr>
+			<td align="center">19</td>
+			<td>ASURANSI MAG dari PT Kawan Lama Group</td>
+			<td>ADMIINISTRASI MEDIKA, PT (PAYOR)</td>
+			<td>07 Mei 2019 15:07:05</td>
+			<td>27 thn. 6 bln. 6 hr.</td>
+			<td>08196/INV/RSGK/Tag/V/2019</td>
+			<td>OP 1621290</td>
+			<td>9000-22-56-13</td>
+			<td>SHALDI DHARMAWAN</td>
+			<td align="right">557650.00</td>
+			<td align="right">328825.00</td>
+			<td align="right">228825</td>
+			<td>MJV19876966</td>
+			<td>Bank Mandiri-IDR Kedoya - 118.000.688.7789</td>
+			<td align="right">228825.00</td>
+			<td>20 Mei 2019 08:56:58</td>
+			<td align="right">328825</td>
+		</tr>
+		
+		<tr>
+			<td align="center">20</td>
+			<td>BNI LIFE INSURANCE. PT</td>
+			<td>ADMINISTRASI MEDIKA. PT</td>
+			<td>20 Apr 2019 11:09:10</td>
+			<td>39 thn. 1 hr.</td>
+			<td>07197/INV/RSGK/Tag/IV/2019</td>
+			<td>OP 1610099</td>
+			<td>9000-22-45-11</td>
+			<td>HENDRA WIJAYA</td>
+			<td align="right">2668754.00</td>
+			<td align="right">1334377.00</td>
+			<td align="right">1334377</td>
+			<td>MJV19876969</td>
+			<td>Bank Mandiri-IDR Kedoya - 118.000.688.7789</td>
+			<td align="right">1334377.00</td>
+			<td>20 Mei 2019 08:58:34</td>
+			<td align="right">1334377</td>
+		</tr>
+		
+		<tr>
+			<td align="center">21</td>
+			<td>BNI LIFE INSURANCE. PT</td>
+			<td>ADMINISTRASI MEDIKA. PT</td>
+			<td>12 Apr 2019 19:54:09</td>
+			<td>2 thn. 9 bln. 26 hr.</td>
+			<td>06873/INV/RSGK/Tag/IV/2019</td>
+			<td>OP 1606031</td>
+			<td>9000-17-42-40</td>
+			<td>ZIDAN MALIK RAMADHAN</td>
+			<td align="right">676869.00</td>
+			<td align="right">0.00</td>
+			<td align="right">676869</td>
+			<td>MJV19876971</td>
+			<td>Bank Mandiri-IDR Kedoya - 118.000.688.7789</td>
+			<td align="right">676869.00</td>
+			<td>20 Mei 2019 08:59:48</td>
+			<td align="right">0</td>
+		</tr>
+		
+		<tr>
+			<td align="center">22</td>
+			<td>ASURANSI SINAR MAS, PT</td>
+			<td>ADMINISTRASI MEDIKA. PT</td>
+			<td>03 Mei 2019 14:55:15</td>
+			<td>30 thn. 1 bln 19 hr.</td>
+			<td>08044/INV/RSGK/Tag/V/2019</td>
+			<td>OP 1618637</td>
+			<td>9000-06-40-82</td>
+			<td>FERIN FELICIA LIMANTO</td>
+			<td align="right">1102454.00</td>
+			<td align="right">576227.00</td>
+			<td align="right">526227</td>
+			<td>MJV19876974</td>
+			<td>BNI-IDR Senayan - 207.744.4446</td>
+			<td align="right">526227.00</td>
+			<td>20 Mei 2019 09:01:11</td>
+			<td align="right">576227</td>
+		</tr>
+		
+		<tr>
+			<td align="center">23</td>
+			<td>ASURANSI SINAR MAS, PT</td>
+			<td>ADMINISTRASI MEDIKA. PT</td>
+			<td>29 Mar 2019 11:48:10</td>
+			<td>3 thn. 8 bln. 19 hr.</td>
+			<td>05898/INV/RSGK/Tag/III/2019</td>
+			<td>OP 1595830</td>
+			<td>9000-12-63-08</td>
+			<td>GOLDWIN ANDERSEN PRIBUDI </td>
+			<td align="right">873166.00</td>
+			<td align="right">0.00</td>
+			<td align="right">873166</td>
+			<td>MJV19876978</td>
+			<td>BNI-IDR Senayan - 207.744.4446</td>
+			<td align="right">873166.00</td>
+			<td>20 Mei 2019 09:02:33</td>
+			<td align="right">0</td>
+		</tr>
+		
+		<tr>
+			<td align="center">24</td>
+			<td>ASURANSI JIWA MANULIFE INDONESIA, PT  (KUMPULAN)</td>
+			<td>ADMINISTRASI MEDIKA. PT</td>
+			<td>29 Apr 2019 19:43:56</td>
+			<td>21 thn. 9 bln. 10 hr.</td>
+			<td>07781/INV/RSGK/Tag/IV/2019</td>
+			<td>OP 1616329</td>
+			<td>9000-15-71-27</td>
+			<td>BAGAS DWIANDANA NURSIVIN</td>
+			<td align="right">1985332.00</td>
+			<td align="right">0.00</td>
+			<td align="right">1985332</td>
+			<td>MJV19876979</td>
+			<td>BNI-IDR Senayan - 207.744.4446</td>
+			<td align="right">1985332.00</td>
+			<td>20 Mei 2019 09:03:30</td>
+			<td align="right">0</td>
+		</tr>
+		
+		<tr>
+			<td align="center">25</td>
+			<td>ASURANSI JIWA MANULIFE INDONESIA, PT  (KUMPULAN)</td>
+			<td>ADMINISTRASI MEDIKA. PT</td>
+			<td>24 Apr 2019 11:38:19</td>
+			<td>49 thn. 9 bln. 25 hr.</td>
+			<td>07413/INV/RSGK/Tag/IV/2019</td>
+			<td>OP 1612833</td>
+			<td>9000-02-66-57</td>
+			<td>ELFIE JOHANES</td>
+			<td align="right">1549984.00</td>
+			<td align="right">774992.00</td>
+			<td align="right">774992</td>
+			<td>MJV19876983</td>
+			<td>BNI-IDR Senayan - 207.744.4446</td>
+			<td align="right">774992.00</td>
+			<td>20 Mei 2019 09:04:40</td>
+			<td align="right">774992</td>
+		</tr>
+		
+		<tr>
+			<td align="center">26</td>
+			<td>ASURANSI JIWA MANULIFE INDONESIA, PT  (KUMPULAN)</td>
+			<td>ADMINISTRASI MEDIKA. PT</td>
+			<td>16 Apr 2019 11:44:43</td>
+			<td>40 thn.</td>
+			<td>07412/INV/RSGK/Tag/IV/2019</td>
+			<td>OP 1608108</td>
+			<td>9000-03-57-76</td>
+			<td>CITRA LENY</td>
+			<td align="right">782500.00</td>
+			<td align="right">0.00</td>
+			<td align="right">782500</td>
+			<td>MJV19876985</td>
+			<td>BNI-IDR Senayan - 207.744.4446</td>
+			<td align="right">782500.00</td>
+			<td>20 Mei 2019 09:05:24</td>
+			<td align="right">0</td>
+		</tr>
+		
+		<tr>
+			<td align="center">27</td>
+			<td></td>
+			<td>AA INTERNASIONAL INDONESIA , PT </td>
+			<td>09 Mei 2019 09:37:22</td>
+			<td>41 thn. 11 bln. 18 hr.</td>
+			<td>08375/INV/RSGK/Tag/V/2019</td>
+			<td>IP 77817</td>
+			<td>9000-18-92-05</td>
+			<td>DR. ANTON ANDRIAN TANUHENDRATA</td>
+			<td align="right">42377750.00</td>
+			<td align="right">21393815.00</td>
+			<td align="right">20983935</td>
+			<td>MJV19876990</td>
+			<td>BNI-IDR Senayan - 207.744.4446</td>
+			<td align="right">20983935.00</td>
+			<td>20 Mei 2019 09:07:43</td>
+			<td align="right">21393815</td>
+		</tr>
+		
+		<tr>
+			<td align="center">28</td>
+			<td>ASURANSI JIWA MANULIFE INDONESIA, PT  (KUMPULAN)</td>
+			<td>ADMINISTRASI MEDIKA. PT</td>
+			<td>29 Apr 2019 13:29:11</td>
+			<td>7 thn. 3 bln. 12 hr.</td>
+			<td>07780/INV/RSGK/Tag/IV/2019</td>
+			<td>OP 1615922</td>
+			<td>9000-16-11-41</td>
+			<td>EDWARD SURYANA</td>
+			<td align="right">1028656.00</td>
+			<td align="right">0.00</td>
+			<td align="right">1028656</td>
+			<td>MJV19876999</td>
+			<td>BNI-IDR Senayan - 207.744.4446</td>
+			<td align="right">1028656.00</td>
+			<td>20 Mei 2019 09:11:32</td>
+			<td align="right">0</td>
+		</tr>
+		
+		<tr>
+			<td align="center">29</td>
+			<td>ASURANSI JIWA MANULIFE INDONESIA, PT  (KUMPULAN)</td>
+			<td>ADMINISTRASI MEDIKA. PT</td>
+			<td>26 Apr 2019 17:22:34</td>
+			<td>30 thn. 10 bln. 24 hr.</td>
+			<td>07719/INV/RSGK/Tag/IV/2019</td>
+			<td>OP 1614504</td>
+			<td>9000-22-49-63</td>
+			<td>FRISKA SETIOKOADIPUTRO</td>
+			<td align="right">2277437.00</td>
+			<td align="right">1293021.00</td>
+			<td align="right">984416</td>
+			<td>MJV19877002</td>
+			<td>BNI-IDR Senayan - 207.744.4446</td>
+			<td align="right">984416.00</td>
+			<td>20 Mei 2019 09:12:31</td>
+			<td align="right">1293021</td>
+		</tr>
+		
+		<tr>
+			<td align="center">30</td>
+			<td>ASURANSI JIWA MANULIFE INDONESIA, PT  (KUMPULAN)</td>
+			<td>ADMINISTRASI MEDIKA. PT</td>
+			<td>25 Apr 2019 20:24:55</td>
+			<td>18 thn. 7 bln. 26 hr.</td>
+			<td>07517/INV/RSGK/Tag/IV/2019</td>
+			<td>OP 1613972</td>
+			<td>9000-OTC</td>
+			<td>DONNA TIRTANADI</td>
+			<td align="right">1234365.00</td>
+			<td align="right">0.00</td>
+			<td align="right">1234365</td>
+			<td>MJV19877005</td>
+			<td>BNI-IDR Senayan - 207.744.4446</td>
+			<td align="right">1234365.00</td>
+			<td>20 Mei 2019 09:13:20</td>
+			<td align="right">0</td>
+		</tr>
+		
+		<tr>
+			<td align="center">31</td>
+			<td>ASURANSI JIWA MANULIFE INDONESIA, PT  (KUMPULAN)</td>
+			<td>ADMINISTRASI MEDIKA. PT</td>
+			<td>26 Apr 2019 09:06:58</td>
+			<td>33 thn. 3 bln. 30 hr.</td>
+			<td>07561/INV/RSGK/Tag/IV/2019</td>
+			<td>OP 1614066</td>
+			<td>9000-09-56-11</td>
+			<td>KURNIASIH SURYA NINGRUM</td>
+			<td align="right">957056.00</td>
+			<td align="right">478528.00</td>
+			<td align="right">478528</td>
+			<td>MJV19877014</td>
+			<td>BNI-IDR Senayan - 207.744.4446</td>
+			<td align="right">478528.00</td>
+			<td>20 Mei 2019 09:15:48</td>
+			<td align="right">478528</td>
+		</tr>
+		
+		<tr>
+			<td align="center">32</td>
+			<td>ASURANSI JIWA MANULIFE INDONESIA, PT  (KUMPULAN)</td>
+			<td>ADMINISTRASI MEDIKA. PT</td>
+			<td>25 Apr 2019 18:21:17</td>
+			<td>27 thn. 9 bln. 6 hr.</td>
+			<td>07516/INV/RSGK/Tag/IV/2019</td>
+			<td>OP 1613847</td>
+			<td>9000-21-74-62</td>
+			<td>ARDHILA SANJYA</td>
+			<td align="right">497660.00</td>
+			<td align="right">0.00</td>
+			<td align="right">497660</td>
+			<td>MJV19877016</td>
+			<td>BNI-IDR Senayan - 207.744.4446</td>
+			<td align="right">497660.00</td>
+			<td>20 Mei 2019 09:16:41</td>
+			<td align="right">0</td>
+		</tr>
+		
+		<tr>
+			<td align="center">33</td>
+			<td>ASURANSI JIWA MANULIFE INDONESIA, PT  (KUMPULAN)</td>
+			<td>ADMINISTRASI MEDIKA. PT</td>
+			<td>27 Apr 2019 13:06:26</td>
+			<td>7 bln. 11 hr.</td>
+			<td>07591/INV/RSGK/Tag/IV/2019</td>
+			<td>OP 1615068</td>
+			<td>9000-20-93-16</td>
+			<td>JORDAN ALDRICH GEVAREL</td>
+			<td align="right">460063.00</td>
+			<td align="right">0.00</td>
+			<td align="right">460063</td>
+			<td>MJV19877020</td>
+			<td>BNI-IDR Senayan - 207.744.4446</td>
+			<td align="right">460063.00</td>
+			<td>20 Mei 2019 09:17:52</td>
+			<td align="right">0</td>
+		</tr>
+		
+		<tr>
+			<td align="center">34</td>
+			<td>ASURANSI JIWA MANULIFE INDONESIA, PT  (KUMPULAN)</td>
+			<td>ADMINISTRASI MEDIKA. PT</td>
+			<td>19 Apr 2019 09:56:08</td>
+			<td>49 thn. 9 bln. 19 hr.</td>
+			<td>07252/INV/RSGK/Tag/IV/2019</td>
+			<td>IP 77175</td>
+			<td>9000-02-66-57</td>
+			<td>ELFIE JOHANES</td>
+			<td align="right">82767672.00</td>
+			<td align="right">41527056.00</td>
+			<td align="right">41240616</td>
+			<td>MJV19877049</td>
+			<td>BNI-IDR Senayan - 207.744.4446</td>
+			<td align="right">40529726.00</td>
+			<td>20 Mei 2019 09:23:11</td>
+			<td align="right">42237946</td>
+		</tr>
+		
+		<tr>
+			<td align="center">35</td>
+			<td>ASURANSI JIWA MANULIFE INDONESIA, PT  (KUMPULAN)</td>
+			<td>ADMINISTRASI MEDIKA. PT</td>
+			<td>19 Apr 2019 09:56:08</td>
+			<td>49 thn. 9 bln. 19 hr.</td>
+			<td>07252/INV/RSGK/Tag/IV/2019</td>
+			<td>IP 77175</td>
+			<td>9000-02-66-57</td>
+			<td>ELFIE JOHANES</td>
+			<td align="right">82767672.00</td>
+			<td align="right">41527056.00</td>
+			<td align="right">41240616</td>
+			<td>MJV19877054</td>
+			<td>Diskon - RI</td>
+			<td align="right">710890.00</td>
+			<td>20 Mei 2019 09:24:19</td>
+			<td align="right">82056782</td>
+		</tr>
+		
+		<tr>
+			<td align="center">36</td>
+			<td>BNI LIFE INSURANCE. PT</td>
+			<td>ADMINISTRASI MEDIKA. PT</td>
+			<td>24 Apr 2019 16:45:51</td>
+			<td>5 thn. 2 bln. 24 hr.</td>
+			<td>07444/INV/RSGK/Tag/IV/2019</td>
+			<td>OP 1613106</td>
+			<td>9000-08-72-76</td>
+			<td>BRYAN EDSON SUTARTO</td>
+			<td align="right">971000.00</td>
+			<td align="right">0.00</td>
+			<td align="right">971000</td>
+			<td>MJV19877090</td>
+			<td>Bank Mandiri-IDR Kedoya - 118.000.688.7789</td>
+			<td align="right">971000.00</td>
+			<td>20 Mei 2019 09:33:48</td>
+			<td align="right">0</td>
+		</tr>
+		
+		<tr>
+			<td align="center">37</td>
+			<td>BNI LIFE INSURANCE. PT</td>
+			<td>ADMINISTRASI MEDIKA. PT</td>
+			<td>24 Apr 2019 18:19:35</td>
+			<td>2 thn. 10 bln. 6 hr.</td>
+			<td>07445/INV/RSGK/Tag/IV/2019</td>
+			<td>OP 1613172</td>
+			<td>9000-18-71-73</td>
+			<td>KIREY AVA ZAHRAN </td>
+			<td align="right">980042.00</td>
+			<td align="right">550021.00</td>
+			<td align="right">430021</td>
+			<td>MJV19877090</td>
+			<td>Bank Mandiri-IDR Kedoya - 118.000.688.7789</td>
+			<td align="right">430021.00</td>
+			<td>20 Mei 2019 09:33:48</td>
+			<td align="right">550021</td>
+		</tr>
+		
+		<tr>
+			<td align="center">38</td>
+			<td>BNI LIFE INSURANCE. PT</td>
+			<td>ADMINISTRASI MEDIKA. PT</td>
+			<td>27 Apr 2019 16:34:48</td>
+			<td>32 thn. 5 bln. 28 hr.</td>
+			<td>07581/INV/RSGK/Tag/IV/2019</td>
+			<td>OP 1615278</td>
+			<td>9000-04-55-53</td>
+			<td>FELIX FERIADI</td>
+			<td align="right">1244390.00</td>
+			<td align="right">632195.00</td>
+			<td align="right">612195</td>
+			<td>MJV19877090</td>
+			<td>Bank Mandiri-IDR Kedoya - 118.000.688.7789</td>
+			<td align="right">612195.00</td>
+			<td>20 Mei 2019 09:33:48</td>
+			<td align="right">632195</td>
+		</tr>
+		
+		<tr>
+			<td align="center">39</td>
+			<td>BNI LIFE INSURANCE. PT</td>
+			<td>ADMINISTRASI MEDIKA. PT</td>
+			<td>26 Apr 2019 15:05:03</td>
+			<td>20 thn. 1 bln 7 hr.</td>
+			<td>07580/INV/RSGK/Tag/IV/2019</td>
+			<td>OP 1614426</td>
+			<td>9000-13-86-80</td>
+			<td>EUGENIA STEVIANA</td>
+			<td align="right">1028479.00</td>
+			<td align="right">0.00</td>
+			<td align="right">1028479</td>
+			<td>MJV19877090</td>
+			<td>Bank Mandiri-IDR Kedoya - 118.000.688.7789</td>
+			<td align="right">1010267.00</td>
+			<td>20 Mei 2019 09:33:48</td>
+			<td align="right">18212</td>
+		</tr>
+		
+		<tr>
+			<td align="center">40</td>
+			<td>BNI LIFE INSURANCE. PT</td>
+			<td>ADMINISTRASI MEDIKA. PT</td>
+			<td>28 Apr 2019 13:10:45</td>
+			<td>15 thn. 9 bln. 13 hr.</td>
+			<td>07605/INV/RSGK/Tag/IV/2019</td>
+			<td>OP 1615464</td>
+			<td>9000-05-06-75</td>
+			<td>JONATHAN AURELIUS OGILVIE</td>
+			<td align="right">1078350.00</td>
+			<td align="right">539175.00</td>
+			<td align="right">539175</td>
+			<td>MJV19877090</td>
+			<td>Bank Mandiri-IDR Kedoya - 118.000.688.7789</td>
+			<td align="right">539175.00</td>
+			<td>20 Mei 2019 09:33:48</td>
+			<td align="right">539175</td>
+		</tr>
+		
+		<tr>
+			<td align="center">41</td>
+			<td>BNI LIFE INSURANCE. PT</td>
+			<td>ADMINISTRASI MEDIKA. PT</td>
+			<td>23 Apr 2019 13:02:02</td>
+			<td>39 thn. 2 bln. 22 hr.</td>
+			<td>07540/INV/RSGK/Tag/IV/2019</td>
+			<td>OP 1612131</td>
+			<td>9000-21-52-49</td>
+			<td>BONYONO</td>
+			<td align="right">1787337.00</td>
+			<td align="right">0.00</td>
+			<td align="right">1787337</td>
+			<td>MJV19877090</td>
+			<td>Bank Mandiri-IDR Kedoya - 118.000.688.7789</td>
+			<td align="right">1787337.00</td>
+			<td>20 Mei 2019 09:33:48</td>
+			<td align="right">0</td>
+		</tr>
+		
+		<tr>
+			<td align="center">42</td>
+			<td>BNI LIFE INSURANCE. PT</td>
+			<td>ADMINISTRASI MEDIKA. PT</td>
+			<td>24 Apr 2019 18:59:12</td>
+			<td>25 thn. 10 bln. 16 hr.</td>
+			<td>07444/INV/RSGK/Tag/IV/2019</td>
+			<td>OP 1613194</td>
+			<td>9000-18-24-85</td>
+			<td>RENA GRACIA SUGIANTO</td>
+			<td align="right">1221336.00</td>
+			<td align="right">0.00</td>
+			<td align="right">1221336</td>
+			<td>MJV19877090</td>
+			<td>Bank Mandiri-IDR Kedoya - 118.000.688.7789</td>
+			<td align="right">1221336.00</td>
+			<td>20 Mei 2019 09:33:48</td>
+			<td align="right">0</td>
+		</tr>
+		
+		<tr>
+			<td align="center">43</td>
+			<td>BNI LIFE INSURANCE. PT</td>
+			<td>ADMINISTRASI MEDIKA. PT</td>
+			<td>25 Apr 2019 09:23:08</td>
+			<td>43 thn. 8 bln. 20 hr.</td>
+			<td>07480/INV/RSGK/Tag/IV/2019</td>
+			<td>OP 1613353</td>
+			<td>9000-13-26-30</td>
+			<td>JULIANAH HENDRADJAJA</td>
+			<td align="right">1187918.00</td>
+			<td align="right">0.00</td>
+			<td align="right">1187918</td>
+			<td>MJV19877090</td>
+			<td>Bank Mandiri-IDR Kedoya - 118.000.688.7789</td>
+			<td align="right">1187918.00</td>
+			<td>20 Mei 2019 09:33:48</td>
+			<td align="right">0</td>
+		</tr>
+		
+		<tr>
+			<td align="center">44</td>
+			<td>BNI LIFE INSURANCE. PT</td>
+			<td>ADMINISTRASI MEDIKA. PT</td>
+			<td>16 Apr 2019 09:44:11</td>
+			<td>31 thn. 8 bln. 2 hr.</td>
+			<td>07401/INV/RSGK/Tag/IV/2019</td>
+			<td>OP 1607972</td>
+			<td>9000-05-19-40</td>
+			<td>ERIKA SUSILAWATI</td>
+			<td align="right">4913713.00</td>
+			<td align="right">2500713.00</td>
+			<td align="right">2413000</td>
+			<td>MJV19877090</td>
+			<td>Bank Mandiri-IDR Kedoya - 118.000.688.7789</td>
+			<td align="right">2413000.00</td>
+			<td>20 Mei 2019 09:33:48</td>
+			<td align="right">2500713</td>
+		</tr>
+		
+		<tr>
+			<td align="center">45</td>
+			<td>ALLIANZ LIFE INDONESIA, PT</td>
+			<td>ADMINISTRASI MEDIKA. PT</td>
+			<td>10 Apr 2019 09:28:15</td>
+			<td>47 thn. 6 bln. 26 hr.</td>
+			<td>06695/INV/RSGK/Tag/IV/2019</td>
+			<td>IP 76860</td>
+			<td>9000-22-36-62</td>
+			<td>DWI SURATNI</td>
+			<td align="right">11593460.00</td>
+			<td align="right">6271730.00</td>
+			<td align="right">5321730</td>
+			<td>MJV19877218</td>
+			<td>Bank Mandiri-IDR Kedoya - 118.000.688.7789</td>
+			<td align="right">5105579.00</td>
+			<td>20 Mei 2019 09:55:34</td>
+			<td align="right">6487881</td>
+		</tr>
+		
+		<tr>
+			<td align="center">46</td>
+			<td>ALLIANZ LIFE INDONESIA, PT</td>
+			<td>ADMINISTRASI MEDIKA. PT</td>
+			<td>10 Apr 2019 09:28:15</td>
+			<td>47 thn. 6 bln. 26 hr.</td>
+			<td>06695/INV/RSGK/Tag/IV/2019</td>
+			<td>IP 76860</td>
+			<td>9000-22-36-62</td>
+			<td>DWI SURATNI</td>
+			<td align="right">11593460.00</td>
+			<td align="right">6271730.00</td>
+			<td align="right">5321730</td>
+			<td>MJV19877266</td>
+			<td>Diskon - RI</td>
+			<td align="right">216151.00</td>
+			<td>20 Mei 2019 10:04:22</td>
+			<td align="right">11377309</td>
+		</tr>
+		
+		<tr>
+			<td align="center">47</td>
+			<td>GREAT EASTERN LIFE INDONESIA, PT</td>
+			<td>ADMINISTRASI MEDIKA. PT</td>
+			<td>06 Mei 2019 09:13:51</td>
+			<td>45 thn. 3 bln. 20 hr.</td>
+			<td>08136/INV/RSGK/Tag/V/2019</td>
+			<td>IP 77713</td>
+			<td>9000-22-53-90</td>
+			<td>ELWIN CHANDRA MOCHSIN</td>
+			<td align="right">39671004.00</td>
+			<td align="right">23096004.00</td>
+			<td align="right">16575000</td>
+			<td>MJV19877295</td>
+			<td>Bank Mandiri-IDR Kedoya - 118.000.688.7789</td>
+			<td align="right">16575000.00</td>
+			<td>20 Mei 2019 10:11:22</td>
+			<td align="right">23096004</td>
+		</tr>
+		
+		<tr>
+			<td align="center">48</td>
+			<td>GREAT EASTERN LIFE INDONESIA, PT</td>
+			<td>ADMINISTRASI MEDIKA. PT</td>
+			<td>03 Mei 2019 21:11:14</td>
+			<td>18 thn. 7 hr.</td>
+			<td>07985/INV/RSGK/Tag/V/2019</td>
+			<td>OP 1618943</td>
+			<td>9000-22-54-06</td>
+			<td>HANS ELDRIDGE</td>
+			<td align="right">861280.00</td>
+			<td align="right">430640.00</td>
+			<td align="right">430640</td>
+			<td>MJV19877295</td>
+			<td>Bank Mandiri-IDR Kedoya - 118.000.688.7789</td>
+			<td align="right">430640.00</td>
+			<td>20 Mei 2019 10:11:22</td>
+			<td align="right">430640</td>
+		</tr>
+		
+		<tr>
+			<td align="center">49</td>
+			<td>GREAT EASTERN LIFE INDONESIA, PT</td>
+			<td>ADMINISTRASI MEDIKA. PT</td>
+			<td>21 Apr 2019 12:02:48</td>
+			<td>31 thn. 2 bln. 1 hr.</td>
+			<td>07337/INV/RSGK/Tag/IV/2019</td>
+			<td>IP 77250</td>
+			<td>9000-22-42-92</td>
+			<td>EVI IMANDASARI</td>
+			<td align="right">25118932.00</td>
+			<td align="right">13146966.00</td>
+			<td align="right">11971966</td>
+			<td>MJV19877295</td>
+			<td>Bank Mandiri-IDR Kedoya - 118.000.688.7789</td>
+			<td align="right">11971966.00</td>
+			<td>20 Mei 2019 10:11:22</td>
+			<td align="right">13146966</td>
+		</tr>
+		
+		<tr>
+			<td align="center">50</td>
+			<td>GREAT EASTERN LIFE INDONESIA, PT</td>
+			<td>ADMINISTRASI MEDIKA. PT</td>
+			<td>03 Mei 2019 08:58:44</td>
+			<td>28 thn. 8 bln. 30 hr.</td>
+			<td>07985/INV/RSGK/Tag/V/2019</td>
+			<td>OP 1618266</td>
+			<td>9000-16-26-79</td>
+			<td>CANDOLA</td>
+			<td align="right">521800.00</td>
+			<td align="right">260900.00</td>
+			<td align="right">260900</td>
+			<td>MJV19877295</td>
+			<td>Bank Mandiri-IDR Kedoya - 118.000.688.7789</td>
+			<td align="right">260900.00</td>
+			<td>20 Mei 2019 10:11:22</td>
+			<td align="right">260900</td>
+		</tr>
+		
+		<tr>
+			<td align="center">51</td>
+			<td>GREAT EASTERN LIFE INDONESIA, PT</td>
+			<td>ADMINISTRASI MEDIKA. PT</td>
+			<td>03 Mei 2019 23:37:27</td>
+			<td>22 thn. 11 bln. 15 hr.</td>
+			<td>07984/INV/RSGK/Tag/V/2019</td>
+			<td>OP 1618973</td>
+			<td>9000-17-68-12</td>
+			<td>FAHMI </td>
+			<td align="right">1284832.00</td>
+			<td align="right">642416.00</td>
+			<td align="right">642416</td>
+			<td>MJV19877295</td>
+			<td>Bank Mandiri-IDR Kedoya - 118.000.688.7789</td>
+			<td align="right">642416.00</td>
+			<td>20 Mei 2019 10:11:22</td>
+			<td align="right">642416</td>
+		</tr>
+		
+		<tr>
+			<td align="center">52</td>
+			<td>ALLIANZ LIFE INDONESIA, PT</td>
+			<td>ADMINISTRASI MEDIKA. PT</td>
+			<td>24 Apr 2019 14:01:24</td>
+			<td>5 thn. 8 bln. 10 hr.</td>
+			<td>07434/INV/RSGK/Tag/IV/2019</td>
+			<td>OP 1612969</td>
+			<td>9000-07-44-74</td>
+			<td>JANICE MADELEINE SOEZANTO</td>
+			<td align="right">717140.00</td>
+			<td align="right">0.00</td>
+			<td align="right">717140</td>
+			<td>MJV19877436</td>
+			<td>Bank Mandiri-IDR Kedoya - 118.000.688.7789</td>
+			<td align="right">717140.00</td>
+			<td>20 Mei 2019 10:37:00</td>
+			<td align="right">0</td>
+		</tr>
+		
+		<tr>
+			<td align="center">53</td>
+			<td>ALLIANZ LIFE INDONESIA, PT</td>
+			<td>ADMINISTRASI MEDIKA. PT</td>
+			<td>01 Mar 2019 21:49:10</td>
+			<td>4 thn. 5 bln. 6 hr.</td>
+			<td>04121/INV/RSGK/Tag/III/2019</td>
+			<td>OP 1576092</td>
+			<td>9000-10-55-10</td>
+			<td>FREYA CHANTEUSE TANNIVE</td>
+			<td align="right">742954.00</td>
+			<td align="right">409977.00</td>
+			<td align="right">332977</td>
+			<td>MJV19877436</td>
+			<td>Bank Mandiri-IDR Kedoya - 118.000.688.7789</td>
+			<td align="right">245981.00</td>
+			<td>20 Mei 2019 10:37:00</td>
+			<td align="right">496973</td>
+		</tr>
+		
+		<tr>
+			<td align="center">54</td>
+			<td>ALLIANZ LIFE INDONESIA, PT</td>
+			<td>ADMINISTRASI MEDIKA. PT</td>
+			<td>11 Apr 2019 11:03:35</td>
+			<td>38 thn. 9 bln. 15 hr.</td>
+			<td>06841/INV/RSGK/Tag/IV/2019</td>
+			<td>IP 76911</td>
+			<td>9000-05-23-89</td>
+			<td>SANDRA KURNIAWATI</td>
+			<td align="right">37753145.00</td>
+			<td align="right">19565481.00</td>
+			<td align="right">18187664</td>
+			<td>MJV19877436</td>
+			<td>Bank Mandiri-IDR Kedoya - 118.000.688.7789</td>
+			<td align="right">17770320.00</td>
+			<td>20 Mei 2019 10:37:00</td>
+			<td align="right">19982825</td>
+		</tr>
+		
+		<tr>
+			<td align="center">55</td>
+			<td>ALLIANZ LIFE INDONESIA, PT</td>
+			<td>ADMINISTRASI MEDIKA. PT</td>
+			<td>23 Apr 2019 18:03:16</td>
+			<td>44 thn. 11 bln. 29 hr.</td>
+			<td>07384/INV/RSGK/Tag/IV/2019</td>
+			<td>OP 1612399</td>
+			<td>9000-09-11-06</td>
+			<td>NURYANI</td>
+			<td align="right">1497503.00</td>
+			<td align="right">953949.00</td>
+			<td align="right">543554</td>
+			<td>MJV19877436</td>
+			<td>Bank Mandiri-IDR Kedoya - 118.000.688.7789</td>
+			<td align="right">543554.00</td>
+			<td>20 Mei 2019 10:37:00</td>
+			<td align="right">953949</td>
+		</tr>
+		
+		<tr>
+			<td align="center">56</td>
+			<td>ALLIANZ LIFE INDONESIA, PT</td>
+			<td>ADMINISTRASI MEDIKA. PT</td>
+			<td>24 Apr 2019 20:26:47</td>
+			<td>33 thn. 4 bln. 12 hr.</td>
+			<td>07432/INV/RSGK/Tag/IV/2019</td>
+			<td>OP 1613269</td>
+			<td>9000-22-13-61</td>
+			<td>DESTIANA GAYATRI</td>
+			<td align="right">1348000.00</td>
+			<td align="right">674000.00</td>
+			<td align="right">674000</td>
+			<td>MJV19877436</td>
+			<td>Bank Mandiri-IDR Kedoya - 118.000.688.7789</td>
+			<td align="right">674000.00</td>
+			<td>20 Mei 2019 10:37:00</td>
+			<td align="right">674000</td>
+		</tr>
+		
+		<tr>
+			<td align="center">57</td>
+			<td>ALLIANZ LIFE INDONESIA, PT</td>
+			<td>ADMINISTRASI MEDIKA. PT</td>
+			<td>24 Apr 2019 15:00:06</td>
+			<td>3 thn. 7 bln. 1 hr.</td>
+			<td>07433/INV/RSGK/Tag/IV/2019</td>
+			<td>OP 1613012</td>
+			<td>9000-21-72-50</td>
+			<td>KINANTI ANDIARA PERMANA</td>
+			<td align="right">1048453.00</td>
+			<td align="right">0.00</td>
+			<td align="right">1048453</td>
+			<td>MJV19877436</td>
+			<td>Bank Mandiri-IDR Kedoya - 118.000.688.7789</td>
+			<td align="right">1048453.00</td>
+			<td>20 Mei 2019 10:37:00</td>
+			<td align="right">0</td>
+		</tr>
+		
+		<tr>
+			<td align="center">58</td>
+			<td>ALLIANZ LIFE INDONESIA, PT</td>
+			<td>ADMINISTRASI MEDIKA. PT</td>
+			<td>11 Apr 2019 11:03:35</td>
+			<td>38 thn. 9 bln. 15 hr.</td>
+			<td>06841/INV/RSGK/Tag/IV/2019</td>
+			<td>IP 76911</td>
+			<td>9000-05-23-89</td>
+			<td>SANDRA KURNIAWATI</td>
+			<td align="right">37753145.00</td>
+			<td align="right">19565481.00</td>
+			<td align="right">18187664</td>
+			<td>MJV19877443</td>
+			<td>Diskon - RI</td>
+			<td align="right">417344.00</td>
+			<td>20 Mei 2019 10:38:03</td>
+			<td align="right">37335801</td>
+		</tr>
+		
+		<tr>
+			<td align="center">59</td>
+			<td>ASURANSI JIWA GENERALI INDONESIA, PT</td>
+			<td>ADMINISTRASI MEDIKA. PT</td>
+			<td>03 Mei 2019 18:19:25</td>
+			<td>59 thn. 8 bln. 30 hr.</td>
+			<td>08078/INV/RSGK/Tag/V/2019</td>
+			<td>OP 1618782</td>
+			<td>9000-22-04-58</td>
+			<td>DANNY RAYMOND T </td>
+			<td align="right">875726.00</td>
+			<td align="right">0.00</td>
+			<td align="right">875726</td>
+			<td>MJV19877572</td>
+			<td>BNI-IDR Senayan - 207.744.4446</td>
+			<td align="right">875726.00</td>
+			<td>20 Mei 2019 10:54:49</td>
+			<td align="right">0</td>
+		</tr>
+		
+		<tr>
+			<td align="center">60</td>
+			<td>ASURANSI JIWA GENERALI INDONESIA, PT</td>
+			<td>ADMINISTRASI MEDIKA. PT</td>
+			<td>04 Mei 2019 11:39:31</td>
+			<td>39 thn. 7 bln.</td>
+			<td>08078/INV/RSGK/Tag/V/2019</td>
+			<td>OP 1619307</td>
+			<td>9000-13-94-45</td>
+			<td>MARIANA JUSRIN</td>
+			<td align="right">1090552.00</td>
+			<td align="right">655852.00</td>
+			<td align="right">434700</td>
+			<td>MJV19877572</td>
+			<td>BNI-IDR Senayan - 207.744.4446</td>
+			<td align="right">434700.00</td>
+			<td>20 Mei 2019 10:54:49</td>
+			<td align="right">655852</td>
+		</tr>
+		
+		<tr>
+			<td align="center">61</td>
+			<td>ASURANSI JIWA GENERALI INDONESIA, PT</td>
+			<td>ADMINISTRASI MEDIKA. PT</td>
+			<td>02 Mei 2019 09:02:37</td>
+			<td>26 thn. 10 bln. 26 hr.</td>
+			<td>08076/INV/RSGK/Tag/V/2019</td>
+			<td>OP 1617423</td>
+			<td>9000-22-18-76</td>
+			<td>CAMELIA FAIZOL</td>
+			<td align="right">2790786.00</td>
+			<td align="right">1409143.00</td>
+			<td align="right">1381643</td>
+			<td>MJV19877572</td>
+			<td>BNI-IDR Senayan - 207.744.4446</td>
+			<td align="right">1381643.00</td>
+			<td>20 Mei 2019 10:54:49</td>
+			<td align="right">1409143</td>
+		</tr>
+		
+		<tr>
+			<td align="center">62</td>
+			<td>SEQUISLIFE ASURANSI</td>
+			<td>ADMINISTRASI MEDIKA. PT</td>
+			<td>02 Mei 2019 18:59:20</td>
+			<td>66 thn. 10 bln. 17 hr.</td>
+			<td>07920/INV/RSGK/Tag/V/2019</td>
+			<td>IP 77621</td>
+			<td>9000-21-95-18</td>
+			<td>JENNI WIDAJANTI</td>
+			<td align="right">65109300.00</td>
+			<td align="right">33420500.00</td>
+			<td align="right">31688800</td>
+			<td>MJV19877630</td>
+			<td>Bank Mandiri-IDR Kedoya - 118.000.688.7789</td>
+			<td align="right">31688800.00</td>
+			<td>20 Mei 2019 11:07:19</td>
+			<td align="right">33420500</td>
+		</tr>
+		
+		<tr>
+			<td align="center">63</td>
+			<td>SEQUISLIFE ASURANSI</td>
+			<td>ADMINISTRASI MEDIKA. PT</td>
+			<td>02 Mei 2019 11:00:31</td>
+			<td>12 thn. 1 bln 7 hr.</td>
+			<td>07923/INV/RSGK/Tag/V/2019</td>
+			<td>IP 77593</td>
+			<td>9000-08-66-34</td>
+			<td>ABRAM CLAROS P TOBING</td>
+			<td align="right">8862786.00</td>
+			<td align="right">4478143.00</td>
+			<td align="right">4384643</td>
+			<td>MJV19877630</td>
+			<td>Bank Mandiri-IDR Kedoya - 118.000.688.7789</td>
+			<td align="right">4384643.00</td>
+			<td>20 Mei 2019 11:07:19</td>
+			<td align="right">4478143</td>
+		</tr>
+		
+		<tr>
+			<td align="center">64</td>
+			<td>SEQUISLIFE ASURANSI</td>
+			<td>ADMINISTRASI MEDIKA. PT</td>
+			<td>29 Apr 2019 12:15:35</td>
+			<td>48 thn. 9 bln. 28 hr.</td>
+			<td>07698/INV/RSGK/Tag/IV/2019</td>
+			<td>IP 77502</td>
+			<td>9000-12-90-13</td>
+			<td>CHAURY SUN TASLIM</td>
+			<td align="right">10403434.00</td>
+			<td align="right">5296617.00</td>
+			<td align="right">5106817</td>
+			<td>MJV19877630</td>
+			<td>Bank Mandiri-IDR Kedoya - 118.000.688.7789</td>
+			<td align="right">5106817.00</td>
+			<td>20 Mei 2019 11:07:19</td>
+			<td align="right">5296617</td>
+		</tr>
+		
+		<tr>
+			<td align="center">65</td>
+			<td>SEQUISLIFE ASURANSI</td>
+			<td>ADMINISTRASI MEDIKA. PT</td>
+			<td>26 Apr 2019 13:32:12</td>
+			<td>21 thn. 7 bln. 29 hr.</td>
+			<td>07737/INV/RSGK/Tag/IV/2019</td>
+			<td>IP 77421</td>
+			<td>9000-12-14-48</td>
+			<td>STELLA MORIN</td>
+			<td align="right">18919572.00</td>
+			<td align="right">9580936.00</td>
+			<td align="right">9338636</td>
+			<td>MJV19877630</td>
+			<td>Bank Mandiri-IDR Kedoya - 118.000.688.7789</td>
+			<td align="right">9338636.00</td>
+			<td>20 Mei 2019 11:07:19</td>
+			<td align="right">9580936</td>
+		</tr>
+		
+		<tr>
+			<td align="center">66</td>
+			<td>SEQUISLIFE ASURANSI</td>
+			<td>ADMINISTRASI MEDIKA. PT</td>
+			<td>02 Mei 2019 10:13:38</td>
+			<td>21 thn. 10 bln. 29 hr.</td>
+			<td>07913/INV/RSGK/Tag/V/2019</td>
+			<td>IP 77588</td>
+			<td>9000-22-52-21</td>
+			<td>ANDY LUKITO</td>
+			<td align="right">8061807.00</td>
+			<td align="right">4146418.00</td>
+			<td align="right">3915389</td>
+			<td>MJV19877630</td>
+			<td>Bank Mandiri-IDR Kedoya - 118.000.688.7789</td>
+			<td align="right">3915389.00</td>
+			<td>20 Mei 2019 11:07:19</td>
+			<td align="right">4146418</td>
+		</tr>
+		
+		<tr>
+			<td align="center">67</td>
+			<td>ASTRA AVIVA LIFE, PT</td>
+			<td>ADMINISTRASI MEDIKA. PT</td>
+			<td>04 Mei 2019 12:34:10</td>
+			<td>6 bln. 27 hr.</td>
+			<td>07962/INV/RSGK/Tag/V/2019</td>
+			<td>OP 1619396</td>
+			<td>9000-21-05-82</td>
+			<td>MAXCELL ANDYSON SUHERMAN</td>
+			<td align="right">2335812.00</td>
+			<td align="right">0.00</td>
+			<td align="right">2335812</td>
+			<td>MJV19877686</td>
+			<td>BNI-IDR Senayan - 207.744.4446</td>
+			<td align="right">2335812.00</td>
+			<td>20 Mei 2019 11:18:35</td>
+			<td align="right">0</td>
+		</tr>
+		
+		<tr>
+			<td align="center">68</td>
+			<td>ASTRA AVIVA LIFE, PT</td>
+			<td>ADMINISTRASI MEDIKA. PT</td>
+			<td>02 Mei 2019 20:02:07</td>
+			<td>30 thn. 5 bln. 14 hr.</td>
+			<td>07881/INV/RSGK/Tag/V/2019</td>
+			<td>OP 1618150</td>
+			<td>9000-22-53-31</td>
+			<td>MONIK NOVIOLITA PUTRI SIMBOLON</td>
+			<td align="right">1023858.00</td>
+			<td align="right">511929.00</td>
+			<td align="right">511929</td>
+			<td>MJV19877686</td>
+			<td>BNI-IDR Senayan - 207.744.4446</td>
+			<td align="right">511929.00</td>
+			<td>20 Mei 2019 11:18:35</td>
+			<td align="right">511929</td>
+		</tr>
+		
+		<tr>
+			<td align="center">69</td>
+			<td>ASTRA AVIVA LIFE, PT</td>
+			<td>ADMINISTRASI MEDIKA. PT</td>
+			<td>02 Mei 2019 21:01:19</td>
+			<td>11 thn. 11 bln. 9 hr.</td>
+			<td>07891/INV/RSGK/Tag/V/2019</td>
+			<td>OP 1618196</td>
+			<td>9000-01-47-71</td>
+			<td>ANGELINA TJOKRO</td>
+			<td align="right">710400.00</td>
+			<td align="right">0.00</td>
+			<td align="right">710400</td>
+			<td>MJV19877686</td>
+			<td>BNI-IDR Senayan - 207.744.4446</td>
+			<td align="right">710400.00</td>
+			<td>20 Mei 2019 11:18:35</td>
+			<td align="right">0</td>
+		</tr>
+		
+		<tr>
+			<td align="center">70</td>
+			<td>ASTRA AVIVA LIFE, PT</td>
+			<td>ADMINISTRASI MEDIKA. PT</td>
+			<td>03 Mei 2019 21:43:52</td>
+			<td>25 thn. 3 bln. 22 hr.</td>
+			<td>07961/INV/RSGK/Tag/V/2019</td>
+			<td>OP 1618957</td>
+			<td>9000-22-54-07</td>
+			<td>JAQUELINE</td>
+			<td align="right">742752.00</td>
+			<td align="right">400626.00</td>
+			<td align="right">342126</td>
+			<td>MJV19877686</td>
+			<td>BNI-IDR Senayan - 207.744.4446</td>
+			<td align="right">342126.00</td>
+			<td>20 Mei 2019 11:18:35</td>
+			<td align="right">400626</td>
+		</tr>
+		
+		<tr>
+			<td align="center">71</td>
+			<td>ASTRA AVIVA LIFE, PT</td>
+			<td>ADMINISTRASI MEDIKA. PT</td>
+			<td>03 Mei 2019 10:14:08</td>
+			<td>2 thn. 11 bln. 15 hr.</td>
+			<td>07929/INV/RSGK/Tag/V/2019</td>
+			<td>OP 1618334</td>
+			<td>9000-15-41-99</td>
+			<td>AARON JOSEPH WIBOWO TEDJA</td>
+			<td align="right">665201.00</td>
+			<td align="right">0.00</td>
+			<td align="right">665201</td>
+			<td>MJV19877686</td>
+			<td>BNI-IDR Senayan - 207.744.4446</td>
+			<td align="right">665201.00</td>
+			<td>20 Mei 2019 11:18:35</td>
+			<td align="right">0</td>
+		</tr>
+		
+		<tr>
+			<td align="center">72</td>
+			<td></td>
+			<td>PRIMA SARANA JASA, PT (INTERNATIONAL SOS)</td>
+			<td>26 Mar 2019 10:12:06</td>
+			<td>59 thn. 12 hr.</td>
+			<td>05840/INV/RSGK/Tag/III/2019</td>
+			<td>IP 76304</td>
+			<td>9000-08-68-80</td>
+			<td>PUI BUI KHIONG</td>
+			<td align="right">12410384.00</td>
+			<td align="right">6205192.00</td>
+			<td align="right">6205192</td>
+			<td>MJV19877920</td>
+			<td>Bank Mandiri-IDR Kedoya - 118.000.688.7789</td>
+			<td align="right">6205192.00</td>
+			<td>20 Mei 2019 12:07:53</td>
+			<td align="right">6205192</td>
+		</tr>
+		
+		<tr>
+			<td align="center">73</td>
+			<td></td>
+			<td>PRIMA SARANA JASA, PT (INTERNATIONAL SOS)</td>
+			<td>26 Mar 2019 13:14:16</td>
+			<td>64 thn. 3 bln. 8 hr.</td>
+			<td>05840/INV/RSGK/Tag/III/2019</td>
+			<td>IP 76324</td>
+			<td>9000-22-21-89</td>
+			<td>DOIP</td>
+			<td align="right">21641760.00</td>
+			<td align="right">12048714.00</td>
+			<td align="right">9593046</td>
+			<td>MJV19877920</td>
+			<td>Bank Mandiri-IDR Kedoya - 118.000.688.7789</td>
+			<td align="right">9593046.00</td>
+			<td>20 Mei 2019 12:07:53</td>
+			<td align="right">12048714</td>
+		</tr>
+		
+		<tr>
+			<td align="center">74</td>
+			<td></td>
+			<td>PRIMA SARANA JASA, PT (INTERNATIONAL SOS)</td>
+			<td>26 Mar 2019 12:26:39</td>
+			<td>25 thn. 3 bln. 26 hr.</td>
+			<td>05840/INV/RSGK/Tag/III/2019</td>
+			<td>IP 76317</td>
+			<td>9000-10-54-57</td>
+			<td>NELSHEN </td>
+			<td align="right">22485488.00</td>
+			<td align="right">11755244.00</td>
+			<td align="right">10730244</td>
+			<td>MJV19877920</td>
+			<td>Bank Mandiri-IDR Kedoya - 118.000.688.7789</td>
+			<td align="right">10730244.00</td>
+			<td>20 Mei 2019 12:07:53</td>
+			<td align="right">11755244</td>
+		</tr>
+		
+		<tr>
+			<td align="center">75</td>
+			<td></td>
+			<td>PRIMA SARANA JASA, PT (INTERNATIONAL SOS)</td>
+			<td>27 Mar 2019 14:13:14</td>
+			<td>56 thn. 6 bln. 6 hr.</td>
+			<td>05810/INV/RSGK/Tag/III/2019</td>
+			<td>OP 1594514</td>
+			<td>9000-22-09-39</td>
+			<td>IRON PURNAMA </td>
+			<td align="right">16615265.00</td>
+			<td align="right">0.00</td>
+			<td align="right">16615265</td>
+			<td>MJV19877920</td>
+			<td>Bank Mandiri-IDR Kedoya - 118.000.688.7789</td>
+			<td align="right">16615265.00</td>
+			<td>20 Mei 2019 12:07:53</td>
+			<td align="right">0</td>
+		</tr>
+		
+		<tr>
+			<td align="center">76</td>
+			<td></td>
+			<td>PRIMA SARANA JASA, PT (INTERNATIONAL SOS)</td>
+			<td>23 Mar 2019 15:37:01</td>
+			<td>13 thn. 4 bln. 13 hr.</td>
+			<td>05641/INV/RSGK/Tag/III/2019</td>
+			<td>IP 76203</td>
+			<td>9000-12-59-09</td>
+			<td>BRYAN  XAVIER NICKSON </td>
+			<td align="right">7353294.00</td>
+			<td align="right">3676647.00</td>
+			<td align="right">3676647</td>
+			<td>MJV19877920</td>
+			<td>Bank Mandiri-IDR Kedoya - 118.000.688.7789</td>
+			<td align="right">3676647.00</td>
+			<td>20 Mei 2019 12:07:53</td>
+			<td align="right">3676647</td>
+		</tr>
+		
+		<tr>
+			<td align="center">77</td>
+			<td></td>
+			<td>PRIMA SARANA JASA, PT (INTERNATIONAL SOS)</td>
+			<td>25 Mar 2019 10:58:01</td>
+			<td>16 thn. 2 bln. 1 hr.</td>
+			<td>05699/INV/RSGK/Tag/III/2019</td>
+			<td>IP 76255</td>
+			<td>9000-09-60-72</td>
+			<td>FELIX VALENCIO</td>
+			<td align="right">19010227.00</td>
+			<td align="right">9551821.00</td>
+			<td align="right">9458406</td>
+			<td>MJV19877920</td>
+			<td>Bank Mandiri-IDR Kedoya - 118.000.688.7789</td>
+			<td align="right">9458406.00</td>
+			<td>20 Mei 2019 12:07:53</td>
+			<td align="right">9551821</td>
+		</tr>
+		
+		<tr>
+			<td align="center">78</td>
+			<td></td>
+			<td>PRIMA SARANA JASA, PT (INTERNATIONAL SOS)</td>
+			<td>25 Mar 2019 11:21:33</td>
+			<td>25 thn. 11 bln. 6 hr.</td>
+			<td>05696/INV/RSGK/Tag/III/2019</td>
+			<td>IP 76258</td>
+			<td>9000-22-21-91</td>
+			<td>IRHAM FATHURRAHMAN </td>
+			<td align="right">13328622.00</td>
+			<td align="right">6795561.00</td>
+			<td align="right">6533061</td>
+			<td>MJV19877920</td>
+			<td>Bank Mandiri-IDR Kedoya - 118.000.688.7789</td>
+			<td align="right">6533061.00</td>
+			<td>20 Mei 2019 12:07:53</td>
+			<td align="right">6795561</td>
+		</tr>
+		
+		<tr>
+			<td align="center">79</td>
+			<td></td>
+			<td>PRIMA SARANA JASA, PT (INTERNATIONAL SOS)</td>
+			<td>23 Mar 2019 17:14:27</td>
+			<td>31 thn. 10 bln. 12 hr.</td>
+			<td>05641/INV/RSGK/Tag/III/2019</td>
+			<td>IP 76206</td>
+			<td>9000-22-21-88</td>
+			<td>MELVIN TERA</td>
+			<td align="right">12392296.00</td>
+			<td align="right">6271148.00</td>
+			<td align="right">6121148</td>
+			<td>MJV19877920</td>
+			<td>Bank Mandiri-IDR Kedoya - 118.000.688.7789</td>
+			<td align="right">6121148.00</td>
+			<td>20 Mei 2019 12:07:53</td>
+			<td align="right">6271148</td>
+		</tr>
+		
+		<tr>
+			<td align="center">80</td>
+			<td></td>
+			<td>PRIMA SARANA JASA, PT (INTERNATIONAL SOS)</td>
+			<td>24 Mar 2019 12:02:42</td>
+			<td>35 thn. 8 bln. 23 hr.</td>
+			<td>05628/INV/RSGK/Tag/III/2019</td>
+			<td>IP 76230</td>
+			<td>9000-22-19-62</td>
+			<td>YENYEN WIBOWO</td>
+			<td align="right">11222132.00</td>
+			<td align="right">5648566.00</td>
+			<td align="right">5573566</td>
+			<td>MJV19877920</td>
+			<td>Bank Mandiri-IDR Kedoya - 118.000.688.7789</td>
+			<td align="right">5573566.00</td>
+			<td>20 Mei 2019 12:07:53</td>
+			<td align="right">5648566</td>
+		</tr>
+		
+		<tr>
+			<td align="center">81</td>
+			<td></td>
+			<td>PRIMA SARANA JASA, PT (INTERNATIONAL SOS)</td>
+			<td>22 Mar 2019 10:51:00</td>
+			<td>58 thn. 2 bln. 26 hr.</td>
+			<td>05627/INV/RSGK/Tag/III/2019</td>
+			<td>IP 76148</td>
+			<td>9000-15-07-96</td>
+			<td>EKO HARTANTO</td>
+			<td align="right">37852934.00</td>
+			<td align="right">19976467.00</td>
+			<td align="right">17876467</td>
+			<td>MJV19877920</td>
+			<td>Bank Mandiri-IDR Kedoya - 118.000.688.7789</td>
+			<td align="right">17876467.00</td>
+			<td>20 Mei 2019 12:07:53</td>
+			<td align="right">19976467</td>
+		</tr>
+		
+		<tr>
+			<td align="center">82</td>
+			<td></td>
+			<td>PRIMA SARANA JASA, PT (INTERNATIONAL SOS)</td>
+			<td>22 Mar 2019 12:04:06</td>
+			<td>55 thn. 7 bln. 23 hr.</td>
+			<td>05627/INV/RSGK/Tag/III/2019</td>
+			<td>IP 76161</td>
+			<td>9000-21-99-69</td>
+			<td>MOCHTAR WIJAYA </td>
+			<td align="right">12041396.00</td>
+			<td align="right">6245698.00</td>
+			<td align="right">5795698</td>
+			<td>MJV19877920</td>
+			<td>Bank Mandiri-IDR Kedoya - 118.000.688.7789</td>
+			<td align="right">5795698.00</td>
+			<td>20 Mei 2019 12:07:53</td>
+			<td align="right">6245698</td>
+		</tr>
+		
+		<tr>
+			<td align="center">83</td>
+			<td></td>
+			<td>PRIMA SARANA JASA, PT (INTERNATIONAL SOS)</td>
+			<td>22 Mar 2019 10:47:14</td>
+			<td>38 thn. 6 bln. 5 hr.</td>
+			<td>05627/INV/RSGK/Tag/III/2019</td>
+			<td>IP 76146</td>
+			<td>9000-20-97-49</td>
+			<td>BUDIJONO</td>
+			<td align="right">25921844.00</td>
+			<td align="right">12960922.00</td>
+			<td align="right">12960922</td>
+			<td>MJV19877920</td>
+			<td>Bank Mandiri-IDR Kedoya - 118.000.688.7789</td>
+			<td align="right">12960922.00</td>
+			<td>20 Mei 2019 12:07:53</td>
+			<td align="right">12960922</td>
+		</tr>
+		
+		<tr>
+			<td align="center">84</td>
+			<td></td>
+			<td>PRIMA SARANA JASA, PT (INTERNATIONAL SOS)</td>
+			<td>24 Mar 2019 12:22:03</td>
+			<td>20 thn. 9 bln. 7 hr.</td>
+			<td>05628/INV/RSGK/Tag/III/2019</td>
+			<td>IP 76232</td>
+			<td>9000-06-40-90</td>
+			<td>MARIA CHRISTY</td>
+			<td align="right">13912768.00</td>
+			<td align="right">7412634.00</td>
+			<td align="right">6500134</td>
+			<td>MJV19877920</td>
+			<td>Bank Mandiri-IDR Kedoya - 118.000.688.7789</td>
+			<td align="right">6500134.00</td>
+			<td>20 Mei 2019 12:07:53</td>
+			<td align="right">7412634</td>
+		</tr>
+		
+		<tr>
+			<td align="center">85</td>
+			<td></td>
+			<td>PRIMA SARANA JASA, PT (INTERNATIONAL SOS)</td>
+			<td>22 Mar 2019 11:57:17</td>
+			<td>29 thn. 7 bln. 11 hr.</td>
+			<td>05640/INV/RSGK/Tag/III/2019</td>
+			<td>IP 76159</td>
+			<td>9000-11-40-98</td>
+			<td>AGUSTINA</td>
+			<td align="right">10865375.00</td>
+			<td align="right">6285939.00</td>
+			<td align="right">4579436</td>
+			<td>MJV19877920</td>
+			<td>Bank Mandiri-IDR Kedoya - 118.000.688.7789</td>
+			<td align="right">4579436.00</td>
+			<td>20 Mei 2019 12:07:53</td>
+			<td align="right">6285939</td>
+		</tr>
+		
+		<tr>
+			<td align="center">86</td>
+			<td></td>
+			<td>PRIMA SARANA JASA, PT (INTERNATIONAL SOS)</td>
+			<td>22 Mar 2019 13:38:09</td>
+			<td>47 thn. 6 bln. 29 hr.</td>
+			<td>05640/INV/RSGK/Tag/III/2019</td>
+			<td>IP 76175</td>
+			<td>9000-16-92-14</td>
+			<td>ENDANG ERIA</td>
+			<td align="right">17286878.00</td>
+			<td align="right">8840314.00</td>
+			<td align="right">8446564</td>
+			<td>MJV19877920</td>
+			<td>Bank Mandiri-IDR Kedoya - 118.000.688.7789</td>
+			<td align="right">8446564.00</td>
+			<td>20 Mei 2019 12:07:53</td>
+			<td align="right">8840314</td>
+		</tr>
+		
+		<tr>
+			<td align="center">87</td>
+			<td></td>
+			<td>PRIMA SARANA JASA, PT (INTERNATIONAL SOS)</td>
+			<td>21 Mar 2019 11:22:51</td>
+			<td>18 thn. 2 bln. 16 hr.</td>
+			<td>05431/INV/RSGK/Tag/III/2019</td>
+			<td>IP 76103</td>
+			<td>9000-08-18-52</td>
+			<td>SINDHI CINTYA</td>
+			<td align="right">11371902.00</td>
+			<td align="right">5835951.00</td>
+			<td align="right">5535951</td>
+			<td>MJV19877920</td>
+			<td>Bank Mandiri-IDR Kedoya - 118.000.688.7789</td>
+			<td align="right">5535951.00</td>
+			<td>20 Mei 2019 12:07:53</td>
+			<td align="right">5835951</td>
+		</tr>
+		
+		<tr>
+			<td align="center">88</td>
+			<td></td>
+			<td>PRIMA SARANA JASA, PT (INTERNATIONAL SOS)</td>
+			<td>22 Mar 2019 13:07:17</td>
+			<td>39 thn. 2 bln. 12 hr.</td>
+			<td>05627/INV/RSGK/Tag/III/2019</td>
+			<td>IP 76169</td>
+			<td>9000-08-46-38</td>
+			<td>OEY SURYATI</td>
+			<td align="right">32225904.00</td>
+			<td align="right">17875904.00</td>
+			<td align="right">14350000</td>
+			<td>MJV19877920</td>
+			<td>Bank Mandiri-IDR Kedoya - 118.000.688.7789</td>
+			<td align="right">14350000.00</td>
+			<td>20 Mei 2019 12:07:53</td>
+			<td align="right">17875904</td>
+		</tr>
+		
+		<tr>
+			<td align="center">89</td>
+			<td></td>
+			<td>PRIMA SARANA JASA, PT (INTERNATIONAL SOS)</td>
+			<td>23 Mar 2019 11:39:04</td>
+			<td>24 thn. 8 bln. 13 hr.</td>
+			<td>05640/INV/RSGK/Tag/III/2019</td>
+			<td>IP 76193</td>
+			<td>9000-16-38-68</td>
+			<td>REYNALDI</td>
+			<td align="right">15774042.00</td>
+			<td align="right">8043271.00</td>
+			<td align="right">7730771</td>
+			<td>MJV19877920</td>
+			<td>Bank Mandiri-IDR Kedoya - 118.000.688.7789</td>
+			<td align="right">7730771.00</td>
+			<td>20 Mei 2019 12:07:53</td>
+			<td align="right">8043271</td>
+		</tr>
+		
+		<tr>
+			<td align="center">90</td>
+			<td></td>
+			<td>PRIMA SARANA JASA, PT (INTERNATIONAL SOS)</td>
+			<td>25 Mar 2019 12:21:09</td>
+			<td>26 thn. 6 bln. 15 hr.</td>
+			<td>05695/INV/RSGK/Tag/III/2019</td>
+			<td>IP 76269</td>
+			<td>9000-10-01-62</td>
+			<td>BRYAN ADITYA PURNOMO</td>
+			<td align="right">23942794.00</td>
+			<td align="right">12814297.00</td>
+			<td align="right">11128497</td>
+			<td>MJV19877920</td>
+			<td>Bank Mandiri-IDR Kedoya - 118.000.688.7789</td>
+			<td align="right">11128497.00</td>
+			<td>20 Mei 2019 12:07:53</td>
+			<td align="right">12814297</td>
+		</tr>
+		
+		<tr>
+			<td align="center">91</td>
+			<td></td>
+			<td>PRIMA SARANA JASA, PT (INTERNATIONAL SOS)</td>
+			<td>25 Mar 2019 12:32:39</td>
+			<td>16 thn. 2 bln. 27 hr.</td>
+			<td>05695/INV/RSGK/Tag/III/2019</td>
+			<td>IP 76271</td>
+			<td>9000-22-15-83</td>
+			<td>NATHANAEL CHRISTIAN ALBERTUS</td>
+			<td align="right">47486958.00</td>
+			<td align="right">29361958.00</td>
+			<td align="right">18125000</td>
+			<td>MJV19877920</td>
+			<td>Bank Mandiri-IDR Kedoya - 118.000.688.7789</td>
+			<td align="right">18125000.00</td>
+			<td>20 Mei 2019 12:07:53</td>
+			<td align="right">29361958</td>
+		</tr>
+		
+		<tr>
+			<td align="center">92</td>
+			<td></td>
+			<td>PRIMA SARANA JASA, PT (INTERNATIONAL SOS)</td>
+			<td>23 Mar 2019 10:06:01</td>
+			<td>21 thn. 8 bln. 17 hr.</td>
+			<td>05641/INV/RSGK/Tag/III/2019</td>
+			<td>IP 76183</td>
+			<td>9000-22-19-87</td>
+			<td>YESHUA ABRAHAM SANTOSO</td>
+			<td align="right">17148492.00</td>
+			<td align="right">8677227.00</td>
+			<td align="right">8471265</td>
+			<td>MJV19877920</td>
+			<td>Bank Mandiri-IDR Kedoya - 118.000.688.7789</td>
+			<td align="right">8471265.00</td>
+			<td>20 Mei 2019 12:07:53</td>
+			<td align="right">8677227</td>
+		</tr>
+		
+		<tr>
+			<td align="center">93</td>
+			<td></td>
+			<td>PRIMA SARANA JASA, PT (INTERNATIONAL SOS)</td>
+			<td>15 Mar 2019 12:07:11</td>
+			<td>35 thn. 8 hr.</td>
+			<td>05172/INV/RSGK/Tag/III/2019</td>
+			<td>IP 75858</td>
+			<td>9000-22-06-74</td>
+			<td>WENPI </td>
+			<td align="right">25254789.00</td>
+			<td align="right">13118539.00</td>
+			<td align="right">12136250</td>
+			<td>MJV19877920</td>
+			<td>Bank Mandiri-IDR Kedoya - 118.000.688.7789</td>
+			<td align="right">12136250.00</td>
+			<td>20 Mei 2019 12:07:53</td>
+			<td align="right">13118539</td>
+		</tr>
+		
+		<tr>
+			<td align="center">94</td>
+			<td></td>
+			<td>PRIMA SARANA JASA, PT (INTERNATIONAL SOS)</td>
+			<td>27 Mar 2019 12:34:02</td>
+			<td>25 thn. 9 bln. 21 hr.</td>
+			<td>05840/INV/RSGK/Tag/III/2019</td>
+			<td>IP 76355</td>
+			<td>9000-22-23-24</td>
+			<td>VELILIA </td>
+			<td align="right">5656030.00</td>
+			<td align="right">2865515.00</td>
+			<td align="right">2790515</td>
+			<td>MJV19877920</td>
+			<td>Bank Mandiri-IDR Kedoya - 118.000.688.7789</td>
+			<td align="right">2790515.00</td>
+			<td>20 Mei 2019 12:07:53</td>
+			<td align="right">2865515</td>
+		</tr>
+		
+		<tr>
+			<td align="center">95</td>
+			<td></td>
+			<td>PRIMA SARANA JASA, PT (INTERNATIONAL SOS)</td>
+			<td>21 Mar 2019 12:24:24</td>
+			<td>1 thn. 4 bln. 27 hr.</td>
+			<td>05431/INV/RSGK/Tag/III/2019</td>
+			<td>IP 76115</td>
+			<td>9000-18-75-85</td>
+			<td>KENNETH GEVARIEL GUNAWAN </td>
+			<td align="right">7279526.00</td>
+			<td align="right">3787577.00</td>
+			<td align="right">3491949</td>
+			<td>MJV19877920</td>
+			<td>Bank Mandiri-IDR Kedoya - 118.000.688.7789</td>
+			<td align="right">3491949.00</td>
+			<td>20 Mei 2019 12:07:53</td>
+			<td align="right">3787577</td>
+		</tr>
+		
+		<tr>
+			<td align="center">96</td>
+			<td></td>
+			<td>PRIMA SARANA JASA, PT (INTERNATIONAL SOS)</td>
+			<td>19 Mar 2019 11:53:06</td>
+			<td>18 thn. 1 bln 19 hr.</td>
+			<td>05273/INV/RSGK/Tag/III/2019</td>
+			<td>IP 76012</td>
+			<td>9000-10-08-12</td>
+			<td>DEVITA PRISCILLIA</td>
+			<td align="right">29119777.00</td>
+			<td align="right">16004391.00</td>
+			<td align="right">13115386</td>
+			<td>MJV19877920</td>
+			<td>Bank Mandiri-IDR Kedoya - 118.000.688.7789</td>
+			<td align="right">13115386.00</td>
+			<td>20 Mei 2019 12:07:53</td>
+			<td align="right">16004391</td>
+		</tr>
+		
+		<tr>
+			<td align="center">97</td>
+			<td></td>
+			<td>PRIMA SARANA JASA, PT (INTERNATIONAL SOS)</td>
+			<td>21 Mar 2019 11:26:51</td>
+			<td>49 thn. 1 bln 4 hr.</td>
+			<td>05431/INV/RSGK/Tag/III/2019</td>
+			<td>IP 76105</td>
+			<td>9000-22-17-56</td>
+			<td>SUSY SUSANTY</td>
+			<td align="right">41162478.00</td>
+			<td align="right">28917125.00</td>
+			<td align="right">12245353</td>
+			<td>MJV19877920</td>
+			<td>Bank Mandiri-IDR Kedoya - 118.000.688.7789</td>
+			<td align="right">12245353.00</td>
+			<td>20 Mei 2019 12:07:53</td>
+			<td align="right">28917125</td>
+		</tr>
+		
+		<tr>
+			<td align="center">98</td>
+			<td></td>
+			<td>PRIMA SARANA JASA, PT (INTERNATIONAL SOS)</td>
+			<td>21 Mar 2019 11:49:31</td>
+			<td>31 thn. 3 bln. 28 hr.</td>
+			<td>05431/INV/RSGK/Tag/III/2019</td>
+			<td>IP 76108</td>
+			<td>9000-15-88-13</td>
+			<td>EDVIN ANGGRADINATA</td>
+			<td align="right">95915732.00</td>
+			<td align="right">48676616.00</td>
+			<td align="right">47239116</td>
+			<td>MJV19877920</td>
+			<td>Bank Mandiri-IDR Kedoya - 118.000.688.7789</td>
+			<td align="right">47239116.00</td>
+			<td>20 Mei 2019 12:07:53</td>
+			<td align="right">48676616</td>
+		</tr>
+		
+		<tr>
+			<td align="center">99</td>
+			<td></td>
+			<td>PRIMA SARANA JASA, PT (INTERNATIONAL SOS)</td>
+			<td>21 Mar 2019 10:10:09</td>
+			<td>70 thn. 2 bln. 7 hr.</td>
+			<td>05432/INV/RSGK/Tag/III/2019</td>
+			<td>IP 76097</td>
+			<td>9000-02-10-57</td>
+			<td>VINAWATTY WIDJAJA</td>
+			<td align="right">26585598.00</td>
+			<td align="right">13549198.00</td>
+			<td align="right">13036400</td>
+			<td>MJV19877920</td>
+			<td>Bank Mandiri-IDR Kedoya - 118.000.688.7789</td>
+			<td align="right">13036400.00</td>
+			<td>20 Mei 2019 12:07:53</td>
+			<td align="right">13549198</td>
+		</tr>
+		
+		<tr>
+			<td align="center">100</td>
+			<td></td>
+			<td>PRIMA SARANA JASA, PT (INTERNATIONAL SOS)</td>
+			<td>21 Mar 2019 17:06:58</td>
+			<td>7 thn. 1 bln 16 hr.</td>
+			<td>05432/INV/RSGK/Tag/III/2019</td>
+			<td>IP 76132</td>
+			<td>9000-17-38-17</td>
+			<td>KAREN FAITH LIE</td>
+			<td align="right">18259818.00</td>
+			<td align="right">9598659.00</td>
+			<td align="right">8661159</td>
+			<td>MJV19877920</td>
+			<td>Bank Mandiri-IDR Kedoya - 118.000.688.7789</td>
+			<td align="right">8661159.00</td>
+			<td>20 Mei 2019 12:07:53</td>
+			<td align="right">9598659</td>
+		</tr>
+		
+		<tr>
+			<td align="center">101</td>
+			<td></td>
+			<td>PRIMA SARANA JASA, PT (INTERNATIONAL SOS)</td>
+			<td>22 Mar 2019 13:02:44</td>
+			<td>71 thn. 15 hr.</td>
+			<td>05627/INV/RSGK/Tag/III/2019</td>
+			<td>IP 76168</td>
+			<td>9000-22-19-44</td>
+			<td>TAN YULIANA </td>
+			<td align="right">14611660.00</td>
+			<td align="right">7555830.00</td>
+			<td align="right">7055830</td>
+			<td>MJV19877920</td>
+			<td>Bank Mandiri-IDR Kedoya - 118.000.688.7789</td>
+			<td align="right">7055830.00</td>
+			<td>20 Mei 2019 12:07:53</td>
+			<td align="right">7555830</td>
+		</tr>
+		
+		<tr>
+			<td align="center">102</td>
+			<td></td>
+			<td>PRIMA SARANA JASA, PT (INTERNATIONAL SOS)</td>
+			<td>22 Mar 2019 13:16:09</td>
+			<td>19 thn. 6 bln. 6 hr.</td>
+			<td>05628/INV/RSGK/Tag/III/2019</td>
+			<td>IP 76172</td>
+			<td>9000-22-16-53</td>
+			<td>LEVINA TARUNAJAYA</td>
+			<td align="right">41806825.00</td>
+			<td align="right">27429325.00</td>
+			<td align="right">14377500</td>
+			<td>MJV19877920</td>
+			<td>Bank Mandiri-IDR Kedoya - 118.000.688.7789</td>
+			<td align="right">14377500.00</td>
+			<td>20 Mei 2019 12:07:53</td>
+			<td align="right">27429325</td>
+		</tr>
+		
+		<tr>
+			<td align="center">103</td>
+			<td></td>
+			<td>PRIMA SARANA JASA, PT (INTERNATIONAL SOS)</td>
+			<td>25 Mar 2019 11:50:22</td>
+			<td>17 thn. 9 bln. 11 hr.</td>
+			<td>05696/INV/RSGK/Tag/III/2019</td>
+			<td>IP 76264</td>
+			<td>9000-10-95-41</td>
+			<td>ALVIN ANDRIANTO CENDRA</td>
+			<td align="right">70653144.00</td>
+			<td align="right">36020322.00</td>
+			<td align="right">34632822</td>
+			<td>MJV19877920</td>
+			<td>Bank Mandiri-IDR Kedoya - 118.000.688.7789</td>
+			<td align="right">34632822.00</td>
+			<td>20 Mei 2019 12:07:53</td>
+			<td align="right">36020322</td>
+		</tr>
+		
+		<tr>
+			<td align="center">104</td>
+			<td></td>
+			<td>PRIMA SARANA JASA, PT (INTERNATIONAL SOS)</td>
+			<td>25 Mar 2019 13:28:28</td>
+			<td>38 thn. 5 bln.</td>
+			<td>05696/INV/RSGK/Tag/III/2019</td>
+			<td>IP 76280</td>
+			<td>9000-22-18-98</td>
+			<td>DEWI VERYANA</td>
+			<td align="right">28229586.00</td>
+			<td align="right">14783543.00</td>
+			<td align="right">13446043</td>
+			<td>MJV19877920</td>
+			<td>Bank Mandiri-IDR Kedoya - 118.000.688.7789</td>
+			<td align="right">13446043.00</td>
+			<td>20 Mei 2019 12:07:53</td>
+			<td align="right">14783543</td>
+		</tr>
+		
+		<tr>
+			<td align="center">105</td>
+			<td></td>
+			<td>PRIMA SARANA JASA, PT (INTERNATIONAL SOS)</td>
+			<td>25 Mar 2019 15:17:54</td>
+			<td>33 thn. 3 bln. 22 hr.</td>
+			<td>05681/INV/RSGK/Tag/III/2019</td>
+			<td>OP 1593019</td>
+			<td>9000-21-97-99</td>
+			<td>TOMI</td>
+			<td align="right">8232155.00</td>
+			<td align="right">0.00</td>
+			<td align="right">8232155</td>
+			<td>MJV19877920</td>
+			<td>Bank Mandiri-IDR Kedoya - 118.000.688.7789</td>
+			<td align="right">8232155.00</td>
+			<td>20 Mei 2019 12:07:53</td>
+			<td align="right">0</td>
+		</tr>
+		
+		<tr>
+			<td align="center">106</td>
+			<td></td>
+			<td>PRIMA SARANA JASA, PT (INTERNATIONAL SOS)</td>
+			<td>24 Mar 2019 11:40:31</td>
+			<td>55 thn. 13 hr.</td>
+			<td>05628/INV/RSGK/Tag/III/2019</td>
+			<td>IP 76225</td>
+			<td>9000-02-73-51</td>
+			<td>TOHAR GOFAR</td>
+			<td align="right">9607262.00</td>
+			<td align="right">4903631.00</td>
+			<td align="right">4703631</td>
+			<td>MJV19877920</td>
+			<td>Bank Mandiri-IDR Kedoya - 118.000.688.7789</td>
+			<td align="right">4703631.00</td>
+			<td>20 Mei 2019 12:07:53</td>
+			<td align="right">4903631</td>
+		</tr>
+		
+		<tr>
+			<td align="center">107</td>
+			<td></td>
+			<td>PRIMA SARANA JASA, PT (INTERNATIONAL SOS)</td>
+			<td>21 Mar 2019 15:17:44</td>
+			<td>42 thn. 4 bln. 18 hr.</td>
+			<td>05432/INV/RSGK/Tag/III/2019</td>
+			<td>IP 76131</td>
+			<td>9000-14-17-40</td>
+			<td>MARYONO</td>
+			<td align="right">9561910.00</td>
+			<td align="right">4780955.00</td>
+			<td align="right">4780955</td>
+			<td>MJV19877920</td>
+			<td>Bank Mandiri-IDR Kedoya - 118.000.688.7789</td>
+			<td align="right">4780955.00</td>
+			<td>20 Mei 2019 12:07:53</td>
+			<td align="right">4780955</td>
+		</tr>
+		
+		<tr>
+			<td align="center">108</td>
+			<td></td>
+			<td>PRIMA SARANA JASA, PT (INTERNATIONAL SOS)</td>
+			<td>25 Mar 2019 11:38:04</td>
+			<td>21 thn. 7 bln. 10 hr.</td>
+			<td>05695/INV/RSGK/Tag/III/2019</td>
+			<td>IP 76259</td>
+			<td>9000-22-21-62</td>
+			<td>MELISA ARIZAL</td>
+			<td align="right">24647806.00</td>
+			<td align="right">12323903.00</td>
+			<td align="right">12323903</td>
+			<td>MJV19877920</td>
+			<td>Bank Mandiri-IDR Kedoya - 118.000.688.7789</td>
+			<td align="right">12323903.00</td>
+			<td>20 Mei 2019 12:07:53</td>
+			<td align="right">12323903</td>
+		</tr>
+		
+		<tr>
+			<td align="center">109</td>
+			<td></td>
+			<td>PRIMA SARANA JASA, PT (INTERNATIONAL SOS)</td>
+			<td>21 Mar 2019 14:16:22</td>
+			<td>9 thn. 24 hr.</td>
+			<td>05432/INV/RSGK/Tag/III/2019</td>
+			<td>IP 76127</td>
+			<td>9000-16-83-25</td>
+			<td>MIKAELA LETTICIA LIE</td>
+			<td align="right">7911466.00</td>
+			<td align="right">4186983.00</td>
+			<td align="right">3724483</td>
+			<td>MJV19877920</td>
+			<td>Bank Mandiri-IDR Kedoya - 118.000.688.7789</td>
+			<td align="right">3724483.00</td>
+			<td>20 Mei 2019 12:07:53</td>
+			<td align="right">4186983</td>
+		</tr>
+		
+		<tr>
+			<td align="center">110</td>
+			<td></td>
+			<td>PRIMA SARANA JASA, PT (INTERNATIONAL SOS)</td>
+			<td>22 Mar 2019 10:04:48</td>
+			<td>64 thn. 7 bln. 8 hr.</td>
+			<td>05431/INV/RSGK/Tag/III/2019</td>
+			<td>IP 76139</td>
+			<td>9000-15-57-49</td>
+			<td>PHOENG KHIAN PHIN</td>
+			<td align="right">10141258.00</td>
+			<td align="right">8727639.00</td>
+			<td align="right">1413619</td>
+			<td>MJV19877920</td>
+			<td>Bank Mandiri-IDR Kedoya - 118.000.688.7789</td>
+			<td align="right">1413619.00</td>
+			<td>20 Mei 2019 12:07:53</td>
+			<td align="right">8727639</td>
+		</tr>
+		
+		<tr>
+			<td align="center">111</td>
+			<td>ASURANSI CENTRAL ASIA, PT (ACAINS)</td>
+			<td>ADMINISTRASI MEDIKA. PT</td>
+			<td>24 Apr 2019 15:15:59</td>
+			<td>55 thn. 4 bln. 18 hr.</td>
+			<td>07446/INV/RSGK/Tag/IV/2019</td>
+			<td>OP 1613022</td>
+			<td>9000-17-36-44</td>
+			<td>USHA VIRENDER KUMAR BHALLA</td>
+			<td align="right">16615265.00</td>
+			<td align="right">0.00</td>
+			<td align="right">16615265</td>
+			<td>MJV19877929</td>
+			<td>BNI-IDR Senayan - 207.744.4446</td>
+			<td align="right">16615265.00</td>
+			<td>20 Mei 2019 12:09:27</td>
+			<td align="right">0</td>
+		</tr>
+		
+		<tr>
+			<td align="center">112</td>
+			<td></td>
+			<td>FULLERTON HEALTH INDONESIA, PT</td>
+			<td>10 Apr 2019 12:58:35</td>
+			<td>49 thn. 8 bln. 19 hr.</td>
+			<td>06649/INV/RSGK/Tag/IV/2019</td>
+			<td>OP 1604239</td>
+			<td>9000-22-03-34</td>
+			<td>SOERJANTO TJANDRA</td>
+			<td align="right">162000.00</td>
+			<td align="right">0.00</td>
+			<td align="right">162000</td>
+			<td>MJV19878090</td>
+			<td>Bank Mandiri-IDR Kedoya - 118.000.688.7789</td>
+			<td align="right">162000.00</td>
+			<td>20 Mei 2019 12:48:11</td>
+			<td align="right">0</td>
+		</tr>
+		
+		<tr>
+			<td align="center">113</td>
+			<td></td>
+			<td>FULLERTON HEALTH INDONESIA, PT</td>
+			<td>06 Apr 2019 16:10:40</td>
+			<td>49 thn. 8 bln. 15 hr.</td>
+			<td>06365/INV/RSGK/Tag/IV/2019</td>
+			<td>OP 1601717</td>
+			<td>9000-22-03-34</td>
+			<td>SOERJANTO TJANDRA</td>
+			<td align="right">2363788.00</td>
+			<td align="right">1181894.00</td>
+			<td align="right">1181894</td>
+			<td>MJV19878090</td>
+			<td>Bank Mandiri-IDR Kedoya - 118.000.688.7789</td>
+			<td align="right">1181894.00</td>
+			<td>20 Mei 2019 12:48:11</td>
+			<td align="right">1181894</td>
+		</tr>
+		
+		<tr>
+			<td align="center">114</td>
+			<td></td>
+			<td>FULLERTON HEALTH INDONESIA, PT</td>
+			<td>09 Apr 2019 18:31:16</td>
+			<td>4 thn. 11 bln. 3 hr.</td>
+			<td>06614/INV/RSGK/Tag/IV/2019</td>
+			<td>OP 1603738</td>
+			<td>9000-09-53-84</td>
+			<td>JOANNE EILEEN WINOTO</td>
+			<td align="right">706020.00</td>
+			<td align="right">0.00</td>
+			<td align="right">706020</td>
+			<td>MJV19878090</td>
+			<td>Bank Mandiri-IDR Kedoya - 118.000.688.7789</td>
+			<td align="right">706020.00</td>
+			<td>20 Mei 2019 12:48:11</td>
+			<td align="right">0</td>
+		</tr>
+		
+		<tr>
+			<td align="center">115</td>
+			<td></td>
+			<td>FULLERTON HEALTH INDONESIA, PT</td>
+			<td>08 Apr 2019 11:19:17</td>
+			<td>49 thn. 8 bln. 17 hr.</td>
+			<td>06519/INV/RSGK/Tag/IV/2019</td>
+			<td>OP 1602395</td>
+			<td>9000-22-03-34</td>
+			<td>SOERJANTO TJANDRA</td>
+			<td align="right">1024000.00</td>
+			<td align="right">512000.00</td>
+			<td align="right">512000</td>
+			<td>MJV19878090</td>
+			<td>Bank Mandiri-IDR Kedoya - 118.000.688.7789</td>
+			<td align="right">512000.00</td>
+			<td>20 Mei 2019 12:48:11</td>
+			<td align="right">512000</td>
+		</tr>
+		
+		<tr>
+			<td align="center">116</td>
+			<td></td>
+			<td>FULLERTON HEALTH INDONESIA, PT</td>
+			<td>09 Apr 2019 18:30:39</td>
+			<td>3 thn. 4 hr.</td>
+			<td>06614/INV/RSGK/Tag/IV/2019</td>
+			<td>OP 1603737</td>
+			<td>9000-15-50-77</td>
+			<td>BENEDICT ENZO WINOTO</td>
+			<td align="right">953154.00</td>
+			<td align="right">0.00</td>
+			<td align="right">953154</td>
+			<td>MJV19878090</td>
+			<td>Bank Mandiri-IDR Kedoya - 118.000.688.7789</td>
+			<td align="right">953154.00</td>
+			<td>20 Mei 2019 12:48:11</td>
+			<td align="right">0</td>
+		</tr>
+		
+		<tr>
+			<td align="center">117</td>
+			<td>AXA FINANCIAL INDONESIA, PT (AFI)</td>
+			<td>ADMINISTRASI MEDIKA. PT</td>
+			<td>27 Apr 2019 10:48:39</td>
+			<td>31 thn. 9 bln. 22 hr.</td>
+			<td>07689/INV/RSGK/Tag/IV/2019</td>
+			<td>IP 77436</td>
+			<td>9000-17-13-39</td>
+			<td>EKA FUJIYANTI</td>
+			<td align="right">6384250.00</td>
+			<td align="right">3211925.00</td>
+			<td align="right">3172325</td>
+			<td>MJV19878105</td>
+			<td>BNI-IDR Senayan - 207.744.4446</td>
+			<td align="right">3111767.00</td>
+			<td>20 Mei 2019 12:51:15</td>
+			<td align="right">3272483</td>
+		</tr>
+		
+		<tr>
+			<td align="center">118</td>
+			<td>AXA FINANCIAL INDONESIA, PT (AFI)</td>
+			<td>ADMINISTRASI MEDIKA. PT</td>
+			<td>27 Apr 2019 10:48:39</td>
+			<td>31 thn. 9 bln. 22 hr.</td>
+			<td>07689/INV/RSGK/Tag/IV/2019</td>
+			<td>IP 77436</td>
+			<td>9000-17-13-39</td>
+			<td>EKA FUJIYANTI</td>
+			<td align="right">6384250.00</td>
+			<td align="right">3211925.00</td>
+			<td align="right">3172325</td>
+			<td>MJV19878109</td>
+			<td>Diskon - RI</td>
+			<td align="right">60558.00</td>
+			<td>20 Mei 2019 12:52:06</td>
+			<td align="right">6323692</td>
+		</tr>
+			</table>
+
+
+
+
+
+<br>
+<br>
+<br>
+</body>
+</html>
+<!-- end tpl_prints.html -->

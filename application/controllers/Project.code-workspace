@@ -1,0 +1,62 @@
+{
+	"folders": [
+		{
+			"path": "D:\\Webserver\\htdocs\\ci-barcode"
+		},
+		{
+			"path": "D:\\Webserver\\htdocs\\ci-laundry"
+		},
+		{
+			"path": "D:\\Webserver\\htdocs\\loundry"
+		},
+		{
+			"path": "D:\\Webserver\\htdocs\\pos-new"
+		},
+		{
+			"path": "D:\\Webserver\\htdocs\\info"
+		},
+		{
+			"path": "D:\\Webserver\\htdocs\\management-menu"
+		},
+		{
+			"path": "D:\\Webserver\\htdocs\\ci-websocket"
+		},
+		{
+			"path": "D:\\Webserver\\htdocs\\ci-barcoding"
+		},
+		{
+			"path": "D:\\Webserver\\htdocs\\medis"
+		},
+		{
+			"path": "D:\\Webserver\\htdocs\\sirusak"
+		},
+		{
+			"path": "D:\\Webserver\\htdocs\\ci-penjualan"
+		},
+		{
+			"path": "D:\\Webserver\\htdocs\\ci-penjualan-new"
+		},
+		{
+			"path": "D:\\Webserver\\htdocs\\ci-hits"
+		},
+		{
+			"path": "D:\\Webserver\\htdocs\\clinic-master"
+		},
+		{
+			"path": "D:\\Webserver\\htdocs\\angular-tuts"
+		},
+		{
+			"path": "D:\\Webserver\\htdocs\\ci-scheduler-app"
+		},
+		{
+			"path": "D:\\Webserver\\htdocs\\ci-angular"
+		},
+		{
+			"path": "D:\\Webserver\\htdocs\\ci-inventory"
+		},
+		{
+			"path": "D:\\Webserver\\htdocs\\ciionauth"
+		}
+	],
+	"settings": {}
+}
