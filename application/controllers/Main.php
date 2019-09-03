@@ -44,8 +44,8 @@ class Main extends CI_Controller
         foreach ($this->data['list_user'] as $k => $user) {
             $this->data['list_user'][$k]->groups = $this->m_main->getWhereJoin('user', 'groups', '*', 'name', 'user.group_id=groups.id', 'user.id=' . $user->id);
         }
-        var_dump($this->data['list_menus_access']);
-        die;
+        // var_dump($this->data['list_menus_access']);
+        // die;
         $this->data['csrf'] = $this->_get_csrf_nonce();
         // $this->output->enable_profiler(TRUE);
     }

@@ -29,19 +29,19 @@
 				</a>
 				<ul class="sidebar-nav">
 					<?php foreach ($list_menus_access as $menu) : ?>
-					<li class="sidebar-item">
-						<a href="#<?= $menu->link; ?>" data-toggle="collapse" class="sidebar-link collapsed">
-							<i class="align-middle" data-feather="<?= $menu->icon  ?>"></i> <span class="align-middle"><?= ucwords($menu->name); ?></span>
-						</a>
-						<ul id="<?= $menu->link; ?>" class="sidebar-dropdown list-unstyled collapse ">
+						<li class="sidebar-item">
+							<a href="#<?= $menu->link; ?>" data-toggle="collapse" class="sidebar-link collapsed">
+								<i class="align-middle" data-feather="<?= $menu->icon  ?>"></i> <span class="align-middle"><?= ucwords($menu->name); ?></span>
+							</a>
+							<ul id="<?= $menu->link; ?>" class="sidebar-dropdown list-unstyled collapse ">
 
-							<?php foreach ($menu->parent_menu as $parent_menu) : ?>
-							<li class="sidebar-item">
-								<a class="sidebar-link" href="<?= base_url() . $parent_menu->link ?>"><?= ucwords($parent_menu->name) ?></a>
-							</li>
-							<?php endforeach ?>
-						</ul>
-					</li>
+								<?php foreach ($menu->parent_menu as $parent_menu) : ?>
+									<li class="sidebar-item">
+										<a class="sidebar-link" href="<?= base_url() . $parent_menu->link ?>"><?= ucwords($parent_menu->name) ?></a>
+									</li>
+								<?php endforeach ?>
+							</ul>
+						</li>
 					<?php endforeach ?>
 				</ul>
 			</div>
