@@ -16,7 +16,6 @@
 	<script src="<?= base_url() . 'assets/js/sweetalert2.js' ?>"></script>
 	<link rel="stylesheet" href="<?= base_url() ?>assets/treeview/simTree.css">
 	<script src="<?= base_url() ?>assets/treeview/simTree.js"></script>
-
 </head>
 
 <body>
