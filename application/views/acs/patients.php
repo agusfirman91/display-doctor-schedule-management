@@ -1,270 +1,247 @@
-<!-- MY App -->
-<script src="<?= base_url() ?>app/packages/dirPagination.js"></script>
-<script src="<?= base_url() ?>app/services/myServices.js"></script>
-<script src="<?= base_url() ?>app/helper/myHelper.js"></script>
-
-<div ng-app="myApp" ng-controller="pasienCtrl">
-    <div class="card" style="margin-top:75px">
-        <div class="card-body">
-            <div class="row">
-                <div class="col-lg-12 margin-tb">
-                    <div class="pull-left">
-                        <h1>List Pasien</h1>
-                    </div>
-                    <div class="input-group mt-3 col-3 float-right">
-                        <input type="text" class="form-control" ng-change="searchDB()" ng-model="searchText" name="table_search" title="" tooltip="" data-original-title="Min character length is 3">
-                        <div class="input-group-append">
-                            <button class="btn btn-outline-secondary" type="button">Search</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <table class="table table-bordered pagin-table mt-2">
-                <thead>
-                    <tr>
-                        <th>No</th>
-                        <th>No RM</th>
-                        <th>No Registrasi</th>
-                        <th>Nama Pasien</th>
-                        <th>Nama Suku</th>
-                        <th>Nama Agama</th>
-                        <th width="220px">Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr ng-if="post.length == 0">
-                        <td colspan="4" class="text-center">tidak ada data</td>
-                    </tr>
-                    <tr id="post-array" dir-paginate="x in patients | orderBy: 'no_rm'| itemsPerPage:5" total-items="totalPatients">
-                        <!-- | pagination: curPage * pageSize | limitTo: pageSize -->
-                        <td>{{ $index + 1 }}</td>
-                        <td>{{ x.no_rm }}</td>
-                        <td>{{ x.no_reg }}</td>
-                        <td>{{ x.nama }}</td>
-                        <td>{{ x.agama }}</td>
-                        <td>{{ x.suku }}</td>
-                        <td>
-                            <button data-toggle=" modal" ng-click="edit($index)" class="btn btn-primary">Edit</button>
-                            <button ng-click="delete($index)" class="btn btn-danger">Delete</button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        <div class="card-footer">
-            <a href="<?= base_url() ?>acs" class="btn btn-danger">Back</a>
-            <button class="btn btn-primary" data-toggle="modal" data-target="#form-patient">Create New</button>
+<div class="card">
+    <div class="card-header">
+        <div class="card-title">
+            List Patients
         </div>
     </div>
-
-    <dir-pagination-controls class="pull-right" on-page-change="pageChanged(newPageNumber)" template-url="_partials/dirPagination.html"></dir-pagination-controls>
-
-    <div id="form-patient" class="modal fade" tabindex="-1" role="dialog">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Tambah Data Pasien</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <ul class="alert alert-danger" ng-if="errors.length > 0">
-                        <li ng-repeat="error in errors">{{ error }}</li>
-                    </ul>
-                    <div class="form-group">
-                        <label for="no_rm">No Rekam Medis</label>
-                        <input type="hidden" ng-model="patient.id">
-                        <input ng-model="patient.no_rm" type="text" class="form-control" placeholder="NO Rekam Medis" />
-                    </div>
-                    <div class="form-group">
-                        <label for="nama">Nama</label>
-                        <input ng-model="patient.nama" type="text" class="form-control" placeholder="Nama" />
-                    </div>
-                    <div class="form-group">
-                        <label for="no_reg">No Registrasi</label>
-                        <input ng-model="patient.no_reg" type="text" class="form-control" placeholder="No Registrasi" />
-                    </div>
-                    <div class="form-group">
-                        <label for="idsuku">Suku</label>
-                        <select class="form-control" ng-model="patient.idsuku">
-                            <option value="">Pilih</option>
-                            <option ng-repeat="opt in suku" value="{{opt.idsuku}}">{{opt.suku}}</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="idagama">Agama</label>
-                        <select class="form-control" ng-model="patient.idagama">
-                            <option value="">Pilih</option>
-                            <option ng-repeat="opt in agama" value="{{opt.idagama}}">{{opt.agama}}</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" ng-click="addPatient()" ng-disabled="disabledAdd">Simpan</button>
-                    <button type="button" class="btn btn-info" ng-click="updatePatient()" ng-disabled="disabledUpdate">Ubah</button>
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
-                </div>
-            </div>
-        </div>
+    <div class="card-body">
+        <table class="table table-striped" id="table" style="width:100%">
+            <!-- datatables-basic -->
+            <thead>
+                <tr>
+                    <th width="5%">No</th>
+                    <th>NO Rekam Medis</th>
+                    <th>Nama Pasien</th>
+                    <th>Tanggal Lahir</th>
+                    <th>Alamat</th>
+                    <th>Jenis Kelamin</th>
+                    <th>Suku</th>
+                    <th>Agama</th>
+                    <th width="5%">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
     </div>
-
-
+    <div class="card-footer">
+        <button class='btn btn-primary btn-square t_patient' data-id='0'>Add Patient</button>
+    </div>
 </div>
 
-<script>
-    var app = angular.module('myApp', ['angularUtils.directives.dirPagination']);
 
-    app.controller('pasienCtrl', function(dataFactory, $scope, $http) {
-
-        $scope.errors = [];
-        $scope.patients = []; //List Produk
-        $scope.patient = {}; //Object
-        $scope.suku;
-        $scope.agama;
-        $scope.message = "";
-        $scope.disabledAdd = false;
-        $scope.disabledUpdate = true;
-        $scope.pageNumber = 1;
-        $scope.libraryTemp = {};
-        $scope.totalPatientsTemp = {};
-        $scope.totalPatients = 0;
-        $scope.pageChanged = function(newPage) {
-            getResultsPage(newPage);
-        };
-        getResultsPage(1);
-
-
-        $scope.searchDB = function() {
-            if ($scope.searchText.length >= 3) {
-                if ($.isEmptyObject($scope.libraryTemp)) {
-                    $scope.libraryTemp = $scope.data;
-                    $scope.totalPatientsTemp = $scope.totalPatients;
-                    $scope.data = {};
-                }
-                getResultsPage(1);
-            } else {
-                if (!$.isEmptyObject($scope.libraryTemp)) {
-                    $scope.data = $scope.libraryTemp;
-                    $scope.totalPatients = $scope.totalPatientsTemp;
-                    $scope.libraryTemp = {};
-                }
-            }
-        }
-
-
-        $scope.getSuku = function() {
-            $http({
-                method: 'GET',
-                url: '<?= base_url('acs/getSuku/ ') ?>'
-            }).then(function success(e) {
-                $scope.suku = e.data;
-            }, function error(e) {
-                console.log(e.data, e.error);
-            });
-        };
-
-        $scope.getSuku();
-
-
-        $scope.getAgama = function() {
-            $http({
-                method: 'GET',
-                url: '<?= base_url('acs/getAgama/ ') ?>'
-            }).then(function success(e) {
-                $scope.agama = e.data;
-            }, function error(e) {
-                console.log(e.data, e.error);
-            });
-        };
-
-        $scope.getAgama();
-
-        $scope.getPatient = function() {
-            $http({
-                method: 'GET',
-                url: '<?= base_url('acs/get_all') ?>'
-            }).then(function succes(e) {
-                $scope.patients = e.data;
-            }, function error(e) {
-                console.log(e.data, e.error);
-            });
-        };
-
-        $scope.addPatient = function() {
-            // console.log($scope.patient);
-            $http({
-                method: 'POST',
-                url: '<?= base_url('acs/insert/') ?>',
-                data: {
-                    patient: $scope.patient
-                }
-            }).then(function success(e) {
-                $scope.errors = [];
-                $scope.patients.push(e.data.patient);
-                var modal_element = angular.element('#form-patient');
-                modal_element.modal('hide');
-                toastr.info('Data Berhasil Di Tambahkan', 'Information', {
-                    timeOut: 3000
-                });
-            }, function error(e) {
-                $scope.errors = e.data.errors;
-            });
-        }
-
-        $scope.edit = function(index) {
-            console.log(index)
-            $scope.patient = $scope.patients[index];
-            $scope.disabledAdd = true;
-            $scope.disabledUpdate = false;
-            var modal_element = angular.element('#form-patient');
-            modal_element.modal('show');
-        };
-
-        $scope.updatePatient = function() {
-            // console.log($scope.patient);
-            $http({
-                method: 'POST',
-                url: '<?= base_url('acs/update/') ?>',
-                data: {
-                    patient: $scope.patient
-                }
-            }).then(function success(e) {
-                $scope.errors = [];
-                var modal_element = angular.element('#form-patient');
-                modal_element.modal('hide');
-                toastr.info('Data Berhasil Diubah', 'Information', {
-                    timeOut: 3000
-                });
-            }, function error(e) {
-                $scope.errors = e.data.errors;
-            });
-        }
+<div class="modal fade" id="m_patient" role="dialog">
+    <div class="modal-dialog modal-sg">
+        <form id="f_patient" class="form-horizontal" method="post">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title text-center"></h4>
+                    <button type="button" class="close" data-dismiss="modal">x</button>
+                </div>
+                <div class="modal-body">
+                    <div class="modal-body">
+                        <div class="form-group row">
+                            <input type="hidden" class="form-control input-sm" name="id" value="">
+                            <label class="col-sm-3 control-label">Rekam Medis</label>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control input-sm" name="no_rm" value="">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-3 control-label">Nama</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control input-sm" name="nama" value="">
+                            </div>
+                        </div>
+                        <div class="form-group row" id="form-pasword">
+                            <label class="col-sm-3 control-label">Alamat</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control input-sm" name="alamat" value="">
+                            </div>
+                        </div>
+                        <div class="form-group row" id="form-pasword">
+                            <label class="col-sm-3 control-label">Tgl Lahir</label>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control input-sm datepicker" name="tgl_lahir" value="">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-3 control-label">Jenis Kelamin</label>
+                            <div class="col-sm-4">
+                                <select name="sex" class="form-control input-sm">
+                                    <option value="">== Please Select ==</option>
+                                    <option value="L">Laki- laki</option>
+                                    <option value="P">Perempuan</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-3 control-label">Suku</label>
+                            <div class="col-sm-4">
+                                <select name="suku" class="form-control input-sm">
+                                    <option value="">== Please Select ==</option>
+                                    <?php
+                                    foreach ($list_suku as $suku) {
+                                        ?>
+                                        <option value="<?= $suku->idsuku ?>"><?= $suku->suku ?></option>
+                                    <?php } ?>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-3 control-label">Agama</label>
+                            <div class="col-sm-4">
+                                <select name="agama" class="form-control input-sm">
+                                    <option value="">== Please Select ==</option>
+                                    <?php
+                                    foreach ($list_agama as $agama) {
+                                        ?>
+                                        <option value="<?= $agama->idagama ?>"><?= $agama->agama ?></option>
+                                    <?php } ?>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary btn-square" id="b_patient">Simpan</button>
+                            <button type="button" class="btn btn-danger btn-square" data-dismiss="modal">Batal</button>
+                        </div>
+                    </div>
+        </form>
+    </div>
+</div>
 
 
-        $scope.delete = function(id) {
-            var conf = confirm("Yakin mau menghapus !!");
-            if (conf == true) {
-                $http({
-                    method: 'POST',
-                    url: '<?php echo site_url('acs/delete/') ?>',
-                    data: {
-                        ID: id
-                    }
-                }).then(function success(e) {
-                    $scope.patients.splice($scope.patients.indexOf($scope.patients));
-                    toastr.info('Data Berhasil Dihapus', 'Information', {
-                        timeOut: 3000
-                    });
-                }, function error(e) {
-                    $scope.errors = e.data.errors;
-                    console.log(e.data, e.errors);
-                });
-            }
-        }
-
-        $scope.getPatient();
+<?php
+$pesan = $this->session->userdata('message');
+if ($pesan) {
+    echo "<script>
+    $(document).ready(function() {
+        toastr.info('$pesan', 'Information', {timeOut: 3000});
     });
+    </script>";
+}
+?>
 
-    // alert('ok');
+<script>
+    var table;
+
+    $(document).ready(function() {
+
+        table = $('#table').DataTable({
+
+            "processing": true, //Feature control the processing indicator.
+            "serverSide": true, //Feature control DataTables' server-side processing mode.
+
+            // Load data for the table's content from an Ajax source
+            "ajax": {
+                "url": "<?= base_url('acs/ajax_list') ?>",
+                "type": "POST"
+            },
+            //Set column definition initialisation properties.
+            "columnDefs": [{
+                "targets": [-1], //last column
+                "orderable": false, //set not orderable
+            }, ],
+        });
+
+        $("input[name=\"tgl_lahir\"]").daterangepicker({
+            singleDatePicker: true,
+            showDropdowns: true,
+            "locale": {
+                "format": "YYYY/MM/DD",
+                "separator": "-",
+            }
+        });
+
+        var id = $('input:text[name=id]');
+        var no_rm = $('input:text[name=no_rm]');
+        var nama = $('input:text[name=nama]');
+        var tgl_lahir = $('input:text[name=tgl_lahir]');
+        var alamat = $('input:text[name=alamat]');
+        var sex = $('select[name=sex]');
+        var suku = $('select[name=suku]');
+        var agama = $('select[name=agama]');
+
+        $(".e_patient").click(function() {
+            $('input:text[name=no_rm]').attr('readonly', true);
+        });
+
+        $(".t_patient").click(function() {
+            $('input:text[name=no_rm]').attr('readonly', false);
+        });
+
+        $('#b_patient').click(function(event) {
+            var string = $("#f_patient").serialize();
+
+            if (nik.val().length == 0) {
+                nik.focus();
+                return false;
+            }
+            if (patientname.val().length == 0) {
+                patientname.focus();
+                return false;
+            }
+            if (patient_group.val().length == 0) {
+                patient_group.focus();
+                return false;
+            }
+        });
+
+
+        $(".t_patient, .e_patient").click(function() {
+            var id = $(this).attr("data-id");
+            // var role_name = $(this).attr("data-role");
+            $("#m_patient").modal('show');
+            judul(id);
+            $.ajax({
+                type: "GET",
+                url: "<?php echo base_url() ?>acs/req_data/tblpasien/" + id,
+                dataType: "JSON",
+                success: function(data) {
+                    // alert(data);
+                    $('input:hidden[name=id]').val(data.id);
+                    no_rm.val(data.no_rm);
+                    nama.val(data.nama);
+                    tgl_lahir.val(data.tgl_lahir);
+                    alamat.val(data.alamat);
+                    sex.val(data.sex);
+                    suku.val(data.idsuku);
+                    agama.val(data.idagama);
+                },
+                error: function(jqXHR, textStatus, errorThrown) {
+                    alert('Error get data from ajax');
+                }
+            });
+        });
+
+
+        $(".d_patient").click(function() {
+            var id = $(this).attr("data-id");
+            var pilih = confirm('Apakah Anda Yakin Data Akan di hapus ? ');
+            if (pilih == true) {
+                $.ajax({
+                    type: "GET",
+                    url: "<?= base_url() ?>acs/delete/tblpasien/" + id,
+                    data: "id=" + id,
+                    success: function(data) {
+                        location.reload();
+                    }
+                });
+            }
+        });
+
+        //fungsi judul modal
+        function judul(id) {
+            if (id != 0) {
+                $(".modal-title").text("Form Edit patient");
+                $("#f_patient").attr('action', '<?= base_url() ?>acs/update/tblpasien');
+            } else {
+                $(".modal-title").text("Form Add patient ");
+                $("#f_patient").attr('action', '<?= base_url() ?>acs/add/tblpasien');
+            }
+        }
+
+
+    });
 </script>

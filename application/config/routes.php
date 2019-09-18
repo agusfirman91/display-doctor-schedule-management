@@ -19,5 +19,8 @@ $route['main/access-permission'] = 'main/access_permission';
 $route['main/add-access-permission'] = 'main/access_permission_add';
 $route['main/edit-access-permission/(:num)'] = 'main/access_permission_edit/$1';
 $route['display/(:any)'] = 'display/index/$1';
+
+// acs application
+$route['acs/create-orders'] = 'acs/create_orders';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

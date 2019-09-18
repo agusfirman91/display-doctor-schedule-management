@@ -10,17 +10,20 @@
 	<title>Main Applications</title>
 	<link rel="shortcut icon" src="<?= base_url('assets/images/uploads/') . $setting->image_icon; ?>" type="image/x-icon" />
 	<link href="<?= base_url('assets/css/app.css') ?>" rel="stylesheet">
+	<link href="<?php echo base_url() ?>assets/css/sweetalert2.css" rel="stylesheet">
 	<link href="<?= base_url() ?>assets/css/font-awesome.css">
-	<link href="<?php echo base_url() . 'assets/css/sweetalert2.css' ?>" rel="stylesheet">
+
 	<script src="<?= base_url() ?>assets/js/jquery.min.js"></script>
-	<script src="<?= base_url() . 'assets/js/sweetalert2.js' ?>"></script>
-	<link rel="stylesheet" href="<?= base_url() ?>assets/treeview/simTree.css">
+	<script src="<?= base_url() ?>assets/js/sweetalert2.js"></script>
 	<script src="<?= base_url() ?>assets/treeview/simTree.js"></script>
+
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/css/select2.min.css" rel="stylesheet" />
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/js/select2.min.js"></script>
 </head>
 
 <body>
 	<div class="wrapper">
-		<nav class="sidebar toggled">
+		<nav class="sidebar">
 			<div class="sidebar-content">
 				<a class="sidebar-brand" href="<?= base_url() ?>home" target="_blank">
 					<img src="<?= base_url('assets/images/uploads/') . $setting->image_icon; ?>" alt="" style="width:50px;height:50px">
@@ -92,18 +95,18 @@
 	<script src="<?= base_url('assets/js/app.js') ?>"></script>
 	<script>
 		// (function() {
-		//     $(document).ready(function() {
-		//         $('#navbox-trigger').click(function() {
-		//             return $('#navigation-bar').toggleClass('navbox-open');
-		//         });
-		//         return $(document).on('click', function(e) {
-		//             var $target;
-		//             $target = $(e.target);
-		//             if (!$target.closest('.navbox').length && !$target.closest('#navbox-trigger').length) {
-		//                 return $('#navigation-bar').removeClass('navbox-open');
-		//             }
-		//         });
-		//     });
+		// 	$(document).ready(function() {
+		// 		$('#navbox-trigger').click(function() {
+		// 			return $('#navigation-bar').toggleClass('navbox-open');
+		// 		});
+		// 		return $(document).on('click', function(e) {
+		// 			var $target;
+		// 			$target = $(e.target);
+		// 			if (!$target.closest('.navbox').length && !$target.closest('#navbox-trigger').length) {
+		// 				return $('#navigation-bar').removeClass('navbox-open');
+		// 			}
+		// 		});
+		// 	});
 		// }.call(this));
 
 		$(function() {
