@@ -126,6 +126,15 @@ if ($pesan) {
 <script>
     var table;
 
+
+    var id = $('input:text[name=id]');
+    var no_rm = $('input:text[name=no_rm]');
+    var nama = $('input:text[name=nama]');
+    var tgl_lahir = $('input:text[name=tgl_lahir]');
+    var alamat = $('input:text[name=alamat]');
+    var sex = $('select[name=sex]');
+    var suku = $('select[name=suku]');
+    var agama = $('select[name=agama]');
     $(document).ready(function() {
 
         table = $('#table').DataTable({
@@ -154,14 +163,7 @@ if ($pesan) {
             }
         });
 
-        var id = $('input:text[name=id]');
-        var no_rm = $('input:text[name=no_rm]');
-        var nama = $('input:text[name=nama]');
-        var tgl_lahir = $('input:text[name=tgl_lahir]');
-        var alamat = $('input:text[name=alamat]');
-        var sex = $('select[name=sex]');
-        var suku = $('select[name=suku]');
-        var agama = $('select[name=agama]');
+
 
         $(".e_patient").click(function() {
             $('input:text[name=no_rm]').attr('readonly', true);
@@ -189,59 +191,63 @@ if ($pesan) {
         });
 
 
-        $(".t_patient, .e_patient").click(function() {
+        $(".t_patient").click(function() {
             var id = $(this).attr("data-id");
             // var role_name = $(this).attr("data-role");
             $("#m_patient").modal('show');
             judul(id);
-            $.ajax({
-                type: "GET",
-                url: "<?php echo base_url() ?>acs/req_data/tblpasien/" + id,
-                dataType: "JSON",
-                success: function(data) {
-                    // alert(data);
-                    $('input:hidden[name=id]').val(data.id);
-                    no_rm.val(data.no_rm);
-                    nama.val(data.nama);
-                    tgl_lahir.val(data.tgl_lahir);
-                    alamat.val(data.alamat);
-                    sex.val(data.sex);
-                    suku.val(data.idsuku);
-                    agama.val(data.idagama);
-                },
-                error: function(jqXHR, textStatus, errorThrown) {
-                    alert('Error get data from ajax');
-                }
-            });
         });
 
-
-        $(".d_patient").click(function() {
-            var id = $(this).attr("data-id");
-            var pilih = confirm('Apakah Anda Yakin Data Akan di hapus ? ');
-            if (pilih == true) {
-                $.ajax({
-                    type: "GET",
-                    url: "<?= base_url() ?>acs/delete/tblpasien/" + id,
-                    data: "id=" + id,
-                    success: function(data) {
-                        location.reload();
-                    }
-                });
-            }
-        });
-
-        //fungsi judul modal
-        function judul(id) {
-            if (id != 0) {
-                $(".modal-title").text("Form Edit patient");
-                $("#f_patient").attr('action', '<?= base_url() ?>acs/update/tblpasien');
-            } else {
-                $(".modal-title").text("Form Add patient ");
-                $("#f_patient").attr('action', '<?= base_url() ?>acs/add/tblpasien');
-            }
-        }
 
 
     });
+
+
+    function edit_patient(id) {
+        judul(id);
+        $.ajax({
+            type: "GET",
+            url: "<?php echo base_url() ?>acs/req_data/tblpasien/" + id,
+            dataType: "JSON",
+            success: function(data) {
+                $('input:hidden[name=id]').val(data.id);
+                no_rm.val(data.no_rm);
+                nama.val(data.nama);
+                tgl_lahir.val(data.tgl_lahir);
+                alamat.val(data.alamat);
+                sex.val(data.sex);
+                suku.val(data.idsuku);
+                agama.val(data.idagama);
+                $("#m_patient").modal('show');
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+                alert('Error get data from ajax');
+            }
+        });
+    }
+
+    function delete_patient(id) {
+        var pilih = confirm('Apakah Anda Yakin Data Akan di hapus ? ');
+        if (pilih == true) {
+            $.ajax({
+                type: "GET",
+                url: "<?= base_url() ?>acs/delete/tblpasien/" + id,
+                data: "id=" + id,
+                success: function(data) {
+                    location.reload();
+                }
+            });
+        }
+    }
+
+    //fungsi judul modal
+    function judul(id) {
+        if (id != 0) {
+            $(".modal-title").text("Form Edit patient");
+            $("#f_patient").attr('action', '<?= base_url() ?>acs/update/tblpasien');
+        } else {
+            $(".modal-title").text("Form Add patient ");
+            $("#f_patient").attr('action', '<?= base_url() ?>acs/add/tblpasien');
+        }
+    }
 </script>

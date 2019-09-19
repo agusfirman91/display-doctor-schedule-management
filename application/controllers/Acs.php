@@ -100,10 +100,10 @@ class Acs extends CI_Controller
             $row[] = $patient->agama;
             //add html for action
             $row[] = '
-                    <a href="javascript:void(0);" class="e_patient" data-id="' . $patient->id . '" data-role="' . $patient->nama . '" data-toggle="tooltip" data-placement="top" title="Edit patient" > 
+                    <a href="javascript:void(0);"  title="Edit patient" onclick="edit_patient(' . "'" . $patient->id . "'" . ')" > 
                     <span class="fa fa-edit"></span>
                     </a>
-                    <a href="javascript:void(0);" class="d_patient" data-id="' . $patient->id . '" data-toggle="tooltip" data-placement="top" title="Delete patient">
+                    <a href="javascript:void(0);" onclick="delete_patient(' . "'" . $patient->id . "'" . ')" title="Delete patient">
                     <span class="fa fa-trash"></span>
                     </a>';
             // '<a class="btn btn-sm btn-primary" href="javascript:void(0)" title="Edit" onclick="edit_patient(' . "'" . $patient->id . "'" . ')"><i class="glyphicon glyphicon-pencil"></i> Edit</a>
