@@ -24,13 +24,13 @@
                         <td><?= $nurse_spv->name; ?></td>
                         <td><?= $nurse_spv->plasma_name; ?></td>
                         <td>
-                            <a href="javascript:void(0);" class="e_nurse_spv" data-id="<?= $nurse_spv->id ?>" data-role="<?= $nurse_spv->name ?>"data-toggle="tooltip" data-placement="top" title="Edit nurse_spv">
+                            <a href="javascript:void(0);" class="e_nurse_spv" data-id="<?= $nurse_spv->id ?>" data-role="<?= $nurse_spv->name ?>" data-toggle="tooltip" data-placement="top" title="Edit nurse_spv">
                                 <i class="align-middle" data-feather="edit"></i></a>
                             <a href="javascript:void(0);" class="d_nurse_spv" data-id="<?= $nurse_spv->id ?>" data-toggle="tooltip" data-placement="top" title="Delete nurse_spv">
                                 <i class="align-middle" data-feather="delete"></i></a>
                         </td>
                     </tr>
-                    <?php
+                <?php
                     $no++;
                 }
                 ?>
@@ -54,17 +54,17 @@
                 </div>
                 <div class="modal-body">
                     <input type="hidden" class="form-control input-sm" name="id" readonly>
-                   <div class="form-group row">
+                    <div class="form-group row">
                         <input type="hidden" class="form-control input-sm" name="id" value="">
                         <label class="col-sm-3 control-label">Nurse Name</label>
                         <div class="col-sm-8">
                             <select name="nurse_id" class="form-control input-sm custom-select">
                                 <option value="">== Please Select ==</option>
                                 <?php
-                                    foreach ($list_nurse as $nurse) {
-                                ?>
-                                <option value="<?= $nurse->id?>"><?= $nurse->name?></option>
-                                    <?php }?>
+                                foreach ($list_nurse as $nurse) {
+                                    ?>
+                                    <option value="<?= $nurse->id ?>"><?= $nurse->name ?></option>
+                                <?php } ?>
                             </select>
                         </div>
                     </div>
@@ -74,10 +74,10 @@
                             <select name="plasma_id" class="form-control input-sm custom-select">
                                 <option value="">== Please Select ==</option>
                                 <?php
-                                    foreach ($list_plasma as $plasma) {
-                                ?>
-                                <option value="<?= $plasma->id?>"><?= $plasma->name?></option>
-                                    <?php }?>
+                                foreach ($list_plasma as $plasma) {
+                                    ?>
+                                    <option value="<?= $plasma->id ?>"><?= $plasma->name ?></option>
+                                <?php } ?>
                             </select>
                         </div>
                     </div>
@@ -104,13 +104,18 @@ if ($pesan) {
 
 <script>
     $(document).ready(function() {
-        var nurse_spvname = $('input:text[name=nurse_spvname]');
+        var nurse_id = $('select[name=nurse_id]');
+        var plasma_id = $('select[name=plasma_id]');
 
         $('#b_nurse_spv').click(function(event) {
             var string = $("#f_nurse_spv").serialize();
 
-            if (nurse_spvname.val().length == 0) {
-                nurse_spvname.focus();
+            if (nurse_id.val().length == 0) {
+                nurse_id.focus();
+                return false;
+            }
+            if (plasma_id.val().length == 0) {
+                plasma_id.focus();
                 return false;
             }
         });
@@ -128,7 +133,8 @@ if ($pesan) {
                 success: function(data) {
                     $("#m_nurse_spv").modal('show');
                     $('input:hidden[name=id]').val(data.id);
-                    nurse_spvname.val(data.name);
+                    nurse_id.val(data.nurse_id);
+                    plasma_id.val(data.plasma_id);
                 },
                 error: function(jqXHR, textStatus, errorThrown) {
                     alert('Error get data from ajax');
@@ -155,10 +161,10 @@ if ($pesan) {
         //fungsi judul modal
         function judul(id) {
             if (id != 0) {
-                $(".modal-title").text("Form Edit nurse_spv");
+                $(".modal-title").text("Form Edit Nurse SPV");
                 $("#f_nurse_spv").attr('action', '<?= base_url() ?>main/update/nurse_spv');
             } else {
-                $(".modal-title").text("Form Add nurse_spv ");
+                $(".modal-title").text("Form Add Nurse SPV ");
                 $("#f_nurse_spv").attr('action', '<?= base_url() ?>main/add/nurse_spv');
             }
         }

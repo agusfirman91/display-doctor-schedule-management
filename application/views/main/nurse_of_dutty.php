@@ -17,20 +17,20 @@
             <tbody>
                 <?php
                 $no = 1;
-                foreach ($list_nurse_of_duty as $nurse) {
+                foreach ($list_nurse_of_dutty as $nurse) {
                     ?>
                     <tr>
                         <td><?= $no; ?></td>
                         <td><?= $nurse->name; ?></td>
                         <td><?= $nurse->plasma_name; ?></td>
                         <td>
-                            <a href="javascript:void(0);" class="e_nurse" data-id="<?= $nurse->id ?>" data-role="<?= $nurse->name ?>"data-toggle="tooltip" data-placement="top" title="Edit nurse">
+                            <a href="javascript:void(0);" class="e_nurse" data-id="<?= $nurse->id ?>" data-role="<?= $nurse->name ?>" data-toggle="tooltip" data-placement="top" title="Edit nurse">
                                 <i class="align-middle" data-feather="edit"></i></a>
                             <a href="javascript:void(0);" class="d_nurse" data-id="<?= $nurse->id ?>" data-toggle="tooltip" data-placement="top" title="Delete nurse">
                                 <i class="align-middle" data-feather="delete"></i></a>
                         </td>
                     </tr>
-                    <?php
+                <?php
                     $no++;
                 }
                 ?>
@@ -58,13 +58,13 @@
                         <input type="hidden" class="form-control input-sm" name="id" value="">
                         <label class="col-sm-3 control-label">Nurse Name</label>
                         <div class="col-sm-8">
-                            <select name="plasma_id" class="form-control input-sm custom-select">
+                            <select name="nurse_id" class="form-control input-sm custom-select">
                                 <option value="">== Please Select ==</option>
                                 <?php
-                                    foreach ($list_nurse as $nurse) {
-                                ?>
-                                <option value="<?= $nurse->id?>"><?= $nurse->name?></option>
-                                    <?php }?>
+                                foreach ($list_nurse as $nurse) {
+                                    ?>
+                                    <option value="<?= $nurse->id ?>"><?= $nurse->name ?></option>
+                                <?php } ?>
                             </select>
                         </div>
                     </div>
@@ -74,10 +74,10 @@
                             <select name="plasma_id" class="form-control input-sm custom-select">
                                 <option value="">== Please Select ==</option>
                                 <?php
-                                    foreach ($list_plasma as $plasma) {
-                                ?>
-                                <option value="<?= $plasma->id?>"><?= $plasma->name?></option>
-                                    <?php }?>
+                                foreach ($list_plasma as $plasma) {
+                                    ?>
+                                    <option value="<?= $plasma->id ?>"><?= $plasma->name ?></option>
+                                <?php } ?>
                             </select>
                         </div>
                     </div>
@@ -128,7 +128,7 @@ if ($pesan) {
             judul(id);
             $.ajax({
                 type: "GET",
-                url: "<?php echo base_url() ?>main/req_data/nurse/" + id,
+                url: "<?php echo base_url() ?>main/req_data/nurse_of_dutty/" + id,
                 dataType: "JSON",
                 success: function(data) {
                     $("#m_nurse").modal('show');
@@ -149,7 +149,7 @@ if ($pesan) {
             if (pilih == true) {
                 $.ajax({
                     type: "GET",
-                    url: "<?= base_url() ?>main/delete/nurse/" + id,
+                    url: "<?= base_url() ?>main/delete/nurse_of_dutty/" + id,
                     data: "id=" + id,
                     success: function(data) {
                         location.reload();
@@ -161,11 +161,11 @@ if ($pesan) {
         //fungsi judul modal
         function judul(id) {
             if (id != 0) {
-                $(".modal-title").text("Form Edit Nurse");
-                $("#f_nurse").attr('action', '<?= base_url() ?>main/update/nurse');
+                $(".modal-title").text("Form Edit Nurse Of Dutty");
+                $("#f_nurse").attr('action', '<?= base_url() ?>main/update/nurse_of_dutty');
             } else {
-                $(".modal-title").text("Form Add Nurse ");
-                $("#f_nurse").attr('action', '<?= base_url() ?>main/add/nurse');
+                $(".modal-title").text("Form Add Nurse Of Dutty ");
+                $("#f_nurse").attr('action', '<?= base_url() ?>main/add/nurse_of_dutty');
             }
         }
 

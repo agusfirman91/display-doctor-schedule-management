@@ -17,41 +17,33 @@ class Main extends CI_Controller
         }
         $this->data['setting'] = $this->m_main->getWhereRow('setting', 'is_active=1');
 
-        $group_id = $this->session->userdata('group_id');
-        $this->data['list_menus_access'] = $this->m_main->getAllJoinWhere(
-            "user",
-            "group_access_permission",
-            "menus",
-            "id as user_id",
-            "group_id as group_access_permission_group_id",
-            "*",
-            "group_access_permission.group_id=user.group_id",
-            "group_access_permission.menu_id=menus.id",
-            $group_id
-        );
+        $groupId = $this->session->userdata('group_id');
+        $userId = $this->session->userdata('user_id');
+
+        // cari menu 
+        $this->data['list_menus_access'] = $this->m_main->getMenu($groupId, $userId);
+
+        // cari sub menu 
         foreach ($this->data['list_menus_access'] as $k => $menu) {
-            $this->data['list_menus_access'][$k]->parent_menu = $this->m_main->getWhere('menus', 'menus.parent_id=' . $menu->id);
+            $this->data['list_menus_access'][$k]->parent_menu = $this->m_main->getSubMenu($menu->id, $menu->group_id);
         }
 
         $this->data['list_menus'] = $this->m_main->getWhere('menus', 'parent_id=0');
         foreach ($this->data['list_menus'] as $k => $menu) {
-            $this->data['list_menus'][$k]->parent_menu = $this->m_main->getWhere('menus', 'menus.parent_id=' . $menu->id);
+            $this->data['list_menus'][$k]->parent_menu = $this->m_main->getWhere('menus', 'parent_id=' . $menu->id);
         }
 
-        $userID = $this->session->userdata('user_id');
-        $this->data['list_user'] = $this->m_main->getWhere('user', 'id !=' . $userID);
-        $this->data['groups'] = $this->m_main->getAll('groups');
-        foreach ($this->data['list_user'] as $k => $user) {
-            $this->data['list_user'][$k]->groups = $this->m_main->getWhereJoin('user', 'groups', '*', 'name', 'user.group_id=groups.id', 'user.id=' . $user->id);
-        }
         $this->data['csrf'] = $this->_get_csrf_nonce();
         // $this->output->enable_profiler(TRUE);
+        // var_dump($this->db->last_query());
+        // var_dump($this->data['list_menus_access']);
+        // die;
     }
 
 
     public function index()
     {
-        $this->template->load('template', 'main/list_user', $this->data);
+        $this->template->load('template', 'main/dashboard', $this->data);
     }
 
     public function _get_csrf_nonce()
@@ -111,6 +103,11 @@ class Main extends CI_Controller
 
     public function user()
     {
+        $this->data['list_user'] = $this->m_main->getWhere('user', 'id !=' . $userId);
+        $this->data['groups'] = $this->m_main->getAll('groups');
+        foreach ($this->data['list_user'] as $k => $user) {
+            $this->data['list_user'][$k]->groups = $this->m_main->getWhereJoin('user', 'groups', '*', 'name', 'user.group_id=groups.id', 'user.id=' . $user->id);
+        }
         $this->template->load('template', 'main/list_user', $this->data);
     }
 
@@ -186,22 +183,22 @@ class Main extends CI_Controller
         $this->template->load('template', 'main/nurse_spv', $this->data);
     }
 
-    public function nurse_of_duty()
+    public function nurse_of_dutty()
     {
-        $this->data['list_nurse_of_duty'] = $this->m_main->getAllJoin(
-            'nurse_of_duty',
+        $this->data['list_nurse_of_dutty'] = $this->m_main->getAllJoin(
+            'nurse_of_dutty',
             'plasma',
             'nurse',
             '*',
             'name as plasma_name',
             'name',
-            'nurse_of_duty.plasma_id=plasma.id',
-            'nurse_of_duty.nurse_id=nurse.id'
+            'nurse_of_dutty.plasma_id=plasma.id',
+            'nurse_of_dutty.nurse_id=nurse.id'
         );
         $this->data['list_plasma'] = $this->m_main->getAll('plasma');
         $this->data['list_nurse'] = $this->m_main->getAll('nurse');
 
-        $this->template->load('template', 'main/nurse_of_duty', $this->data);
+        $this->template->load('template', 'main/nurse_of_dutty', $this->data);
     }
 
     public function pic_nurse()
@@ -328,10 +325,14 @@ class Main extends CI_Controller
 
             $menuId = '';
             $menuData = $this->input->post('menus');
+
+            $dataName = array(
+                "name" => $this->input->post('name')
+            );
             foreach ($menuData as $mn) {
                 $data = array(
                     "menu_id" => $mn,
-                    "group_id" => $id
+                    "group_id" => $id,
                 );
                 $this->db->where($data);
                 $dataExist = $this->db->get('group_access_permission')->row();
@@ -341,13 +342,15 @@ class Main extends CI_Controller
                     $this->session->set_flashdata('message', "Data Berhasil Disimpan");
                 }
             }
+            $this->db->update('groups', $dataName, array('id' => $id));
             $integerIDs = array_map('intval', $menuData);
             // $this->db->delete('id');
             $this->db->where('group_id', $id);
             $this->db->where_not_in('menu_id', $integerIDs);
             $this->db->delete('group_access_permission');
-            $this->session->set_flashdata('message', "Data Berhasil Disimpan");
+            $this->session->set_flashdata('message', "Data Berhasil Di Ubah");
             redirect('main/access_permission');
+            // var_dump($data);
         } else {
             $this->template->load('template', 'main/access_permission_edit', $this->data);
         }
@@ -374,7 +377,7 @@ class Main extends CI_Controller
 
             // $this->data['currentMenus'] = $this->m_main->getWhereJoin('group_access_permission', 'menus', 'id as group_id,group_id,menu_id', '*', 'group_access_permission.menu_id=menus.id', 'group_access_permission.group_id=' . $id);
 
-            // $this->session->set_flashdata('message', "Data Berhasil Disimpan");
+            $this->session->set_flashdata('message', "Data Berhasil Disimpan");
             redirect('main/access_permission');
         } else {
             $this->template->load('template', 'main/access_permission_add', $this->data);
@@ -550,12 +553,12 @@ class Main extends CI_Controller
                 "name" => $this->input->post('nursename')
             );
             $url = 'main/nurse';
-        } else if ($table == 'nurse_of_duty') {
+        } else if ($table == 'nurse_of_dutty') {
             $this->data = array(
                 "nurse_id" => $this->input->post('nurse_id'),
                 "plasma_id" => $this->input->post('plasma_id')
             );
-            $url = 'main/nurse';
+            $url = 'main/nurse-of-dutty';
         } else if ($table == 'nurse_spv') {
             $this->data = array(
                 "nurse_id" => $this->input->post('nurse_id'),
@@ -575,7 +578,7 @@ class Main extends CI_Controller
                 "plasma_id" => $this->input->post('plasma_id')
             );
             $url = 'main/pic-nurse';
-        } else if ($table == 'doctor_of_duty') {
+        } else if ($table == 'doctor_of_dutty') {
             $this->data = array(
                 "doctor_id" => $this->input->post('doctor_id'),
                 "plasma_id" => $this->input->post('plasma_id')
@@ -601,16 +604,16 @@ class Main extends CI_Controller
             $url = 'main/image-slide';
             $this->load->library('upload', $config);
             if (!$this->upload->do_upload('pic_name')) {
-                $this->session->set_flashdata('message', $this->upload->display_errors());
+                $this->session->set_flashdata('message', 'Icon', $this->upload->display_errors());
                 redirect($url);
             } else {
                 $pic_encript = $this->upload->data('file_name');
-                $this->data = array(
-                    "name" => $pic_encript,
-                    "description" => $this->input->post('description'),
-                    "plasma_id" => $this->input->post('plasma_id')
-                );
             }
+            $this->data = array(
+                "name" => $pic_encript,
+                "description" => $this->input->post('description'),
+                "plasma_id" => $this->input->post('plasma_id')
+            );
         } else if ($table == 'setting') {
             $config['upload_path'] = './assets/images/uploads/';
             $config['allowed_types'] = 'jpg|png|jpeg|image|ico';
@@ -747,12 +750,18 @@ class Main extends CI_Controller
                 "name" => $this->input->post('nursename')
             );
             $url = 'main/nurse';
-        } else if ($table == 'nurse_of_duty') {
+        } else if ($table == 'nurse_of_dutty') {
             $this->data = array(
                 "nurse_id" => $this->input->post('nurse_id'),
                 "plasma_id" => $this->input->post('plasma_id')
             );
-            $url = 'main/nurse';
+            $url = 'main/nurse-of-dutty';
+        } else if ($table == 'nurse_spv') {
+            $this->data = array(
+                "nurse_id" => $this->input->post('nurse_id'),
+                "plasma_id" => $this->input->post('plasma_id')
+            );
+            $url = 'main/nurse-spv';
         } else if ($table == 'doctor_room') {
             $this->data = array(
                 "room_number" => $this->input->post('room_number'),
@@ -777,21 +786,18 @@ class Main extends CI_Controller
             $config['encrypt_name'] = TRUE;
 
             $url = 'main/image-slide';
-            $pic_old = $this->input->post('pic_old');
-            $pic_name = $this->input->post('pic_name');
             $this->load->library('upload', $config);
+            $pic_old = $this->input->post('pic_old');
+            // $pic_name = $this->input->post('pic_name');
             if (!$_FILES['pic_name']['name']) {
                 $pic_name = $pic_old;
             } else {
-                if (!$this->upload->do_upload('image')) {
-                    $this->session->set_flashdata('message', 'Image Display' . $this->upload->display_errors());
-                    redirect($url);
-                } else {
-                    $pic_name =  $this->upload->data('file_name');
+                if ($this->upload->do_upload('pic_name')) {
+                    $pic_name = $this->upload->data('file_name');
                 }
             }
             $this->data = array(
-                "name" => $pic_old,
+                "name" => $pic_name,
                 "description" => $this->input->post('description'),
                 "plasma_id" => $this->input->post('plasma_id')
             );
@@ -811,7 +817,6 @@ class Main extends CI_Controller
             if (!$_FILES['image_icon']['name']) {
                 $image_icon = $image_icon_old;
             } else {
-
                 if ($this->upload->do_upload('image_icon')) {
                     $image_icon = $this->upload->data('file_name');
                 }
@@ -848,8 +853,8 @@ class Main extends CI_Controller
         }
         $this->db->update($table, $this->data, array('id' => $this->input->post('id')));
         $this->session->set_flashdata('message', "Data Berhasil Diupdate");
-        redirect($url);
-        // var_dump($this->data);
+        // redirect($url);
+        var_dump($this->data);
     }
 
     public function req_data($table, $id)

@@ -14,6 +14,7 @@ $route['main/image-slide'] = 'main/image_slide';
 $route['main/display-management'] = 'main/display_management';
 $route['main/jam-besuk'] = 'main/jam_besuk';
 $route['main/nurse-spv'] = 'main/nurse_spv';
+$route['main/nurse-of-dutty'] = 'main/nurse_of_dutty';
 $route['main/change-password'] = 'main/change_password';
 $route['main/access-permission'] = 'main/access_permission';
 $route['main/add-access-permission'] = 'main/access_permission_add';

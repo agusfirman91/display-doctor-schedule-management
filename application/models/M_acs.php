@@ -154,7 +154,7 @@ class M_acs extends CI_Model
         $this->db->from($table1);
         $this->db->join($table2, $c_join1, 'left');
         $this->db->join($table3, $c_join2, 'left');
-        return $this->db->get()->result_array();
+        return $this->db->get()->result();
     }
     public function getAllJoinWhere($table1, $table2, $table3, $c_table1, $c_table2, $c_table3, $c_join1, $c_join2, $where)
     {

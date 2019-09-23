@@ -14,6 +14,7 @@
                     <th>Menu 1</th>
                     <th>Menu 2</th>
                     <th>Menu 3</th>
+                    <th>Description</th>
                     <th width="5%">Action</th>
                 </tr>
             </thead>
@@ -25,19 +26,25 @@
                     ?>
                     <tr>
                         <td><?= $no; ?></td>
-                        <td><?= $order->name; ?></td>
-                        <td><?= $order->name; ?></td>
-                        <td><?= $order->name; ?></td>
-                        <td><?= $order->name; ?></td>
-                        <td><?= $order->description; ?></td>
+                        <td><?= $order->no_rm; ?></td>
+                        <td><?= $order->nama; ?></td>
                         <td>
-                            <a href="javascript:void(0);" data-id="<?= $order->id; ?>" class="v_image">
-                                <img style="width:50px;height:50px" src="<?= base_url('assets/images/uploads/orders/') . $order->image ?>" name="view-image" alt="image-files">
-                            </a>
+                            <?php foreach ($order->menu_1 as $menu) : ?>
+                                <?= $menu->name ?>
+                            <?php endforeach ?>
                         </td>
                         <td>
-                            <a href="javascript:void(0);" class="e_order" data-id="<?= $order->id ?>" data-role="<?= $order->name ?>" data-toggle="tooltip" data-placement="top" title="Edit order">
-                                <i class="align-middle" data-feather="edit"></i></a>
+                            <?php foreach ($order->menu_2 as $menu) : ?>
+                                <?= $menu->name ?>
+                            <?php endforeach ?>
+                        </td>
+                        <td>
+                            <?php foreach ($order->menu_3 as $menu) : ?>
+                                <?= $menu->name ?>
+                            <?php endforeach ?>
+                        </td>
+                        <td><?= $order->description; ?></td>
+                        <td>
                             <a href="javascript:void(0);" class="d_order" data-id="<?= $order->id ?>" data-toggle="tooltip" data-placement="top" title="Delete order">
                                 <i class="align-middle" data-feather="delete"></i></a>
                         </td>

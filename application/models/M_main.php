@@ -68,14 +68,14 @@ class M_main extends CI_Model
         $this->db->join($table3, $c_join2, 'left');
         return $this->db->get()->result();
     }
-    public function getAllJoinWhere($table1, $table2, $table3, $c_table1, $c_table2, $c_table3, $c_join1, $c_join2, $where)
+    public function getAllJoinWhere($table1, $table2, $table3, $c_table1, $c_table2, $c_table3, $c_join1, $c_join2, $groupId, $userId)
     {
         $c_table = "$table1.$c_table1, $table2.$c_table2, $table3.$c_table3";
         $this->db->select($c_table);
         $this->db->from($table1);
         $this->db->join($table2, $c_join1, 'inner');
         $this->db->join($table3, $c_join2, 'inner');
-        $this->db->where(array('menus.parent_id' => '0', 'group_access_permission.group_id' => $where));
+        $this->db->where(array('menus.parent_id' => '0', $groupId, $userId));
         return $this->db->get()->result();
     }
 
@@ -116,5 +116,24 @@ class M_main extends CI_Model
         $this->db->where('username', $username);
         $query = $this->db->get();
         return $query->row();
+    }
+
+    function getMenu($groupId, $userId)
+    {
+        $this->db->select('menus.*,user.group_id');
+        $this->db->from('menus');
+        $this->db->join('group_access_permission', 'group_access_permission.menu_id = menus.id', 'inner');
+        $this->db->join('user', 'group_access_permission.group_id = user.group_id', 'inner');
+        $this->db->where(array('menus.parent_id' => '0', 'group_access_permission.group_id' => $groupId, 'user.id' => $userId));
+        return $this->db->get()->result();
+    }
+
+    function getSubMenu($id, $groupId)
+    {
+        $this->db->select('menus.*,group_access_permission.group_id');
+        $this->db->from('menus');
+        $this->db->join('group_access_permission', 'group_access_permission.menu_id = menus.id', 'inner');
+        $this->db->where(array('menus.parent_id' => $id, 'group_access_permission.group_id' => $groupId));
+        return $this->db->get()->result();
     }
 }

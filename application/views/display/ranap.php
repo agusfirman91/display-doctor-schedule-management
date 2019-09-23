@@ -32,9 +32,9 @@
                         foreach ($images as $img) {
                             $item_class = ($i == 1) ? 'active' : '';
                             ?>
-                        <div class="carousel-item <?= $item_class; ?> ">
-                            <img class="d-block w-100" src="<?= base_url('assets/images/uploads/') . $img->pic_name; ?>" alt="First slide">
-                        </div>
+                            <div class="carousel-item <?= $item_class; ?> ">
+                                <img class="d-block w-100" src="<?= base_url('assets/images/uploads/') . $img->pic_name; ?>" alt="First slide">
+                            </div>
                         <?php
                             $i++;
                         } ?>
@@ -72,11 +72,11 @@
                         }
                         return $v_doctor;
                     }
-                    foreach ($list_doctor_of_duty as $dod) {
+                    foreach ($list_doctor_of_dutty as $dod) {
                         ?>
-                    <li>
-                        <h5><?= v_doctor($dod->doctor_id); ?></h5>
-                    </li>
+                        <li>
+                            <h5><?= v_doctor($dod->doctor_id); ?></h5>
+                        </li>
                     <?php
                     }
                     ?>
@@ -102,9 +102,9 @@
                     }
                     foreach ($list_nurse_spv as $nurse_spv) {
                         ?>
-                    <li>
-                        <h5><?= v_nurse($nurse_spv->nurse_id); ?></h5>
-                    </li>
+                        <li>
+                            <h5><?= v_nurse($nurse_spv->nurse_id); ?></h5>
+                        </li>
                     <?php
                     }
                     ?>
@@ -128,11 +128,11 @@
                         }
                         return $v_nurse;
                     }
-                    foreach ($list_nurse_of_duty as $nod) {
+                    foreach ($list_nurse_of_dutty as $nod) {
                         ?>
-                    <li>
-                        <h5><?= v_nurse($nod->nurse_id); ?></h5>
-                    </li>
+                        <li>
+                            <h5><?= v_nurse($nod->nurse_id); ?></h5>
+                        </li>
                     <?php
                     }
                     ?>
@@ -158,9 +158,9 @@
                     }
                     foreach ($list_pic_nurse as $pic_nurse) {
                         ?>
-                    <li>
-                        <h5><?= v_pic_nurse($pic_nurse->nurse_id); ?></h5>
-                    </li>
+                        <li>
+                            <h5><?= v_pic_nurse($pic_nurse->nurse_id); ?></h5>
+                        </li>
                     <?php
                     }
                     ?>

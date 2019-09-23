@@ -20,22 +20,22 @@
                 $no = 1;
                 foreach ($list_image_slide as $image_slide) {
                     ?>
-                <tr>
-                    <td><?= $no; ?></td>
-                    <td>
-                        <a href="javascript:void(0);" data-id="<?= $image_slide->id; ?>" class="v_image">
-                            <img style="width:50px;height:50px" src="<?= base_url('assets/images/uploads/') . $image_slide->name ?>" name="view-image" alt="image-files">
-                        </a>
-                    </td>
-                    <td><?= $image_slide->plasma_name; ?></td>
-                    <td><?= $image_slide->description; ?></td>
-                    <td>
-                        <a href="javascript:void(0);" class="e_image_slide" data-id="<?= $image_slide->id ?>" data-role="<?= $image_slide->name ?>" data-toggle="tooltip" data-placement="top" title="Edit image_slide">
-                            <i class="align-middle" data-feather="edit"></i></a>
-                        <a href="javascript:void(0);" class="d_image_slide" data-id="<?= $image_slide->id ?>" data-toggle="tooltip" data-placement="top" title="Delete image_slide">
-                            <i class="align-middle" data-feather="delete"></i></a>
-                    </td>
-                </tr>
+                    <tr>
+                        <td><?= $no; ?></td>
+                        <td>
+                            <a href="javascript:void(0);" data-id="<?= $image_slide->id; ?>" class="v_image">
+                                <img style="width:50px;height:50px" src="<?= base_url('assets/images/uploads/') . $image_slide->name ?>" name="view-image" alt="image-files">
+                            </a>
+                        </td>
+                        <td><?= $image_slide->plasma_name; ?></td>
+                        <td><?= $image_slide->description; ?></td>
+                        <td>
+                            <a href="javascript:void(0);" class="e_image_slide" data-id="<?= $image_slide->id ?>" data-role="<?= $image_slide->name ?>" data-toggle="tooltip" data-placement="top" title="Edit image_slide">
+                                <i class="align-middle" data-feather="edit"></i></a>
+                            <a href="javascript:void(0);" class="d_image_slide" data-id="<?= $image_slide->id ?>" data-toggle="tooltip" data-placement="top" title="Delete image_slide">
+                                <i class="align-middle" data-feather="delete"></i></a>
+                        </td>
+                    </tr>
                 <?php
                     $no++;
                 }
@@ -70,7 +70,7 @@
                         <label class="col-sm-3 control-label">Slide Name</label>
                         <div class="col-sm-8">
                             <input type="file" class="input-sm" name="pic_name" size="20" value="" />
-                            <input type="hidden" class="form-control input-sm" name="pic_old">
+                            <input type="hidden" class="form-control input-sm" name="pic_old" value="">
                             <small class="form-text text-muted">
                                 Max Files 1 MB | 500x500.</small>
                         </div>
@@ -89,7 +89,7 @@
                                 <?php
                                 foreach ($list_plasma as $plasma) {
                                     ?>
-                                <option value="<?= $plasma->id ?>"><?= $plasma->name ?></option>
+                                    <option value="<?= $plasma->id ?>"><?= $plasma->name ?></option>
                                 <?php } ?>
                             </select>
                         </div>
@@ -119,7 +119,7 @@ if ($pesan) {
     $(document).ready(function() {
         var description = $('input:text[name=description]');
         var pic_name = $('input:file[name=pic_name]');
-        var pic_old = $('input:text[name=pic_old]');
+        var pic_old = $('input:hidden[name=pic_old]');
         var plasma_id = $('select[name=plasma_id]');
 
         $('#b_image_slide').click(function(event) {

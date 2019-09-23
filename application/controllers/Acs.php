@@ -14,29 +14,22 @@ class Acs extends CI_Controller
         $this->load->library('pagination');
         $this->data['setting'] = $this->m_main->getWhereRow('setting', 'is_active=1');
 
-        $group_id = $this->session->userdata('group_id');
-        $this->data['list_menus_access'] = $this->m_main->getAllJoinWhere(
-            "user",
-            "group_access_permission",
-            "menus",
-            "id as user_id",
-            "group_id as group_access_permission_group_id",
-            "*",
-            "group_access_permission.group_id=user.group_id",
-            "group_access_permission.menu_id=menus.id",
-            $group_id
-        );
-        foreach ($this->data['list_menus_access'] as $k => $menu) {
-            $this->data['list_menus_access'][$k]->parent_menu = $this->m_main->getWhere('menus', 'menus.parent_id=' . $menu->id);
-        }
+        $groupId = $this->session->userdata('group_id');
+        $userId = $this->session->userdata('user_id');
 
+        // cari menu 
+        $this->data['list_menus_access'] = $this->m_main->getMenu($groupId, $userId);
+
+        // cari sub menu 
+        foreach ($this->data['list_menus_access'] as $k => $menu) {
+            $this->data['list_menus_access'][$k]->parent_menu = $this->m_main->getSubMenu($menu->id, $menu->group_id);
+        }
         $this->data['list_menus'] = $this->m_main->getWhere('menus', 'parent_id=0');
         foreach ($this->data['list_menus'] as $k => $menu) {
             $this->data['list_menus'][$k]->parent_menu = $this->m_main->getWhere('menus', 'menus.parent_id=' . $menu->id);
         }
 
-        $userID = $this->session->userdata('user_id');
-        $this->data['list_user'] = $this->m_main->getWhere('user', 'id !=' . $userID);
+        $this->data['list_user'] = $this->m_main->getWhere('user', 'id !=' . $userId);
         $this->data['groups'] = $this->m_main->getAll('groups');
         foreach ($this->data['list_user'] as $k => $user) {
             $this->data['list_user'][$k]->groups = $this->m_main->getWhereJoin('user', 'groups', '*', 'name', 'user.group_id=groups.id', 'user.id=' . $user->id);
@@ -60,23 +53,38 @@ class Acs extends CI_Controller
 
     public function orders()
     {
-        $this->data['list_orders'] = $this->m_main->getAll('tblorders');
+        $this->data['list_orders'] = $this->m_main->getJoin('tblorders', 'tblpasien', '*', 'no_rm,nama', 'tblorders.id_patient=tblpasien.id');
+        // $this->data['list_user'] = $this->m_main->getWhere('user', 'id !=' . $userID);
+        // $this->data['menus'] = $this->m_main->getAll('tblmenus');
+        foreach ($this->data['list_orders'] as $k => $menus) {
+            $this->data['list_orders'][$k]->menu_1 = $this->m_acs->getWhereJoin('tblorders', 'tblmenus', 'menu_1', 'name', 'tblorders.menu_1=tblmenus.id', 'tblmenus.id=' . $menus->menu_1);
+        }
+        foreach ($this->data['list_orders'] as $k => $menus) {
+            $this->data['list_orders'][$k]->menu_2 = $this->m_acs->getWhereJoin('tblorders', 'tblmenus', 'menu_2', 'name', 'tblorders.menu_2=tblmenus.id', 'tblmenus.id=' . $menus->menu_2);
+        }
+        foreach ($this->data['list_orders'] as $k => $menus) {
+            $this->data['list_orders'][$k]->menu_3 = $this->m_acs->getWhereJoin('tblorders', 'tblmenus', 'menu_3', 'name', 'tblorders.menu_3=tblmenus.id', 'tblmenus.id=' . $menus->menu_3);
+        }
+        // var_dump($this->data['list_orders']);
+        // die;
         $this->template->load('template', 'acs/orders', $this->data);
     }
     public function create_orders()
     {
-        $this->data['list_suku'] = $this->m_main->getAll('tblsuku');
-        $this->data['list_agama'] = $this->m_main->getAll('tblagama');
-        $this->data['list_patients'] = $this->m_main->getAllJoin('tblpasien', 'tblsuku', 'tblagama', '*', 'suku', 'agama', 'tblpasien.idsuku=tblsuku.idsuku', 'tblpasien.idagama=tblagama.idagama');
-        $this->data['list_menus'] = $this->m_main->getAll('tblmenus');
+        $this->data['list_suku'] = $this->m_acs->getAll('tblsuku');
+        $this->data['list_agama'] = $this->m_acs->getAll('tblagama');
+        $this->data['list_patients'] = $this->m_acs->getAllJoin('tblpasien', 'tblsuku', 'tblagama', '*', 'suku', 'agama', 'tblpasien.idsuku=tblsuku.idsuku', 'tblpasien.idagama=tblagama.idagama');
+        $this->data['menus'] = $this->m_acs->getAllObject('tblmenus');
+        // var_dump($this->data['list_menus']);
+        // die;
         $this->template->load('template', 'acs/create-orders', $this->data);
     }
 
     public function patients()
     {
-        $this->data['list_suku'] = $this->m_main->getAll('tblsuku');
-        $this->data['list_agama'] = $this->m_main->getAll('tblagama');
-        $this->data['list_patients'] = $this->m_main->getAllJoin('tblpasien', 'tblsuku', 'tblagama', '*', 'suku', 'agama', 'tblpasien.idsuku=tblsuku.idsuku', 'tblpasien.idagama=tblagama.idagama');
+        $this->data['list_suku'] = $this->m_acs->getAll('tblsuku');
+        $this->data['list_agama'] = $this->m_acs->getAll('tblagama');
+        $this->data['list_patients'] = $this->m_acs->getAllJoin('tblpasien', 'tblsuku', 'tblagama', '*', 'suku', 'agama', 'tblpasien.idsuku=tblsuku.idsuku', 'tblpasien.idagama=tblagama.idagama');
         // var_dump($this->data['data']);
         $this->template->load('template', 'acs/patients', $this->data);
     }
@@ -106,9 +114,6 @@ class Acs extends CI_Controller
                     <a href="javascript:void(0);" onclick="delete_patient(' . "'" . $patient->id . "'" . ')" title="Delete patient">
                     <span class="fa fa-trash"></span>
                     </a>';
-            // '<a class="btn btn-sm btn-primary" href="javascript:void(0)" title="Edit" onclick="edit_patient(' . "'" . $patient->id . "'" . ')"><i class="glyphicon glyphicon-pencil"></i> Edit</a>
-            // <a class="btn btn-sm btn-danger" href="javascript:void(0)" title="Delete" onclick="delete_patient(' . "'" . $patient->id . "'" . ')"><i class="glyphicon glyphicon-trash"></i> Delete</a>
-            // <a class="btn btn-sm btn-default" href="javascript:void(0)" title="View" onclick="view_patient(' . "'" . $patient->id . "'" . ')"><i class="glyphicon glyphicon-file"></i> View</a>';
             $data[] = $row;
         }
         $output = array(
@@ -175,7 +180,18 @@ class Acs extends CI_Controller
 
     public function add($table)
     {
-        if ($table == 'tblpasien') {
+        if ($table == 'tblorders') {
+            $this->data = array(
+                "id_patient" => $this->input->post('pasien'),
+                "menu_1" => $this->input->post('menu-1'),
+                "menu_2" => $this->input->post('menu-2'),
+                "menu_3" => $this->input->post('menu-3'),
+                "description" => $this->input->post('description'),
+                "date_create" => date('Y-m-d')
+
+            );
+            $url = 'acs/orders';
+        } else if ($table == 'tblpasien') {
             $this->data = array(
                 "no_rm" => $this->input->post('no_rm'),
                 "nama" => $this->input->post('nama'),
@@ -221,7 +237,7 @@ class Acs extends CI_Controller
     public function req_data($table, $id)
     {
         if ($id != 0) {
-            $this->data = $this->m_main->getById($table, $id);
+            $this->data = $this->m_acs->getById($table, $id);
         } else {
             $this->data = ['id' => 0];
         }
