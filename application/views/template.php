@@ -10,15 +10,13 @@
 	<title>Main Applications</title>
 	<link rel="shortcut icon" src="<?= base_url('assets/images/uploads/') . $setting->image_icon; ?>" type="image/x-icon" />
 	<link href="<?= base_url('assets/css/app.css') ?>" rel="stylesheet">
-	<link href="<?php echo base_url() ?>assets/css/sweetalert2.css" rel="stylesheet">
+	<!-- <link href="< echo base_url() ?>assets/css/sweetalert2.css" rel="stylesheet"> -->
 	<link href="<?= base_url() ?>assets/css/font-awesome.css">
 
-	<script src="<?= base_url() ?>assets/js/jquery.min.js"></script>
-	<script src="<?= base_url() ?>assets/js/sweetalert2.js"></script>
-	<script src="<?= base_url() ?>assets/treeview/simTree.js"></script>
-
-	<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/css/select2.min.css" rel="stylesheet" />
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/js/select2.min.js"></script>
+	<!-- <script src="< base_url() ?>assets/js/sweetalert2.js"></script> -->
+	<script src="<?= base_url() ?>assets/js/jquery-3.3.1.js"></script>
+	<!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/css/select2.min.css" rel="stylesheet" />
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/js/select2.min.js"></script> -->
 </head>
 
 <body>
@@ -93,6 +91,17 @@
 	</div>
 
 	<script src="<?= base_url('assets/js/app.js') ?>"></script>
+
+	<script src="<?= base_url('assets/js/dataTables.bootstrap4.min.js') ?>"></script>
+	<script src="<?= base_url('assets/js/dataTables.buttons.min.js') ?>"></script>
+	<script src="<?= base_url('assets/js/buttons.bootstrap4.min.js') ?>"></script>
+	<script src="<?= base_url('assets/js/jszip.min.js') ?>"></script>
+	<script src="<?= base_url('assets/js/pdfmake.min.js') ?>"></script>
+	<script src="<?= base_url('assets/js/vfs_fonts.js') ?>"></script>
+	<script src="<?= base_url('assets/js/buttons.html5.min.js') ?>"></script>
+	<script src="<?= base_url('assets/js/buttons.print.min.js') ?>"></script>
+	<script src="<?= base_url('assets/js/buttons.colVis.min.js') ?>"></script>
+	<script src="<?= base_url('assets/js/dataTables.buttons.min.js') ?>"></script>
 	<script>
 		// (function() {
 		// 	$(document).ready(function() {

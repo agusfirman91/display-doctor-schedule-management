@@ -23,5 +23,11 @@ $route['display/(:any)'] = 'display/index/$1';
 
 // acs application
 $route['acs/create-orders'] = 'acs/create_orders';
+$route['acs/group-menu'] = 'acs/group_menu';
+$route['acs/menu-category'] = 'acs/menu_category';
+// $route['acs/rotations/(:num)'] = 'acs/rotations/$1';
+
+// helpdesk application
+$route['helpdesk/claim-users'] = 'helpdesk/claim_users';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

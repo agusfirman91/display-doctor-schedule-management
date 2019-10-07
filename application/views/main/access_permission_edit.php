@@ -23,40 +23,42 @@
                 <ul class="menuList">
                     <?php foreach ($list_menus as $menu) : ?>
                         <li class="roleMenu">
-                            <a href="#access_<?= $menu->link; ?>" class="collapsed menu" data-toggle="collapse">
+                            <a href="#access_<?= $menu->link; ?>" class="collapsed menu-collapse" data-toggle="collapse">
                                 <i class="fas fa-plus-circle"></i>
                             </a>
-                            <?php
-                                $gID = $menu->id;
-                                $checked = null;
-                                $item = null;
-                                foreach ($currentMenus as $mn) {
-                                    if ($gID == $mn->id) {
-                                        $checked = ' checked="checked"';
-                                        break;
+                            <label class="custom-control custom-checkbox option">
+                                <?php
+                                    $gID = $menu->id;
+                                    $checked = null;
+                                    $item = null;
+                                    foreach ($currentMenus as $mn) {
+                                        if ($gID == $mn->id) {
+                                            $checked = ' checked="checked"';
+                                            break;
+                                        }
                                     }
-                                }
-                                ?>
+                                    ?>
 
-                            <input type="checkbox" name="menus[]" value="<?php echo $menu->id; ?>" <?php echo $checked; ?> <?= set_checkbox('menus[]', $menu->id); ?>>
-                            <label class="control-label">
-                                <?= ucwords($menu->name) ?></label>
+                                <input type="checkbox" name="menus[]" value="<?php echo $menu->id; ?>" <?php echo $checked; ?> <?= set_checkbox('menus[]', $menu->id); ?> class="custom-control-input">
+                                <span class="custom-control-label"><?= ucwords($menu->name) ?></span>
+                            </label>
                             <ul id="access_<?= $menu->link; ?>" class="sidebar-dropdown list-unstyled collapse submenu">
                                 <?php foreach ($menu->parent_menu as $parent_menu) : ?>
                                     <li class="nested">
-                                        <?php
-                                                $gID = $parent_menu->id;
-                                                $checked = null;
-                                                $item = null;
-                                                foreach ($currentMenus as $pmn) {
-                                                    if ($gID == $pmn->id) {
-                                                        $checked = ' checked="checked"';
-                                                        break;
+                                        <label class="custom-control custom-checkbox option">
+                                            <?php
+                                                    $gID = $parent_menu->id;
+                                                    $checked = null;
+                                                    $item = null;
+                                                    foreach ($currentMenus as $pmn) {
+                                                        if ($gID == $pmn->id) {
+                                                            $checked = ' checked="checked"';
+                                                            break;
+                                                        }
                                                     }
-                                                }
-                                                ?>
-                                        <input type="checkbox" name="menus[]" class="control-input" value="<?php echo $parent_menu->id; ?>" <?php echo $checked; ?> <?= set_checkbox('menus[]', $menu->id); ?>>
-                                        <label class="control-label"><?= ucwords($parent_menu->name) ?>
+                                                    ?>
+                                            <input type="checkbox" name="menus[]" class="custom-control-input" value="<?php echo $parent_menu->id; ?>" <?php echo $checked; ?> <?= set_checkbox('menus[]', $menu->id); ?>>
+                                            <span class="custom-control-label"><?= ucwords($parent_menu->name) ?></span>
                                         </label>
                                     </li>
                                 <?php endforeach ?>
@@ -72,7 +74,12 @@
     <?php echo form_hidden('id', $currentGroup->id); ?>
     <?php //echo form_hidden($csrf); 
     ?>
+    <!-- simtreee  -->
+    <div id="result"></div>
 
+    <!-- end simtree  -->
+
+    <input type="button" id="btnGet" value="Get" class="btn btn-primary" />
 </div>
 
 
@@ -82,17 +89,9 @@
         list-style: none;
     }
 
-    /* li.roleMenu {
-        margin-top: 1em;
-    } */
-
-    label {
-        font-weight: bold;
-    }
-
-    .menu {
+    .menu-collapse {
         margin-left: -15px;
-        color: #333
+        position: absolute
     }
 
     .submenu {
@@ -100,75 +99,118 @@
     }
 
     .option {
-        margin-top: -22px
+        margin-top: 5px
     }
 </style>
+
+
+<link href="<?= base_url() ?>assets/treeview/simTree.css">
+<link href="https://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="<?= base_url() ?>assets/js/jquery.js"></script>
+<script src="<?= base_url() ?>assets/treeview/simTree.js"></script>
+
 <script>
-    // const form = document.querySeletor('form');
-    // const checkbox = document.querySeletor('input:[type:checkbox]');
-    // checkbox.indeterminate = true;
-    // checkbox.value = 'indeterminate';
-    // form.addEventListener('submit', () => {
-    //     if (checkbox.indeterminate) {
-    //         checkbox.checked = true;
-    //     } else {
-    //         checkbox.value = 'on'
-    //     }
-    // }, false);
-
+    var list = [{
+            "id": '1',
+            "pid": '',
+            "name": "JavaScript",
+        },
+        {
+            "id": '11',
+            "pid": '1', // parent ID
+            "name": "Angular"
+        },
+        {
+            "id": '12',
+            "pid": '1',
+            "name": "React"
+        }, {
+            "id": '13',
+            "pid": '1',
+            "name": "Vuejs"
+        }, {
+            "id": '14',
+            "pid": '1',
+            "name": "jQueryScript.Net"
+        },
+        {
+            "id": '2',
+            "pid": '',
+            "name": "HTML5"
+        },
+        {
+            "id": '3',
+            "pid": '',
+            "name": "CSS3"
+        }
+    ];
+    var tree = simTree({
+        el: '#tree',
+        data: list,
+        check: true,
+        linkParent: true,
+        //check: true,
+        onClick: function(item) {
+            console.log(item)
+        },
+        onChange: function(item) {
+            console.log(item)
+        }
+    });
+</script>
+<script>
     $(document).ready(function() {
-        $('ul.menuList input[type="checkbox"]').change(function(e) {
-
-            var checked = $(this).prop("checked"),
-                container = $(this).parent(),
-                siblings = container.siblings();
-
-            container.find('input[type="checkbox"]').prop({
-                indeterminate: false,
-                checked: checked
-            });
-
-            function checkSiblings(el) {
-
-                var parent = el.parent().parent(),
-                    all = true;
-
-                el.siblings().each(function() {
-                    let returnValue = all = ($(this).children('input[type="checkbox"]').prop("checked") === checked);
-                    return returnValue;
-                });
-
-                if (all && checked) {
-
-                    parent.children('input[type="checkbox"]').prop({
+        $("#btnGet").click(function() {
+            5
+            var selected = new Array();
+            $(function() {
+                $('input[type="checkbox"]').change(function(e) {
+                    var checked = $(this).prop("checked"),
+                        container = $(this).closest("li"),
+                        siblings = container.siblings();
+                    selected.push(this.value);
+                    container.find('input[type="checkbox"]').prop({
                         indeterminate: false,
-                        checked: checked
+                        checked: checked,
+
                     });
 
-                    checkSiblings(parent);
-
-                } else if (all && !checked) {
-
-                    parent.children('input[type="checkbox"]').prop("checked", checked);
-                    parent.children('input[type="checkbox"]').prop("indeterminate", (parent.find('input[type="checkbox"]:checked').length > 0));
-                    checkSiblings(parent);
-
-                } else {
-
-                    el.parents("li").children('input[type="checkbox"]').prop({
-                        indeterminate: true,
-                        checked: false
-                    });
-
+                    function checkSiblings(el) {
+                        var parent = el.parent().parent(),
+                            all = true,
+                            parentcheck = parent.children("label");
+                        el.siblings().each(function() {
+                            return all = ($(this).find('input[type="checkbox"]').prop("checked") === checked);
+                        });
+                        if (all && checked) {
+                            parentcheck.children('input[type="checkbox"]').prop({
+                                indeterminate: false,
+                                checked: checked
+                            });
+                            checkSiblings(parent);
+                        } else if (all && !checked) {
+                            parentcheck.children('input[type="checkbox"]').prop("checked", checked);
+                            parentcheck.children('input[type="checkbox"]').prop("indeterminate", (parent.find('input[type="checkbox"]:checked').length > 0));
+                            checkSiblings(parent);
+                            // array.push(parseInt($(this).val()));
+                        } else {
+                            parentcheck.children('input[type="checkbox"]').prop({
+                                indeterminate: true,
+                                checked: false
+                            });
+                        }
+                    }
+                    checkSiblings(container);
+                });
+                if (selected.length > 0) {
+                    alert("Selected values: " + selected.join(","));
                 }
-
-            }
-
-            checkSiblings(container);
+            });
         });
     });
 
-    jQuery('.menu').click(function() {
+    jQuery('.menu-collapse').click(function() {
         var icon = jQuery(this).find('svg');
         if (icon.attr('data-icon') == 'plus-circle') {
             icon.attr('data-icon', 'minus-circle');

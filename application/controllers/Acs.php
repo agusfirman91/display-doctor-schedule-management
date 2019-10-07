@@ -41,14 +41,46 @@ class Acs extends CI_Controller
     public function index()
     {
         $this->template->load('template', 'acs/menus', $this->data);
-        // $this->load->view('acs/home', $this->data);
-        // $this->load->view('_partials/footer');
     }
 
     public function menu()
     {
-        $this->data['list_menus'] = $this->m_main->getAll('tblmenus');
+        $this->data['list_menus'] = $this->m_acs->getJoin('tblmenus', 'tblgroupmenus', '*', 'name as kategori', 'tblmenus.groupmenu_id=tblgroupmenus.id');
+        $this->data['list_groupMenus'] = $this->m_main->getAll('tblgroupmenus');
         $this->template->load('template', 'acs/menus', $this->data);
+    }
+
+    public function menu_category()
+    {
+        $this->data['list_menuCategories'] = $this->m_main->getAll('tblkategorimenus');
+        $this->template->load('template', 'acs/menu_category', $this->data);
+    }
+
+    public function group_menu()
+    {
+        $this->data['list_groupMenus'] = $this->m_main->getAll('tblgroupmenus');
+        $this->template->load('template', 'acs/group_menus', $this->data);
+    }
+
+
+    public function rotations($id = null)
+    {
+        $this->data['list_rotations'] = $this->m_main->getAll('tblrotations');
+        if ($id) {
+            $cekData = $this->m_acs->get_by_id('tblrotations', $id);
+            if ($cekData) {
+                // $this->data['id'] = $id;
+                // var_dump($this->data);
+                // die;
+                $this->data['list_rotations_menu'] = $this->m_main->getAll('tblrotation_menu');
+                $this->data['list_category_menu'] = $this->m_main->getAll('tblkategorimenus');
+                $this->template->load('template', 'acs/rotation_menu', $this->data);
+            } else {
+                redirect('acs/rotations');
+            }
+        } else {
+            $this->template->load('template', 'acs/rotations', $this->data);
+        }
     }
 
     public function orders()
@@ -100,7 +132,9 @@ class Acs extends CI_Controller
             $row = array();
             $row[] = $no;
             $row[] = $patient->no_rm;
+            $row[] = $patient->no_reg;
             $row[] = $patient->nama;
+            $row[] = $patient->kelas;
             $row[] = $patient->tgl_lahir;
             $row[] = $patient->alamat;
             $row[] = $patient->sex == 'L' ? 'Laki- Laki' : 'Perempuan';
@@ -140,6 +174,18 @@ class Acs extends CI_Controller
                 "idagama" => $this->input->post('agama')
             );
             $url = 'acs/patients';
+        } else if ($table == 'tblgroupmenus') {
+            $this->data = array(
+                "name" => $this->input->post('name'),
+                "description" => $this->input->post('description')
+            );
+            $url = 'acs/group-menu';
+        } else if ($table == 'tblkategorimenus') {
+            $this->data = array(
+                "name" => $this->input->post('name'),
+                "description" => $this->input->post('description')
+            );
+            $url = 'acs/menu-category';
         } else if ($table == 'tblmenus') {
 
             $config['upload_path'] = './assets/images/uploads/menus';
@@ -157,24 +203,23 @@ class Acs extends CI_Controller
             if (!$_FILES['image']['name']) {
                 $image = $image_old;
             } else {
-                if (!$this->upload->do_upload('image')) {
-                    $this->session->set_flashdata('message', 'Image Display' . $this->upload->display_errors());
-                    redirect($url);
-                } else {
+                if ($this->upload->do_upload('image')) {
                     $image =  $this->upload->data('file_name');
                 }
             }
             $this->data = array(
                 "name" => $this->input->post('name'),
+                "groupmenu_id" => $this->input->post('groupmenu_id'),
                 "description" => $this->input->post('description'),
                 "image" => $image
             );
         }
 
+        // var_dump($this->data);
+        // die;
         $this->db->update($table, $this->data, array('id' => $this->input->post('id')));
         $this->session->set_flashdata('message', "Data Berhasil Diupdate");
         redirect($url);
-        // var_dump($this->data);
     }
 
 
@@ -202,6 +247,18 @@ class Acs extends CI_Controller
                 "idagama" => $this->input->post('agama')
             );
             $url = 'acs/patients';
+        } else if ($table == 'tblgroupmenus') {
+            $this->data = array(
+                "name" => $this->input->post('name'),
+                "description" => $this->input->post('description')
+            );
+            $url = 'acs/group-menu';
+        } else if ($table == 'tblkategorimenus') {
+            $this->data = array(
+                "name" => $this->input->post('name'),
+                "description" => $this->input->post('description')
+            );
+            $url = 'acs/menu-category';
         } else if ($table == 'tblmenus') {
             $config['upload_path'] = './assets/images/uploads/menus';
             $config['allowed_types'] = 'jpg|png|jpeg|image|ico';
@@ -223,8 +280,15 @@ class Acs extends CI_Controller
             $this->data = array(
                 "name" => $this->input->post('name'),
                 "description" => $this->input->post('description'),
+                "groupmenu_id" => $this->input->post('groupmenu_id'),
                 "image" => $image
             );
+        } else if ($table == 'tblrotations') {
+            $this->data = array(
+                "name" => $this->input->post('name'),
+                "description" => $this->input->post('description')
+            );
+            $url = 'acs/rotations';
         }
         if ($this->db->insert($table, $this->data)) {
             $this->session->set_flashdata('message', "Data Berhasil Disimpan");
@@ -254,6 +318,7 @@ class Acs extends CI_Controller
             echo json_encode(array('message' => 'Data Gagal Dihapus'));
         }
     }
+
 
     // public function get_all()
     // {

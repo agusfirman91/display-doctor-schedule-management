@@ -18,6 +18,7 @@
                         <th>Dokter Spesialis</th>
                         <th>Perawat</th>
                         <th>PJ Perawat</th>
+                        <th>Administration</th>
                         <th>Slide</th>
                         <th>Active</th>
                         <th width="5%">Action</th>
@@ -48,23 +49,24 @@
                             $bgRow = "text-danger";
                         }
                         ?>
-                    <tr class="<?= $bgRow ?>">
-                        <td><?= $no; ?></td>
-                        <td><?= $plasma->name; ?></td>
-                        <td><?= $plasma->title; ?></td>
-                        <td><?= $plasma->url; ?></td>
-                        <td><?= ucwords($plasma->name_type); ?></td>
-                        <td><?= v_checkbox($plasma->id, 'is_doctor_of_duty', $plasma->is_doctor_of_duty); ?></td>
-                        <td><?= v_checkbox($plasma->id, 'is_specialist_doctor', $plasma->is_specialist_doctor); ?></td>
-                        <td><?= v_checkbox($plasma->id, 'is_nurse', $plasma->is_nurse); ?></td>
-                        <td><?= v_checkbox($plasma->id, 'is_pic_nurse', $plasma->is_pic_nurse); ?></td>
-                        <td><?= v_checkbox($plasma->id, 'is_image_slide', $plasma->is_image_slide); ?></td>
-                        <td><?= v_checkbox($plasma->id, 'is_active', $plasma->is_active); ?></td>
-                        <td>
-                            <a href="javascript:void(0);" class="e_plasma" data-id="<?= $plasma->id ?>" data-toggle="tooltip" data-placement="top" title="Edit Doctor Specialist">
-                                <i class="align-middle" data-feather="edit"></i></a>
-                        </td>
-                    </tr>
+                        <tr class="<?= $bgRow ?>">
+                            <td><?= $no; ?></td>
+                            <td><?= $plasma->name; ?></td>
+                            <td><?= $plasma->title; ?></td>
+                            <td><?= $plasma->url; ?></td>
+                            <td><?= ucwords($plasma->name_type); ?></td>
+                            <td><?= v_checkbox($plasma->id, 'is_doctor_of_duty', $plasma->is_doctor_of_dutty); ?></td>
+                            <td><?= v_checkbox($plasma->id, 'is_specialist_doctor', $plasma->is_specialist_doctor); ?></td>
+                            <td><?= v_checkbox($plasma->id, 'is_nurse', $plasma->is_nurse); ?></td>
+                            <td><?= v_checkbox($plasma->id, 'is_pic_nurse', $plasma->is_pic_nurse); ?></td>
+                            <td><?= v_checkbox($plasma->id, 'is_administration', $plasma->is_administration); ?></td>
+                            <td><?= v_checkbox($plasma->id, 'is_image_slide', $plasma->is_image_slide); ?></td>
+                            <td><?= v_checkbox($plasma->id, 'is_active', $plasma->is_active); ?></td>
+                            <td>
+                                <a href="javascript:void(0);" class="e_plasma" data-id="<?= $plasma->id ?>" data-toggle="tooltip" data-placement="top" title="Edit Doctor Specialist">
+                                    <i class="align-middle" data-feather="edit"></i></a>
+                            </td>
+                        </tr>
                     <?php
                         $no++;
                     }
@@ -118,7 +120,7 @@
                                 <?php
                                 foreach ($list_type as $type_plasma) {
                                     ?>
-                                <option value="<?= $type_plasma->id ?>"><?= ucwords($type_plasma->name) ?></option>
+                                    <option value="<?= $type_plasma->id ?>"><?= ucwords($type_plasma->name) ?></option>
                                 <?php } ?>
                             </select>
                         </div>

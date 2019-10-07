@@ -10,8 +10,10 @@
             <thead>
                 <tr>
                     <th width="5%">No</th>
-                    <th>NO Rekam Medis</th>
+                    <th>RM</th>
+                    <th>NO Registrasi</th>
                     <th>Nama Pasien</th>
+                    <th>Kelas</th>
                     <th>Tanggal Lahir</th>
                     <th>Alamat</th>
                     <th>Jenis Kelamin</th>
@@ -124,18 +126,73 @@ if ($pesan) {
 ?>
 
 <script>
-    var table;
-
-
-    var id = $('input:text[name=id]');
-    var no_rm = $('input:text[name=no_rm]');
-    var nama = $('input:text[name=nama]');
-    var tgl_lahir = $('input:text[name=tgl_lahir]');
-    var alamat = $('input:text[name=alamat]');
-    var sex = $('select[name=sex]');
-    var suku = $('select[name=suku]');
-    var agama = $('select[name=agama]');
     $(document).ready(function() {
+        var table;
+        var id = $('input:text[name=id]');
+        var no_rm = $('input:text[name=no_rm]');
+        var nama = $('input:text[name=nama]');
+        var tgl_lahir = $('input:text[name=tgl_lahir]');
+        var alamat = $('input:text[name=alamat]');
+        var sex = $('select[name=sex]');
+        var suku = $('select[name=suku]');
+        var agama = $('select[name=agama]');
+
+        // var metrics_data_table = $("#table").DataTable({
+        //     'processing': true,
+        //     'serverSide': true,
+        //     'lengthChange': false,
+        //     'ajax': {
+        //         'url': "< base_url('acs/ajax_list') ?>",
+        //         'type': 'POST',
+        //         'data': {
+        //             'form_filter': $(".javascript__datatables_display__form :input").serialize(),
+        //             'csrfmiddlewaretoken': $('.javascript__data_tables_display__csrf_token').val()
+        //         },
+        //     },
+        //     // 'columns': datatable_settings.columns,
+        //     // 'order': datatable_settings.order,
+        //     "columnDefs": [{
+        //         "targets": [-1], //last column
+        //         "orderable": false, //set not orderable
+        //     }, ],
+        //     // 'createdRow': datatable_settings.createdRow,
+        //     'initComplete': function() {
+        //         $("#table").fadeIn();
+        //         var api = this.api();
+
+        //         new $.fn.dataTable.Buttons(api, {
+        //             'buttons': [
+        //                 'colvis',
+        //             ]
+        //         });
+        //         new $.fn.dataTable.Buttons(api, {
+        //             'buttons': [
+        //                 'copy',
+        //                 'csv',
+        //                 'excel',
+        //                 {
+        //                     'extend': 'pdfHtml5',
+        //                     'orientation': 'landscape',
+        //                     'pageSize': 'LETTER',
+        //                     'exportOptions': {
+        //                         'columns': ':visible'
+        //                     },
+        //                     'action': function(e, dt, button, config) {
+        //                         // Add code to make changes to table here
+        //                         metrics_data_table.settings().page.len(-1);
+        //                         metrics_data_table.settings().drawCallback = function(settings) {
+        //                             // Call the original action function afterwards to
+        //                             // continue the action.
+        //                             // Otherwise you're just overriding it completely.
+        //                             $.fn.dataTable.ext.buttons.pdfHtml5.action(e, dt, button, config);
+        //                         }
+        //                         metrics_data_table.draw();
+        //                     }
+        //                 }
+        //             ]
+        //         });
+        //     }
+        // });
 
         table = $('#table').DataTable({
 
@@ -147,7 +204,11 @@ if ($pesan) {
                 "url": "<?= base_url('acs/ajax_list') ?>",
                 "type": "POST"
             },
-            //Set column definition initialisation properties.
+            dom: 'Bfrtip',
+            buttons: [
+                'excel', 'colvis', 'print'
+            ],
+
             "columnDefs": [{
                 "targets": [-1], //last column
                 "orderable": false, //set not orderable
@@ -197,8 +258,6 @@ if ($pesan) {
             $("#m_patient").modal('show');
             judul(id);
         });
-
-
 
     });
 

@@ -33,6 +33,7 @@ class Main extends CI_Controller
             $this->data['list_menus'][$k]->parent_menu = $this->m_main->getWhere('menus', 'parent_id=' . $menu->id);
         }
 
+        $this->data['list_plasma'] = $this->m_main->getAll('plasma');
         $this->data['csrf'] = $this->_get_csrf_nonce();
         // $this->output->enable_profiler(TRUE);
         // var_dump($this->db->last_query());
@@ -165,6 +166,22 @@ class Main extends CI_Controller
         $this->template->load('template', 'main/nurse', $this->data);
     }
 
+    public function administration()
+    {
+        // $this->data['list_admin'] = $this->m_main->getAll('administration');
+        $this->data['list_admin'] = $this->m_main->getJoin(
+            'administration',
+            'plasma',
+            '*',
+            'name as plasma_name',
+            'administration.plasma_id=plasma.id'
+        );
+
+        $this->template->load('template', 'main/administration', $this->data);
+        // var_dump($this->data);
+        // die;
+    }
+
     public function nurse_spv()
     {
         $this->data['list_nurse_spv'] = $this->m_main->getAllJoin(
@@ -177,7 +194,6 @@ class Main extends CI_Controller
             'nurse_spv.plasma_id=plasma.id',
             'nurse_spv.nurse_id=nurse.id'
         );
-        $this->data['list_plasma'] = $this->m_main->getAll('plasma');
         $this->data['list_nurse'] = $this->m_main->getAll('nurse');
 
         $this->template->load('template', 'main/nurse_spv', $this->data);
@@ -349,8 +365,9 @@ class Main extends CI_Controller
             $this->db->where_not_in('menu_id', $integerIDs);
             $this->db->delete('group_access_permission');
             $this->session->set_flashdata('message', "Data Berhasil Di Ubah");
-            redirect('main/access_permission');
-            // var_dump($data);
+            // redirect('main/access_permission');
+            var_dump($data);
+            die;
         } else {
             $this->template->load('template', 'main/access_permission_edit', $this->data);
         }
@@ -487,6 +504,12 @@ class Main extends CI_Controller
                 "group_id" => $this->input->post('user_group')
             );
             $url = 'main/user';
+        } else if ($table == 'administration') {
+            $this->data = array(
+                "name" => $this->input->post('name'),
+                "plasma_id" => $this->input->post('plasma_id')
+            );
+            $url = 'main/administration';
         } else if ($table == 'visit_time') {
             $url = 'main/jam-besuk';
             $this->data = array(
@@ -679,6 +702,12 @@ class Main extends CI_Controller
                 "group_id" => $this->input->post('user_group')
             );
             $url = 'main/user';
+        } else if ($table == 'administration') {
+            $this->data = array(
+                "name" => $this->input->post('name'),
+                "plasma_id" => $this->input->post('plasma_id')
+            );
+            $url = 'main/administration';
         } else if ($table == 'visit_time') {
             $this->data = array(
                 "noon" => $this->input->post('noon'),
@@ -853,8 +882,8 @@ class Main extends CI_Controller
         }
         $this->db->update($table, $this->data, array('id' => $this->input->post('id')));
         $this->session->set_flashdata('message', "Data Berhasil Diupdate");
-        // redirect($url);
-        var_dump($this->data);
+        redirect($url);
+        // var_dump($this->data);
     }
 
     public function req_data($table, $id)

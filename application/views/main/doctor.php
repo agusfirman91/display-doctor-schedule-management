@@ -5,7 +5,7 @@
         </div>
     </div>
     <div class="card-body">
-        <table class="table table-striped datatables-basic" style="width:100%">
+        <table class="table table-striped datatables-basic" id="datatables-doctor" style=" width:100%">
             <thead>
                 <tr>
                     <th width="5%">No</th>
@@ -16,16 +16,17 @@
                 </tr>
             </thead>
             <tbody>
-                <?php 
-                function v_checkbox($id='', $param_name ='', $value =''){
+                <?php
+                function v_checkbox($id = '', $param_name = '', $value = '')
+                {
                     if ($value != 1) {
                         $v_checkbox = '<label class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input" name="toggle_doctor" id='.$id.' class="info" data-toggle="'. $param_name . '" value="1">
+                                            <input type="checkbox" class="custom-control-input" name="toggle_doctor" id=' . $id . ' class="info" data-toggle="' . $param_name . '" value="1">
                                             <span class="custom-control-label"></span>
                                         </label>';
                     } else {
                         $v_checkbox = '<label class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input" name="toggle_doctor" id='.$id.' class="info" data-toggle="'. $param_name . '" value="0" checked>
+                                            <input type="checkbox" class="custom-control-input" name="toggle_doctor" id=' . $id . ' class="info" data-toggle="' . $param_name . '" value="0" checked>
                                             <span class="custom-control-label"></span>
                                         </label>';
                     }
@@ -37,16 +38,16 @@
                     <tr>
                         <td><?= $no; ?></td>
                         <td><?= $dokter->name; ?></td>
-                        <td class="text-left"><?= v_checkbox($dokter->id,'is_doctor_specialist', $dokter->is_doctor_specialist); ?></td>
-                        <td><?= v_checkbox($dokter->id,'is_doctor_of_duty', $dokter->is_doctor_of_duty); ?></td>
+                        <td class="text-left"><?= v_checkbox($dokter->id, 'is_doctor_specialist', $dokter->is_doctor_specialist); ?></td>
+                        <td><?= v_checkbox($dokter->id, 'is_doctor_of_duty', $dokter->is_doctor_of_duty); ?></td>
                         <td>
-                            <a href="javascript:void(0);" class="e_dokter" data-id="<?= $dokter->id ?>" data-role="<?= $dokter->name ?>"data-toggle="tooltip" data-placement="top" title="Edit dokter">
+                            <a href="javascript:void(0);" class="e_dokter" data-id="<?= $dokter->id ?>" data-role="<?= $dokter->name ?>" data-toggle="tooltip" data-placement="top" title="Edit dokter">
                                 <i class="align-middle" data-feather="edit"></i></a>
                             <a href="javascript:void(0);" class="d_dokter" data-id="<?= $dokter->id ?>" data-toggle="tooltip" data-placement="top" title="Delete dokter">
                                 <i class="align-middle" data-feather="delete"></i></a>
                         </td>
                     </tr>
-                    <?php
+                <?php
                     $no++;
                 }
                 ?>
@@ -111,6 +112,13 @@ if ($pesan) {
         });
 
 
+        // Datatables with Buttons
+        var datatablesButtons = $("#datatables-doctor").DataTable({
+            responsive: true,
+            lengthChange: !1,
+            buttons: ["copy", "print"]
+        });
+
 
         $(".t_dokter,.e_dokter").click(function() {
             var id = $(this).attr("data-id");
@@ -168,14 +176,14 @@ if ($pesan) {
                 dataType: 'JSON',
                 url: '<?= base_url() ?>main/do_switch/doctor',
                 data: {
-                mode: mode,
-                id: id,
-                value: value,
-                toggle: toggle
+                    mode: mode,
+                    id: id,
+                    value: value,
+                    toggle: toggle
                 },
                 success: function(data) {
-                var data = eval(data);
-                location.reload();
+                    var data = eval(data);
+                    location.reload();
                 }
             });
         });
@@ -184,86 +192,85 @@ if ($pesan) {
 </script>
 
 <style>
+    /* The switch - the box around the slider */
+    .switch {
+        position: absolute;
+        display: block;
+        width: 45px;
+        height: 20px;
+        float: right;
+    }
 
-  /* The switch - the box around the slider */
-  .switch {
-    position: absolute;
-    display: block;
-    width: 45px;
-    height: 20px;
-    float: right;
-  }
+    /* Hide default HTML checkbox */
+    .switch input {
+        display: none;
+    }
 
-  /* Hide default HTML checkbox */
-  .switch input {
-    display: none;
-  }
+    /* The slider */
+    .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ccc;
+        -webkit-transition: .4s;
+        transition: .4s;
+    }
 
-  /* The slider */
-  .slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #ccc;
-    -webkit-transition: .4s;
-    transition: .4s;
-  }
+    .slider:before {
+        position: absolute;
+        content: "";
+        height: 16px;
+        width: 16px;
+        left: 2px;
+        bottom: 2px;
+        background-color: white;
+        -webkit-transition: .4s;
+        transition: .4s;
+    }
 
-  .slider:before {
-    position: absolute;
-    content: "";
-    height: 16px;
-    width: 16px;
-    left: 2px;
-    bottom: 2px;
-    background-color: white;
-    -webkit-transition: .4s;
-    transition: .4s;
-  }
+    input.default:checked+.slider {
+        background-color: #444;
+    }
 
-  input.default:checked+.slider {
-    background-color: #444;
-  }
+    input.primary:checked+.slider {
+        background-color: #2196F3;
+    }
 
-  input.primary:checked+.slider {
-    background-color: #2196F3;
-  }
+    input.success:checked+.slider {
+        background-color: #8bc34a;
+    }
 
-  input.success:checked+.slider {
-    background-color: #8bc34a;
-  }
+    input.info:checked+.slider {
+        background-color: #3de0f5;
+    }
 
-  input.info:checked+.slider {
-    background-color: #3de0f5;
-  }
+    input.warning:checked+.slider {
+        background-color: #FFC107;
+    }
 
-  input.warning:checked+.slider {
-    background-color: #FFC107;
-  }
+    input.danger:checked+.slider {
+        background-color: #f44336;
+    }
 
-  input.danger:checked+.slider {
-    background-color: #f44336;
-  }
+    input:focus+.slider {
+        box-shadow: 0 0 1px #2196F3;
+    }
 
-  input:focus+.slider {
-    box-shadow: 0 0 1px #2196F3;
-  }
+    input:checked+.slider:before {
+        -webkit-transform: translateX(26px);
+        -ms-transform: translateX(26px);
+        transform: translateX(26px);
+    }
 
-  input:checked+.slider:before {
-    -webkit-transform: translateX(26px);
-    -ms-transform: translateX(26px);
-    transform: translateX(26px);
-  }
+    /* Rounded sliders */
+    .slider.round {
+        border-radius: 34px;
+    }
 
-  /* Rounded sliders */
-  .slider.round {
-    border-radius: 34px;
-  }
-
-  .slider.round:before {
-    border-radius: 50%;
-  }
+    .slider.round:before {
+        border-radius: 50%;
+    }
 </style>

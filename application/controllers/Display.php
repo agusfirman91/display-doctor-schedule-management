@@ -89,14 +89,14 @@ class Display extends CI_Controller
         $is_nurse               = $data['display']['0']->is_nurse;
         $is_pic_nurse           = $data['display']['0']->is_pic_nurse;
         $is_image_slide           = $data['display']['0']->is_image_slide;
+        $is_administration           = $data['display']['0']->is_administration;
         // $data['plasma'] = $this->m_display->getWhere('plasma', 'url="'.$name_url.'"');
         $data['setting'] = $this->m_display->getWhere('setting', 'is_active=1');
         if ($type_name == 'igd') {
             if (($is_doctor_of_dutty != 1) or ($is_specialist_doctor != 1) or ($is_pic_nurse != 1) or ($is_image_slide != 1)) {
                 $this->session->set_flashdata('message', "Data Gagal Disimpan, Nama Spesialis tidak boleh sama");
-                // echo "<script>
-                // Swal.fire({title: 'Error!',text: 'Tampilan plasma tidak bisa di akses, Silahakan hubungi IT Department untuk cek konfigurasinya',type: 'error',confirmButtonText: 'OK'}).then(function() {window.location = '../home';});</script> ";
-
+                echo "<script>
+                Swal.fire({title: 'Error!',text: 'Tampilan plasma tidak bisa di akses, Silahakan hubungi IT Department untuk cek konfigurasinya',type: 'error',confirmButtonText: 'OK'}).then(function() {window.location = '../home';});</script> ";
             } else {
                 $data['list_igd'] = $this->m_display->getAllJoin(
                     'specialist_doctor',
@@ -157,6 +157,20 @@ class Display extends CI_Controller
                 'plasma.url="' . $name_url . '"',
                 'plasma.is_active = 1'
             );
+            $data['list_admin'] = $this->m_display->getAllJoin(
+                'plasma',
+                'type_plasma',
+                'administration',
+                'id as id_plasma, type_id',
+                'name as type_name',
+                '*',
+                'plasma.type_id = type_plasma.id',
+                'plasma.id= administration.plasma_id',
+                'plasma.url="' . $name_url . '"',
+                'plasma.is_active = 1'
+            );
+            // var_dump($this->db->last_query());
+            // die;
             $this->load->view('_partials/header', $data);
             $this->load->view('display/ranap',  $data);
             $this->load->view('_partials/footer');

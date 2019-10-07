@@ -18,38 +18,39 @@
             </thead>
             <tbody>
                 <?php
-                function v_checkbox($id='', $param_name ='', $value =''){
+                function v_checkbox($id = '', $param_name = '', $value = '')
+                {
                     if ($value != 1) {
                         $v_checkbox = '<label class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input" name="toggle_setting" id='.$id.' class="info" data-toggle="'. $param_name . '" value="1">
+                                            <input type="checkbox" class="custom-control-input" name="toggle_setting" id=' . $id . ' class="info" data-toggle="' . $param_name . '" value="1">
                                             <span class="custom-control-label"></span>
                                         </label>';
                     } else {
                         $v_checkbox = '<label class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input" name="toggle_setting" id='.$id.' class="info" data-toggle="'. $param_name . '" value="0" checked>
+                                            <input type="checkbox" class="custom-control-input" name="toggle_setting" id=' . $id . ' class="info" data-toggle="' . $param_name . '" value="0" checked>
                                             <span class="custom-control-label"></span>
                                         </label>';
                     }
                     return $v_checkbox;
                 }
                 $no = 1;
-                foreach ($list_setting as $setting) {                 
-                
+                foreach ($list_setting as $setting) {
+
                     ?>
                     <tr>
                         <td><?= $no; ?></td>
                         <td><?= $setting->name; ?></td>
                         <td>
                             <a href="javascript:void(0);" data-id="<?= $setting->id; ?>" class="v_image">
-                                <img style="width:50px;height:50px" src="<?= base_url('assets/images/uploads/').$setting->image_icon?>" name="view-image" alt="image-files" >  
-                            </a> 
+                                <img style="width:50px;height:50px" src="<?= base_url('assets/images/uploads/') . $setting->image_icon ?>" name="view-image" alt="image-files">
+                            </a>
                         </td>
                         <td>
                             <a href="javascript:void(0);" data-id="<?= $setting->id; ?>" class="v_image">
-                                <img style="width:50px;height:50px" src="<?= base_url('assets/images/uploads/').$setting->image_display?>" name="view-image" alt="image-files" >  
-                            </a> 
+                                <img style="width:50px;height:50px" src="<?= base_url('assets/images/uploads/') . $setting->image_display ?>" name="view-image" alt="image-files">
+                            </a>
                         </td>
-                        <td><?= v_checkbox($setting->id,'is_active', $setting->is_active); ?></td>
+                        <td><?= v_checkbox($setting->id, 'is_active', $setting->is_active); ?></td>
                         <td>
                             <a href="javascript:void(0);" class="e_setting" data-id="<?= $setting->id ?>" data-toggle="tooltip" data-placement="top" title="Edit Setting">
                                 <i class="align-middle" data-feather="edit"></i></a>
@@ -57,14 +58,14 @@
                                 <i class="align-middle" data-feather="delete"></i></a>
                         </td>
                     </tr>
-                    <?php
+                <?php
                     $no++;
                 }
                 ?>
             </tbody>
         </table>
     </div>
-    
+
     <div class="card-footer">
         <button class='btn btn-primary btn-square t_setting' data-id='0'>Add</button>
     </div>
@@ -101,7 +102,7 @@
                         <div class="col-sm-4">
                             <input type="file" class="input-sm" name="image_icon" size="20" />
                             <small class="form-text text-muted">
-                               Recomended 50x50.</small>
+                                Recomended 50x50.</small>
                         </div>
                         <div class="col-sm-4">
                             <input type="hidden" class="input-sm" name="image_icon_old" size="20" />
@@ -112,7 +113,7 @@
                         <div class="col-sm-4">
                             <input type="file" class="input-sm" name="image_display" size="20" />
                             <small class="form-text text-muted">
-                               Recomended 270x80.</small>
+                                Recomended 270x80.</small>
                         </div>
                         <div class="col-sm-4">
                             <input type="hidden" class="input-sm" name="image_display_old" size="20" />
@@ -167,14 +168,14 @@ if ($pesan) {
                 success: function(data) {
                     // alert(src);
                     $("#m_view_image").modal('show');
-                    $("#image-body").html("<img src='"+src+"'  />");
+                    $("#image-body").html("<img src='" + src + "'  />");
                 },
                 error: function(jqXHR, textStatus, errorThrown) {
                     alert('Error get data from ajax');
                 }
             });
         });
-        
+
 
         $(".t_setting,.e_setting").click(function() {
             var id = $(this).attr("data-id");
@@ -224,30 +225,30 @@ if ($pesan) {
         }
 
 
-    $('input[name=toggle_setting]').change(function() {
-      var mode = $(this).prop('checked');
-      var id = $(this).attr('id');
-      var toggle = $(this).attr('data-toggle');
-      var value = $(this).attr('value');
-    //   alert(id+'-'+value+'-'+toggle);
-      $.ajax({
-        type: 'POST',
-        dataType: 'JSON',
-        url: '<?= base_url() ?>main/do_switch_once/setting',
-        data: {
-          mode: mode,
-          id: id,
-          value: value,
-          toggle: toggle
-        },
-        success: function(data) {
-          var data = eval(data);
-          location.reload();
-        }
-      });
+        $('input[name=toggle_setting]').change(function() {
+            var mode = $(this).prop('checked');
+            var id = $(this).attr('id');
+            var toggle = $(this).attr('data-toggle');
+            var value = $(this).attr('value');
+            //   alert(id+'-'+value+'-'+toggle);
+            $.ajax({
+                type: 'POST',
+                dataType: 'JSON',
+                url: '<?= base_url() ?>main/do_switch_once/setting',
+                data: {
+                    mode: mode,
+                    id: id,
+                    value: value,
+                    toggle: toggle
+                },
+                success: function(data) {
+                    var data = eval(data);
+                    location.reload();
+                }
+            });
+
+        });
+
 
     });
-
-
-});
 </script>

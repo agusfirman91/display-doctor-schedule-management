@@ -10,6 +10,7 @@
                 <tr>
                     <th width="5%">No</th>
                     <th>Name</th>
+                    <th>Kategori</th>
                     <th>Description</th>
                     <th>Image</th>
                     <th width="5%">Action</th>
@@ -24,6 +25,7 @@
                     <tr>
                         <td><?= $no; ?></td>
                         <td><?= $menu->name; ?></td>
+                        <td><?= $menu->kategori; ?></td>
                         <td><?= $menu->description; ?></td>
                         <td>
                             <a href="javascript:void(0);" data-id="<?= $menu->id; ?>" class="v_image">
@@ -47,6 +49,7 @@
     <div class="card-footer">
         <button class='btn btn-primary btn-square t_menu' data-id='0'>Add Menu</button>
     </div>
+
 </div>
 
 <div class="modal fade" id="m_image" role="dialog">
@@ -74,9 +77,24 @@
                         </div>
                     </div>
                     <div class="form-group row">
+                        <label class="col-3 control-label">Ketegori</label>
+                        <div class="col-8">
+                            <select name="groupmenu_id" class="form-control select2">
+                                <?php
+                                foreach ($list_groupMenus as  $group_menu) :
+                                    ?>
+                                    <option value="<?= $group_menu->id; ?>"><?= $group_menu->name ?></option>
+                                <?php
+                                endforeach;
+
+                                ?>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group row">
                         <label class="col-3 control-label">Description</label>
                         <div class="col-8">
-                            <input type="text" class="form-control input" name="description" value="">
+                            <textarea name="description" class="form-control" cols="20" rows="10"></textarea>
                         </div>
                     </div>
                     <div class="input-group row mb-3">
@@ -96,8 +114,9 @@
                 </div>
         </form>
     </div>
-</div>
 
+
+</div>
 
 
 <?php
@@ -113,9 +132,26 @@ if ($pesan) {
 
 <script>
     $(document).ready(function() {
+
+        $(".select2").each(function() {
+            $(this)
+                .wrap("<div class=\"position-relative\"></div>")
+                .select2({
+                    placeholder: "Select value",
+                    dropdownParent: $(this).parent()
+                });
+        });
+
+
+        // $(".select2").select2()
+        //     .on("select2:select", function(e) {
+        //         var selected_element = $(e.currentTarget);
+        //         var select_val = selected_element.val();
+        //     });
         var name = $('input:text[name=name]');
-        var description = $('input:text[name=description]');
-        var image_old = $('input:text[name=image_old]');
+        var description = $('textarea[name=description]');
+        var image_old = $('input:hidden[name=image_old]');
+        var groupmenu_id = $('select[name=groupmenu_id]');
 
         $('#b_menu').click(function(event) {
             var string = $("#f_menu").serialize();
@@ -157,6 +193,7 @@ if ($pesan) {
                     $('input:hidden[name=id]').val(data.id);
                     name.val(data.name);
                     image_old.val(data.image);
+                    groupmenu_id.val(data.groupmenu_id);
                     description.val(data.description);
                 },
                 error: function(jqXHR, textStatus, errorThrown) {

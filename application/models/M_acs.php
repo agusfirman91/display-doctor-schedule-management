@@ -15,11 +15,12 @@ class M_acs extends CI_Model
     private function _get_datatables_query()
     {
 
-        $this->db->select('tblpasien.id,no_rm,nama,alamat,sex,tgl_lahir,tblsuku.suku,tblagama.agama');
+        $this->db->select('tblpasien.id,no_rm,no_reg,nama,alamat,sex,tgl_lahir,tblsuku.suku,tblagama.agama,tbl_class_room.name as kelas');
         $this->db->from('tblpasien');
         //add this line for join
         $this->db->join('tblsuku', 'tblpasien.idsuku=tblsuku.idsuku', 'left');
         $this->db->join('tblagama', 'tblpasien.idagama=tblagama.idagama', 'left');
+        $this->db->join('tbl_class_room', 'tblpasien.id_class=tbl_class_room.id', 'left');
 
 
         // $this->db->from($this->table);
@@ -57,9 +58,9 @@ class M_acs extends CI_Model
         $this->db->from($this->table);
         return $this->db->count_all_results();
     }
-    public function get_by_id($id)
+    public function get_by_id($table, $id)
     {
-        $this->db->from($this->table);
+        $this->db->from($table);
         $this->db->where('id', $id);
         $query = $this->db->get();
         return $query->row();
