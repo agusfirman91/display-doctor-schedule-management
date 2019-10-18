@@ -29,8 +29,8 @@ class Acs extends CI_Controller
             $this->data['list_menus'][$k]->parent_menu = $this->m_main->getWhere('menus', 'menus.parent_id=' . $menu->id);
         }
 
-        $this->data['list_user'] = $this->m_main->getWhere('user', 'id !=' . $userId);
         $this->data['groups'] = $this->m_main->getAll('groups');
+        $this->data['list_user'] = $this->m_main->getWhere('user', 'id !=' . $userId);
         foreach ($this->data['list_user'] as $k => $user) {
             $this->data['list_user'][$k]->groups = $this->m_main->getWhereJoin('user', 'groups', '*', 'name', 'user.group_id=groups.id', 'user.id=' . $user->id);
         }
@@ -62,18 +62,135 @@ class Acs extends CI_Controller
         $this->template->load('template', 'acs/group_menus', $this->data);
     }
 
+    public function save_rotations()
+    {
+        // $headerMenu[] = array();
+        // $menuId[] = array();
+        $rotation_id = $this->input->post('rotation_id');
+        $classId = $this->input->post('class_id');
+        $headerMenu = $this->input->post('header');
+        $menuId = $this->input->post('menu_id');
+        // $group = 
+        // foreach ($menuId as $value) {
+        // } 
+        // $i      = $this->input;
+        $menu = implode(",", $menuId);
 
-    public function rotations($id = null)
+        $data = array(
+            'rotation_id' => $rotation_id,
+            'class_id' => $classId,
+            'header' => $headerMenu,
+            'menu' => $menu
+        );
+        if ($this->db->insert('tbldetailrotations', $data)) {
+            $message = "OK";
+        } else {
+            $this->session->set_flashdata('message', "Data Gagal Disimpan");
+        }
+        // redirect($url);
+        // foreach ($menuId as $k => $header) {
+        //     echo $header[$k] . ", ";
+        //     // foreach ($header as $nama) {
+        //     // }
+        //     // echo "<br />";
+        //     // var_dump($data);
+        // }
+        // $qty = count($headerMenu);
+        // $result[] = array();
+        // foreach ($data as $key => $value) {
+        //     // echo
+        //     $result[] = $value;
+        //     foreach ($result[1] as $key => $nilai) {
+        //         $result[$key] .= $nilai;
+
+        //         print_r($result);
+        //     }
+        // }
+        // print_r($result);
+        // print_r($data['header_menu'][0]);
+
+        // $i = 1
+        // for ($i = 1; $i <= $qty; $i++) {
+        // $data = array(
+        //     'class_id' => $classId,
+        //     'header_menu' => $headerMenu,
+        //     'menu_id' => $menuId
+        // );
+        // }
+        // echo $this->db->last_query();
+        echo json_encode($message);
+    }
+
+    public function rotation_test_array()
+    {
+        $header = array('a', 'b');
+        $menus = array('a' => 'aa', 'a' => 'ab', 'a' => 'ac', 'b' => 'ba', 'b' => 'bb', 'b' => 'bc');
+
+
+        // $data = array(
+        //     $header => $menuId
+        // );
+        // foreach ($header as $val) {
+        //     // print_r($header);
+        //     foreach ($menu as $val => $value) {
+        //         var_dump($val . $value);
+        //     }
+        // }
+
+        foreach ($header as $key => $menus) {
+            if (is_array($menus)) {
+                foreach ($menus as $menu) {
+                    echo $key;
+                }
+            }
+        }
+        // $headerMenus = array('a' => array(
+        //     'aa', 'ab', 'ac'
+        // ),  'b' =>  array(
+        //     'ba', 'bb', 'bc'
+        // ));
+        // var_dump($headerMenus);
+
+
+
+
+
+        // $herbivora = array('kambing', 'sapi', 'kuda');
+        $karnivora = array('harimau', 'serigala', 'anjing');
+        $omnivora = array('ayam', 'monyet', 'beruang');
+        // $binatang = array(
+        //     'herbivora' => $herbivora,
+        //     'karnivora' => $karnivora,
+        //     'omnivora' => $omnivora
+        // );
+
+        // foreach ($binatang as $key => $value) {
+        //     echo $key . ": ";
+        //     foreach ($value as $key => $nilai) {
+        //         $result[] =  $nilai;
+
+        //         // $res =  mb_substr($result, 0, -1);
+        //         // $res =  rtrim($result, ", ");
+        //         // echo $res;
+        //     }
+        //     echo  implode(",", $result) . "<br>";
+        // }
+    }
+
+    public function rotations($id = null, $cat = null)
     {
         $this->data['list_rotations'] = $this->m_main->getAll('tblrotations');
         if ($id) {
-            $cekData = $this->m_acs->get_by_id('tblrotations', $id);
-            if ($cekData) {
-                // $this->data['id'] = $id;
-                // var_dump($this->data);
-                // die;
+            $this->data['resRotation'] = $this->m_acs->get_by_id('tblrotations', $id);
+            if ($this->data['resRotation']) {
                 $this->data['list_rotations_menu'] = $this->m_main->getAll('tblrotation_menu');
                 $this->data['list_category_menu'] = $this->m_main->getAll('tblkategorimenus');
+                $this->data['list_class'] = $this->m_main->getAll('tblclassroom');
+                $this->data['list_menus'] = $this->m_acs->getAllJoin('tblmenus', 'tblgroupmenus', 'tblkategorimenus',  '*', 'name as groupmenu', 'name as kategori', 'tblmenus.groupmenu_id = tblgroupmenus.id', 'tblgroupmenus.category_id= tblkategorimenus.id');
+                $this->data['rotation_id'] = $id;
+                if ($cat) {
+                    $this->data['detailRotations'] = $this->m_acs->getDetailRotation($id, $cat);
+                }
                 $this->template->load('template', 'acs/rotation_menu', $this->data);
             } else {
                 redirect('acs/rotations');
@@ -101,6 +218,7 @@ class Acs extends CI_Controller
         // die;
         $this->template->load('template', 'acs/orders', $this->data);
     }
+
     public function create_orders()
     {
         $this->data['list_suku'] = $this->m_acs->getAll('tblsuku');
@@ -119,6 +237,39 @@ class Acs extends CI_Controller
         $this->data['list_patients'] = $this->m_acs->getAllJoin('tblpasien', 'tblsuku', 'tblagama', '*', 'suku', 'agama', 'tblpasien.idsuku=tblsuku.idsuku', 'tblpasien.idagama=tblagama.idagama');
         // var_dump($this->data['data']);
         $this->template->load('template', 'acs/patients', $this->data);
+    }
+
+    function ajax_rotation_detail($id, $cat)
+    {
+        // $data = $id . '-' . $cat;
+        $detailRotations = $this->m_acs->get_datatables_rotation('detailRotation', $id, $cat);
+        $data = array();
+        $no = $_POST['start'];
+        foreach ($detailRotations as $detail) {
+            $no++;
+            $row = array();
+            $row[] = $no;
+            $row[] = $detail->class;
+            $row[] = $detail->header;
+            $row[] = $detail->menu;
+            //add html for action
+            $row[] = '
+                    <a href="javascript:void(0);"  title="Edit detail" onclick="edit_detail(' . "'" . $detail->id . "'" . ')" > 
+                    <span class="fa fa-edit"></span>
+                    </a>
+                    <a href="javascript:void(0);" onclick="delete_detail(' . "'" . $detail->id . "'" . ')" title="Delete detail">
+                    <span class="fa fa-trash"></span>
+                    </a>';
+            $data[] = $row;
+        }
+        $output = array(
+            "draw" => $_POST['draw'],
+            "recordsTotal" => $this->m_acs->count_all(),
+            "recordsFiltered" => $this->m_acs->count_filtered(),
+            "data" => $data,
+        );
+        echo json_encode($output);
+        // echo json_encode($detailRotations);
     }
 
     public function ajax_list()
@@ -213,6 +364,12 @@ class Acs extends CI_Controller
                 "description" => $this->input->post('description'),
                 "image" => $image
             );
+        } else if ($table == 'tblrotations') {
+            $this->data = array(
+                "name" => $this->input->post('name'),
+                "description" => $this->input->post('description')
+            );
+            $url = 'acs/rotations';
         }
 
         // var_dump($this->data);
@@ -395,4 +552,13 @@ class Acs extends CI_Controller
     //         $this->m_acs->delete($id);
     //     }
     // }
+
+    // $integers = array();
+
+    // for ($i = 0; $i < 10; $i++) {
+    //     $integers[] = rand(0, 1000);
+    // }
+
+    // $long_string = implode(',', $integers);
+    // echo $long_string;
 }

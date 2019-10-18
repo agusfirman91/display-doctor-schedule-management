@@ -12,20 +12,26 @@ class M_acs extends CI_Model
     }
 
     // model datatables
-    private function _get_datatables_query()
+    private function _get_datatables_query($table = null, $id = null, $cat = null)
     {
-
-        $this->db->select('tblpasien.id,no_rm,no_reg,nama,alamat,sex,tgl_lahir,tblsuku.suku,tblagama.agama,tbl_class_room.name as kelas');
-        $this->db->from('tblpasien');
-        //add this line for join
-        $this->db->join('tblsuku', 'tblpasien.idsuku=tblsuku.idsuku', 'left');
-        $this->db->join('tblagama', 'tblpasien.idagama=tblagama.idagama', 'left');
-        $this->db->join('tbl_class_room', 'tblpasien.id_class=tbl_class_room.id', 'left');
-
-
-        // $this->db->from($this->table);
+        // 
+        if ($table == 'detailRotation') {
+            $this->db->select('tbldetailrotations.*, tblrotations.name AS rotation, tblclassroom.name AS class, tblkategorimenus.name AS category');
+            $this->db->from('tbldetailrotations');
+            $this->db->join('tblrotations', 'tbldetailrotations.rotation_id = tblrotations.id', 'inner');
+            $this->db->join('tblclassroom', 'tbldetailrotations.class_id = tblclassroom.id', 'inner');
+            $this->db->join('tblkategorimenus', 'tbldetailrotations.cat_id = tblkategorimenus.id', 'inner');
+            $this->db->where(array('tbldetailrotations.rotation_id' => $id, 'tbldetailrotations.cat_id' => $cat));
+        } else {
+            // }
+            $this->db->select('tblpasien.id,no_rm,no_reg,nama,alamat,sex,tgl_lahir,tblsuku.suku,tblagama.agama, tblclassroom.name as kelas');
+            $this->db->from('tblpasien');
+            //add this line for join
+            $this->db->join('tblsuku', 'tblpasien.idsuku=tblsuku.idsuku', 'left');
+            $this->db->join('tblagama', 'tblpasien.idagama=tblagama.idagama', 'left');
+            $this->db->join('tblclassroom', 'tblpasien.id_class=tblclassroom.id', 'left');
+        }
         $i = 0;
-
         foreach ($this->column as $item) {
             if ($_POST['search']['value']) ($i === 0) ? $this->db->like($item, $_POST['search']['value']) : $this->db->or_like($item, $_POST['search']['value']);
             $column[$i] = $item;
@@ -39,6 +45,8 @@ class M_acs extends CI_Model
             $this->db->order_by(key($order), $order[key($order)]);
         }
     }
+
+
     function get_datatables()
     {
         $this->_get_datatables_query();
@@ -47,17 +55,29 @@ class M_acs extends CI_Model
         $query = $this->db->get();
         return $query->result();
     }
+
+    function get_datatables_rotation($table, $id, $cat)
+    {
+        $this->_get_datatables_query($table, $id, $cat);
+        if ($_POST['length'] != -1)
+            $this->db->limit($_POST['length'], $_POST['start']);
+        $query = $this->db->get();
+        return $query->result();
+    }
+
     function count_filtered()
     {
         $this->_get_datatables_query();
         $query = $this->db->get();
         return $query->num_rows();
     }
+
     public function count_all()
     {
         $this->db->from($this->table);
         return $this->db->count_all_results();
     }
+
     public function get_by_id($table, $id)
     {
         $this->db->from($table);
@@ -66,7 +86,6 @@ class M_acs extends CI_Model
         return $query->row();
     }
     // end model datatables
-
 
     public function getAll($table)
     {
@@ -157,6 +176,7 @@ class M_acs extends CI_Model
         $this->db->join($table3, $c_join2, 'left');
         return $this->db->get()->result();
     }
+
     public function getAllJoinWhere($table1, $table2, $table3, $c_table1, $c_table2, $c_table3, $c_join1, $c_join2, $where)
     {
         $c_table = "$table1.$c_table1, $table2.$c_table2, $table3.$c_table3";
@@ -165,6 +185,17 @@ class M_acs extends CI_Model
         $this->db->join($table2, $c_join1, 'inner');
         $this->db->join($table3, $c_join2, 'inner');
         $this->db->where(array('menus.parent_id' => '0', 'group_access_permission.group_id' => $where));
+        return $this->db->get()->result();
+    }
+
+    function getDetailRotation($id, $cat)
+    {
+        $this->db->select('tbldetailrotations.*, tblrotations.name AS rotation, tblclassroom.name AS class, tblkategorimenus.name AS category');
+        $this->db->from('tbldetailrotations');
+        $this->db->join('tblrotations', 'tbldetailrotations.rotation_id = tblrotations.id', 'inner');
+        $this->db->join('tblclassroom', 'tbldetailrotations.class_id = tblclassroom.id', 'inner');
+        $this->db->join('tblkategorimenus', 'tbldetailrotations.cat_id = tblkategorimenus.id', 'inner');
+        $this->db->where(array('tbldetailrotations.rotation_id' => $id, 'tbldetailrotations.cat_id' => $cat));
         return $this->db->get()->result();
     }
 
@@ -203,6 +234,15 @@ class M_acs extends CI_Model
     {
         $this->db->from($table);
         $this->db->where('username', $username);
+        $query = $this->db->get();
+        return $query->row();
+    }
+
+    function getmenu($id)
+    {
+        $this->db->select('id,name');
+        $this->db->from('tblmenus');
+        $this->db->where('id', $id);
         $query = $this->db->get();
         return $query->row();
     }

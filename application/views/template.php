@@ -10,13 +10,13 @@
 	<title>Main Applications</title>
 	<link rel="shortcut icon" src="<?= base_url('assets/images/uploads/') . $setting->image_icon; ?>" type="image/x-icon" />
 	<link href="<?= base_url('assets/css/app.css') ?>" rel="stylesheet">
-	<!-- <link href="< echo base_url() ?>assets/css/sweetalert2.css" rel="stylesheet"> -->
+
+	<link href="<?php echo base_url() ?>assets/css/sweetalert2.css" rel="stylesheet">
 	<link href="<?= base_url() ?>assets/css/font-awesome.css">
 
-	<!-- <script src="< base_url() ?>assets/js/sweetalert2.js"></script> -->
-	<script src="<?= base_url() ?>assets/js/jquery-3.3.1.js"></script>
-	<!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/css/select2.min.css" rel="stylesheet" />
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/js/select2.min.js"></script> -->
+	<script src="<?= base_url() ?>assets/js/jquery.min.js"></script>
+	<script src="<?= base_url() ?>assets/js/sweetalert2.js"></script>
+	<script src="<?= base_url() ?>assets/treeview/simTree.js"></script>
 </head>
 
 <body>
@@ -122,6 +122,16 @@
 			$(".datatables-basic").DataTable({
 				responsive: true
 			});
+
+			$(".select2").each(function() {
+				$(this)
+					.wrap("<div class=\"position-relative\"></div>")
+					.select2({
+						placeholder: "Select value",
+						dropdownParent: $(this).parent()
+					});
+			})
+
 		});
 	</script>
 </body>

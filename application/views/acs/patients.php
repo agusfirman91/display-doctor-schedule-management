@@ -193,7 +193,16 @@ if ($pesan) {
         //         });
         //     }
         // });
+        // $.ajax({
+        //     "url": url,
+        //     "type": "POST",
+        //     success: function(data) {
+        //         // alert(data);
+        //         console.log(data);
+        //     }
+        // });
 
+        var url = "<?= base_url('acs/ajax_list') ?>";
         table = $('#table').DataTable({
 
             "processing": true, //Feature control the processing indicator.
@@ -201,7 +210,7 @@ if ($pesan) {
 
             // Load data for the table's content from an Ajax source
             "ajax": {
-                "url": "<?= base_url('acs/ajax_list') ?>",
+                "url": url,
                 "type": "POST"
             },
             dom: 'Bfrtip',

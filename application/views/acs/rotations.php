@@ -39,7 +39,7 @@
         </table>
     </div>
     <div class="card-footer">
-        <button class='btn btn-primary btn-square t_rotation' data-id='0'>Add Menu</button>
+        <button class='btn btn-primary btn-square t_rotation' data-id='0'>Add Rotation</button>
     </div>
 </div>
 
