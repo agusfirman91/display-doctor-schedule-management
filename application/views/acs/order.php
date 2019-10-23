@@ -19,7 +19,7 @@
         <div class="card-body">
             <!-- Modal content-->
             <div class=" form-group row">
-                <label class="col-4 control-label">Menu 1</label>
+                <label class="col-4 control-label">Menu Breakfast</label>
                 <div class="col-8">
                     <div id="menu-1">
                         <button class="btn btn-sm btn-primary btn-square btn-menu-1" type="button"> Pilih Menu</button>
@@ -29,7 +29,7 @@
             </div>
             <hr />
             <div class="form-group row">
-                <label class="col-4 control-label">Menu 2</label>
+                <label class="col-4 control-label">Menu Lunch</label>
                 <div class="col-8">
                     <div class="btn-menu-2">
                         <button class="btn btn-sm btn-primary btn-square btn-menu-2" type="button"> Pilih Menu</button>
@@ -39,12 +39,21 @@
             </div>
             <hr />
             <div class="form-group row">
-                <label class="col-4 control-label">Menu 3</label>
+                <label class="col-4 control-label">Menu Dinner</label>
                 <div class="col-8">
                     <div class="btn-menu-3">
                         <button class="btn btn-sm btn-primary btn-square btn-menu-3" type="button"> Pilih Menu</button>
                     </div>
                     <div id="list-menu-3"></div>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-4 control-label">Menu 4</label>
+                <div class="col-8">
+                    <div class="btn-menu-4">
+                        <button class="btn btn-sm btn-primary btn-square btn_4" type="button"> Pilih Menu</button>
+                    </div>
+                    <div id="list-menu-4"></div>
                 </div>
             </div>
             <div class="form-group row">
@@ -151,6 +160,43 @@
     </div>
 </div>
 
+<div class="modal fade" id="v_menu_4" data-backdrop="static">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title text-center" id="myModalLabel">List Menu</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            </div>
+            <div class="modal-body">
+                <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <?php
+                            foreach ($menus as $menu) { } 
+                            
+                            ?>
+                        </div>
+                        <div class="carousel-item">
+                            <img class="d-block w-100" src="..." alt="Second slide">
+                        </div>
+                        <div class="carousel-item">
+                            <img class="d-block w-100" src="..." alt="Third slide">
+                        </div>
+                    </div>
+                    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 
 </div>
 
@@ -207,6 +253,10 @@
             $('#v_menu').modal('hide');
             $('.btn-menu-' + num).hide();
             $('#list-menu-' + num).html('<div id="list-pasien-current"><button type="button" class="btn btn-danger btn-sm" onclick="hapusMenu(' + num + ')" title="Delete Menu"> <i class="fa fa-minus-circle" aria-hidden="true"></i></button><input type="hidden" name="menu-' + num + '" value="' + id + '" /> <b class="ml-5">' + nama + '</b><img  style="width:50px;height:50px" src="' + image + '" class="ml-5"></div>');
+        });
+
+        $('.btn_4').click(function() {
+            $('#v_menu_4').modal('show');
         });
 
     });

@@ -66,27 +66,25 @@ class Acs extends CI_Controller
     {
         // $headerMenu[] = array();
         // $menuId[] = array();
-        $rotation_id = $this->input->post('rotation_id');
-        $classId = $this->input->post('class_id');
-        $headerMenu = $this->input->post('header');
-        $menuId = $this->input->post('menu_id');
-        // $group = 
-        // foreach ($menuId as $value) {
-        // } 
-        // $i      = $this->input;
-        $menu = implode(",", $menuId);
+        // $rotation_id = $this->input->post('rotation_id');
+        // $cat_id = $this->input->post('cat_id');
+        // $classId = $this->input->post('class_id');
+        // $headerMenu = $this->input->post('header');
+        // $menuId = $this->input->post('menu_id');
+        // $menu = implode(",", $menuId);
 
-        $data = array(
-            'rotation_id' => $rotation_id,
-            'class_id' => $classId,
-            'header' => $headerMenu,
-            'menu' => $menu
-        );
-        if ($this->db->insert('tbldetailrotations', $data)) {
-            $message = "OK";
-        } else {
-            $this->session->set_flashdata('message', "Data Gagal Disimpan");
-        }
+        // $data = array(
+        //     'rotation_id' => $rotation_id,
+        //     'cat_id' => $cat_id,
+        //     'class_id' => $classId,
+        //     'header' => $headerMenu,
+        //     'menu' => $menu
+        // );
+        // if ($this->db->insert('tbldetailrotations', $data)) {
+        //     $message = "OK";
+        // } else {
+        //     $this->session->set_flashdata('message', "Data Gagal Disimpan");
+        // }
         // redirect($url);
         // foreach ($menuId as $k => $header) {
         //     echo $header[$k] . ", ";
@@ -190,6 +188,8 @@ class Acs extends CI_Controller
                 $this->data['rotation_id'] = $id;
                 if ($cat) {
                     $this->data['detailRotations'] = $this->m_acs->getDetailRotation($id, $cat);
+                } else {
+                    redirect('acs/rotations/' . $id . '/1');
                 }
                 $this->template->load('template', 'acs/rotation_menu', $this->data);
             } else {
@@ -200,7 +200,7 @@ class Acs extends CI_Controller
         }
     }
 
-    public function orders()
+    public function list_orders()
     {
         $this->data['list_orders'] = $this->m_main->getJoin('tblorders', 'tblpasien', '*', 'no_rm,nama', 'tblorders.id_patient=tblpasien.id');
         // $this->data['list_user'] = $this->m_main->getWhere('user', 'id !=' . $userID);
@@ -216,10 +216,10 @@ class Acs extends CI_Controller
         }
         // var_dump($this->data['list_orders']);
         // die;
-        $this->template->load('template', 'acs/orders', $this->data);
+        $this->template->load('template', 'acs/list_orders', $this->data);
     }
 
-    public function create_orders()
+    public function order()
     {
         $this->data['list_suku'] = $this->m_acs->getAll('tblsuku');
         $this->data['list_agama'] = $this->m_acs->getAll('tblagama');
@@ -227,7 +227,7 @@ class Acs extends CI_Controller
         $this->data['menus'] = $this->m_acs->getAllObject('tblmenus');
         // var_dump($this->data['list_menus']);
         // die;
-        $this->template->load('template', 'acs/create-orders', $this->data);
+        $this->template->load('template', 'acs/order', $this->data);
     }
 
     public function patients()
@@ -367,11 +367,38 @@ class Acs extends CI_Controller
         } else if ($table == 'tblrotations') {
             $this->data = array(
                 "name" => $this->input->post('name'),
+                "repeat_date" =>  implode(",", $this->input->post('repeat_date')),
                 "description" => $this->input->post('description')
             );
             $url = 'acs/rotations';
-        }
+        } else if ($table == 'tbldetailrotations') {
+            $config['upload_path'] = './assets/images/uploads/detailmenusrotations';
+            $config['allowed_types'] = 'jpg|png|jpeg|image|ico';
+            $config['max_size']  = '1024';
+            // $config['max_width'] = '500';
+            // $config['max_height'] = '500';
+            $config['remove_space'] = TRUE;
+            $config['encrypt_name'] = TRUE;
 
+            $image_old = $this->input->post('image_old');
+            $image = $this->input->post('image');
+            $this->load->library('upload', $config);
+            if (!$_FILES['image']['name']) {
+                $image = $image_old;
+            } else {
+                if ($this->upload->do_upload('image')) {
+                    $image =  $this->upload->data('file_name');
+                }
+            }
+            $this->data = array(
+                'cat_id' => $this->input->post('cat_id'),
+                'class_id' => $this->input->post('class_id'),
+                'header' => $this->input->post('header'),
+                'menu' => implode(",", $this->input->post('menu_id')),
+                "image" => $image
+            );
+            $url = 'acs/rotations/' . $this->input->post('rotation_id') . '/' . $this->input->post('cat_id');
+        }
         // var_dump($this->data);
         // die;
         $this->db->update($table, $this->data, array('id' => $this->input->post('id')));
@@ -428,18 +455,44 @@ class Acs extends CI_Controller
             $url = 'acs/menu';
             $this->load->library('upload', $config);
 
-            if (!$this->upload->do_upload('image')) {
-                $this->session->set_flashdata('message', 'Image Display' . $this->upload->display_errors());
-                redirect($url);
-            } else {
-                $image =  $this->upload->data('file_name');
-            }
+            // if (!$this->upload->do_upload('image')) {
+            //     $this->session->set_flashdata('message', 'Image Display' . $this->upload->display_errors());
+            //     redirect($url);
+            // } else {
+            //     $image =  $this->upload->data('file_name');
+            // }
             $this->data = array(
                 "name" => $this->input->post('name'),
                 "description" => $this->input->post('description'),
-                "groupmenu_id" => $this->input->post('groupmenu_id'),
+                "groupmenu_id" => $this->input->post('groupmenu_id')
+            );
+        } else if ($table == 'tbldetailrotations') {
+            $config['upload_path'] = './assets/images/uploads/detailmenusrotations';
+            $config['allowed_types'] = 'jpg|png|jpeg|image|ico';
+            $config['max_size']  = '1024';
+            // $config['max_width'] = '500';
+            // $config['max_height'] = '500';
+            $config['remove_space'] = TRUE;
+            $config['encrypt_name'] = TRUE;
+
+            $this->load->library('upload', $config);
+
+            if (!$this->upload->do_upload('image')) {
+                $this->session->set_flashdata('message', 'Image Display' . $this->upload->display_errors());
+                // redirect($url);
+            } else {
+                $image =  $this->upload->data('file_name');
+            }
+
+            $this->data = array(
+                'rotation_id' => $this->input->post('rotation_id'),
+                'cat_id' => $this->input->post('cat_id'),
+                'class_id' => $this->input->post('class_id'),
+                'header' => $this->input->post('header'),
+                'menu' => implode(",", $this->input->post('menu_id')),
                 "image" => $image
             );
+            $url = 'acs/rotations/' . $this->input->post('rotation_id') . '/' . $this->input->post('cat_id');
         } else if ($table == 'tblrotations') {
             $this->data = array(
                 "name" => $this->input->post('name'),
@@ -455,6 +508,10 @@ class Acs extends CI_Controller
         redirect($url);
         // var_dump($this->data);
     }
+
+
+
+
     public function req_data($table, $id)
     {
         if ($id != 0) {

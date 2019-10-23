@@ -11,9 +11,9 @@
                     <th width="5%">No</th>
                     <th>No RM</th>
                     <th>Nama Pasien</th>
-                    <th>Menu 1</th>
-                    <th>Menu 2</th>
-                    <th>Menu 3</th>
+                    <th>Menu Breakfast</th>
+                    <th>Menu Lunch</th>
+                    <th>Menu Dinner</th>
                     <th>Description</th>
                     <th width="5%">Action</th>
                 </tr>

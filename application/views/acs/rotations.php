@@ -10,6 +10,7 @@
                 <tr>
                     <th width="5%">No</th>
                     <th>Name</th>
+                    <th>Repeat Date</th>
                     <th>Description</th>
                     <th width="5%">Action</th>
                 </tr>
@@ -23,6 +24,7 @@
                     <tr>
                         <td><?= $no; ?></td>
                         <td><a href="<?= base_url('acs/rotations/') . $rotation->id ?>"> <?= $rotation->name; ?></a></td>
+                        <td><?= $rotation->repeat_date; ?></td>
                         <td><?= $rotation->description; ?></td>
                         <td>
                             <a href="javascript:void(0);" class="e_rotation" data-id="<?= $rotation->id ?>" data-role="<?= $rotation->name ?>" data-toggle="tooltip" data-placement="top" title="Edit rotation">
@@ -65,6 +67,20 @@
                         <label class="col-3 control-label">Name</label>
                         <div class="col-8">
                             <input type="text" class="form-control input" name="name" value="">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-3 control-label">Repeat Date</label>
+                        <div class="col-8">
+                            <select name="repeat_date[]" class="form-control select2 select-add-items" multiple="multiple">
+                                <?php
+                                for ($x = 1; $x <= 31; $x++) {
+                                    ?>
+                                    <option value="<?= $x ?>"><?= $x ?></option>
+                                <?php
+                                }
+                                ?>
+                            </select>
                         </div>
                     </div>
                     <div class="form-group row">
@@ -155,7 +171,6 @@ if ($pesan) {
                 $("#f_rotation").attr('action', '<?= base_url() ?>acs/add/tblrotations');
             }
         }
-
 
     });
 </script>

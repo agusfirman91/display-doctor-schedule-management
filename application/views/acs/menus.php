@@ -12,7 +12,6 @@
                     <th>Name</th>
                     <th>Kategori</th>
                     <th>Description</th>
-                    <th>Image</th>
                     <th width="5%">Action</th>
                 </tr>
             </thead>
@@ -27,11 +26,6 @@
                         <td><?= $menu->name; ?></td>
                         <td><?= $menu->kategori; ?></td>
                         <td><?= $menu->description; ?></td>
-                        <td>
-                            <a href="javascript:void(0);" data-id="<?= $menu->id; ?>" class="v_image">
-                                <img style="width:50px;height:50px" src="<?= base_url('assets/images/uploads/menus/') . $menu->image ?>" name="view-image" alt="image-files">
-                            </a>
-                        </td>
                         <td>
                             <a href="javascript:void(0);" class="e_menu" data-id="<?= $menu->id ?>" data-role="<?= $menu->name ?>" data-toggle="tooltip" data-placement="top" title="Edit menu">
                                 <i class="align-middle" data-feather="edit"></i></a>
@@ -97,7 +91,7 @@
                             <textarea name="description" class="form-control" cols="20" rows="10"></textarea>
                         </div>
                     </div>
-                    <div class="input-group row mb-3">
+                    <!-- <div class="input-group row mb-3">
                         <label class="col-3 control-label">Image</label>
                         <div class="col-6 ml-4">
                             <input type="file" class="custom-file-input" name="image" size="20" value="" />
@@ -106,7 +100,7 @@
                             <small class="form-text text-muted">
                                 Max Files 1 MB | 500x500.</small>
                         </div>
-                    </div>
+                    </div> -->
                     <div class="modal-footer">
                         <button type="submit" class="btn btn-primary btn-square" id="b_menu">Simpan</button>
                         <button type="button" class="btn btn-danger btn-square" data-dismiss="modal">Batal</button>

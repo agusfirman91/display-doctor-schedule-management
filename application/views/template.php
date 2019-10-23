@@ -92,6 +92,7 @@
 
 	<script src="<?= base_url('assets/js/app.js') ?>"></script>
 
+	<script src="<?= base_url() ?>assets/js/dataTables.rowGroup.min.js"></script>
 	<script src="<?= base_url('assets/js/dataTables.bootstrap4.min.js') ?>"></script>
 	<script src="<?= base_url('assets/js/dataTables.buttons.min.js') ?>"></script>
 	<script src="<?= base_url('assets/js/buttons.bootstrap4.min.js') ?>"></script>
@@ -102,6 +103,7 @@
 	<script src="<?= base_url('assets/js/buttons.print.min.js') ?>"></script>
 	<script src="<?= base_url('assets/js/buttons.colVis.min.js') ?>"></script>
 	<script src="<?= base_url('assets/js/dataTables.buttons.min.js') ?>"></script>
+
 	<script>
 		// (function() {
 		// 	$(document).ready(function() {
@@ -123,14 +125,35 @@
 				responsive: true
 			});
 
+			$('.datatables-menu').DataTable({
+				order: [
+					[0, 'asc'],
+					[1, 'asc']
+				],
+				rowGroup: {
+					dataSrc: [0, 1]
+				},
+				columnDefs: [{
+					targets: [0, 1],
+					visible: false
+				}]
+			});
+
 			$(".select2").each(function() {
 				$(this)
 					.wrap("<div class=\"position-relative\"></div>")
 					.select2({
-						placeholder: "Select value",
+						placeholder: "Silahkan Pilih",
 						dropdownParent: $(this).parent()
 					});
-			})
+			});
+
+
+			$(".select-add-items").select2({
+				tags: true,
+				placeholder: "Silahkan Input",
+				tokenSeparators: [',', ' ']
+			});
 
 		});
 	</script>
